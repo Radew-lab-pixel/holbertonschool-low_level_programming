@@ -6,7 +6,7 @@
 /**
  *main-entry point
  *
- *Description: main function that display the output
+ *Description: \"Display Programming is like building a multilingual puzzle
  *@parameter: describe the parameter
  *Return: Always zero (success)
  */
