@@ -29,4 +29,5 @@ Task 2 : Write a script that generates the assembly code of a C code and save it
         Example: if the C file is main.c, the output file should be main.s
 
 Answer - > #!/bin/bash 
-	gcc $CFILE -S | mv "$CFILE.o" "$CFILE.s" 
+	gcc $CFILE -S	
+NOT	gcc $CFILE -S | mv "$CFILE.o" "$CFILE.s" 
