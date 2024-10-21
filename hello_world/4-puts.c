@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
- * main - main function
+ * main-entry point
  *
  * Description-main function that display the output
  *
