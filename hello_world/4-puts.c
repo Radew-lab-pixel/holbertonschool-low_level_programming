@@ -6,8 +6,8 @@
 /**
  * main - main function
  *
- * Description - main function that display the output
- * 
+ * Description-main function that display the output
+ *
  * REturn  zero  all the time
  */
 int main(void)
