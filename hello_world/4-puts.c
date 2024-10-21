@@ -4,11 +4,11 @@
 #include <stdio.h>
 
 /**
- * main-entry point
+ *main-entry point
  *
- * Description: main function that display the output
- * @parameter: describe the parameter
- * Return: Always zero (success)
+ *Description: main function that display the output
+ *@parameter: describe the parameter
+ *Return: Always zero (success)
  */
 int main(void)
 {
