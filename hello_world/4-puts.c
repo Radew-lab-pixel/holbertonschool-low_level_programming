@@ -1,5 +1,4 @@
 /**
- *
  * Description: \"Display Programming is like building a multilingual puzzle.
  */
 #include <stdio.h>
