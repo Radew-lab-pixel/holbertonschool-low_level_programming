@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-/** display "Programming is like building a multilingual puzzle
+/* 
+ * display "Programming is like building a multilingual puzzle
  */
 int main (void) 
 
