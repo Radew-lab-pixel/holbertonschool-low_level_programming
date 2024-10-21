@@ -31,4 +31,12 @@ Task 2 : Write a script that generates the assembly code of a C code and save it
 Answer - > #!/bin/bash 
 	gcc -S $CFILE
 NOT 	gcc $CFILE -S	
-NOT	gcc $CFILE -S | mv "$CFILE.o" "$CFILE.s" 
+NOT	gcc $CFILE -S | mv "$CFILE.o" "$CFILE.s"
+
+Task 3 : Write a script that compiles a C file and creates an executable named cisfun.
+
+    The C file name will be saved in the variable $CFILE
+
+Answer : #!/bin/bash 
+	gcc $CFILE -o cisfun 
+
