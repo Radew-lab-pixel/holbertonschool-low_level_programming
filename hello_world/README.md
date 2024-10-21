@@ -21,3 +21,12 @@ Answer -> #!/bin/bash
 NOT 	gcc $CFILE -c - o 
 NOT	gcc $CFILE -o 
 NOT	gcc $CFILE -c -o output | mv output
+
+Task 2 : Write a script that generates the assembly code of a C code and save it in an output file.
+
+    The C file name will be saved in the variable $CFILE
+    The output file should be named the same as the C file, but with the extension .s instead of .c.
+        Example: if the C file is main.c, the output file should be main.s
+
+Answer - > #!/bin/bash 
+	gcc $CFILE -S | mv "$CFILE.o" "$CFILE.s" 
