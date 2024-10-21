@@ -5,12 +5,12 @@
 #include <stdio.h>
 
 /**
- * main-Programming is like building a multilingual puzzle
+ * main-with proper grammar, but the outcome is a piece of art,
  *
  * Return: 0 Always
  */
 int main(void)
 {
-	printf("Programming is like building a multilingual puzzle\n");
+	printf("with proper grammar, but the outcome is a piece of art,\n");
 	return (0);
 }
