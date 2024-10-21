@@ -5,7 +5,7 @@
 
 /**
  * int main (void )  - main function that display the output
- * return (0) all the time
+ * return 0 all the time
  */
 int main(void)
 {
