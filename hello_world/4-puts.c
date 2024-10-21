@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
-* main (void )  - display the output
+* main (void )  - main function that display the output
 *
-* return false
+* return (0) all the time
 */
 
 int main (void)
