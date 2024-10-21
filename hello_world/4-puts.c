@@ -1,9 +1,9 @@
 #include <stdio.h>
 
-/*
+/**
  * main - first function
- * Print output \"Programming is like building a multilingual puzzle
- * always return 0
+ * Print output Programming is like building a multilingual puzzle
+ * always return zero 
  * /
 int main(void)
 {	puts("\"Programming is like building a multilingual puzzle");
