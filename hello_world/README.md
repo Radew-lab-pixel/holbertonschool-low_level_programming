@@ -40,3 +40,23 @@ Task 3 : Write a script that compiles a C file and creates an executable named c
 Answer : #!/bin/bash 
 	gcc $CFILE -o cisfun 
 
+Task 4 : Write a C program that prints exactly "Programming is like building a multilingual puzzle, followed by a new line.
+
+    Use the function puts
+    You are not allowed to use printf
+    Your program should end with the value 0
+
+Answer 
+
+#include <stdio.h>
+
+int main (void ) 
+{
+
+ puts ("Programming is like building a multilingual puzzle");
+
+	return 0;
+
+} 
+
+
