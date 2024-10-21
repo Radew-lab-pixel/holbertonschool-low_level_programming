@@ -1,5 +1,5 @@
 /**
- * Description: \"Display Programming is like building a multilingual puzzle.
+ * Description: first c program
  */
 #include <stdio.h>
 
