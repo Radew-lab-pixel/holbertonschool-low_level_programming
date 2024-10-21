@@ -4,11 +4,9 @@
 #include <stdio.h>
 
 /**
- *main-entry point
+ * main - puts display
  *
- *Description: \"Display Programming is like building a multilingual puzzle
- *@parameter: describe the parameter
- *Return: Always zero (success)
+ * Return: 0 always
  */
 int main(void)
 {
