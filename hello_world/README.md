@@ -49,6 +49,17 @@ Task 4 : Write a C program that prints exactly "Programming is like building a m
 Answer 
 
 #include <stdio.h>
+/**
+ *Print output \"Programming is like building a multilingual puzzle
+ */
+int main(void)
+{       puts("\"Programming is like building a multilingual puzzle");
+        return (0);
+}
+
+
+NOT 
+#include <stdio.h>
 
 int main (void ) 
 /** main 
