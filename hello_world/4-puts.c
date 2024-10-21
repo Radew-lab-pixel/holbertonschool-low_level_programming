@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 /**
-* main (void )  - display the output 
+* main (void )  - display the output
 *
-* return false 
+* return false
 */
 
 int main (void)
