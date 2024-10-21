@@ -16,6 +16,7 @@ Task 1 : Write a script that compiles a C file but does not link.
         Example: if the C file is main.c, the output file should be main.o
 
 Answer -> #!/bin/bash 
-	gcc $CFILE -c - o 
+	gcc -c $CFILE -o
+NOT 	gcc $CFILE -c - o 
 NOT	gcc $CFILE -o 
 NOT	gcc $CFILE -c -o output | mv output
