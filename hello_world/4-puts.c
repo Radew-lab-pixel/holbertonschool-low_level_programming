@@ -6,9 +6,9 @@
 /**
  * main-entry point
  *
- * Description-main function that display the output
- *
- * REturn  zero  all the time
+ * Description: main function that display the output
+ * @parameter: describe the parameter
+ * Return: Always zero (success)
  */
 int main(void)
 {
