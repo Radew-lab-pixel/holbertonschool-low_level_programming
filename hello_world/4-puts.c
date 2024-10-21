@@ -3,9 +3,10 @@
  */
 #include <stdio.h>
 
-/**
- * int main (void )  - main function that display the output
- * return 0 all the time
+/**main - main function
+ *
+ * Description - main function that display the output
+ * REturn  zero  all the time
  */
 int main(void)
 {
