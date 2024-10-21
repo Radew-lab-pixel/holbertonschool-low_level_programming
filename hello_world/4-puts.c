@@ -1,12 +1,13 @@
 /**
  * Description: first c program
  */
+
 #include <stdio.h>
 
 /**
- * main - display \"Programming is like building a multilingual puzzle
+ * main-Display Programming is like building a multilingual puzzle
  *
- * Return: 0 always
+ * Return: 0 Always 
  */
 int main(void)
 {
