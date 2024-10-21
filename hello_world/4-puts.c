@@ -3,9 +3,11 @@
  */
 #include <stdio.h>
 
-/**main - main function
+/**
+ * main - main function
  *
  * Description - main function that display the output
+ * 
  * REturn  zero  all the time
  */
 int main(void)
