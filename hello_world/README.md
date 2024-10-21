@@ -51,6 +51,12 @@ Answer
 #include <stdio.h>
 
 int main (void ) 
+/** main 
+ display "Programming is like building a multilingual puzzle
+
+**/
+int main (void )
+
 {
 
  puts ("Programming is like building a multilingual puzzle");
@@ -58,5 +64,23 @@ int main (void )
 	return 0;
 
 } 
+
+
+[betty_code] Command to run:
+betty-style 4-puts.c
+su student_jail -c 'timeout 30 bash -c '"'"'betty-style 4-puts.c'"'"''
+[betty_code] Return code: 1
+[betty_code] Student stdout:
+4-puts.c:3: ERROR: trailing whitespace
+4-puts.c:3: ERROR: int main() should probably be int main(void)
+4-puts.c:3: WARNING: space prohibited between function name and open parenthesis '('
+4-puts.c:5: ERROR: trailing whitespace
+4-puts.c:6: WARNING: space prohibited between function name and open parenthesis '('
+4-puts.c:7: ERROR: trailing whitespace
+4-puts.c:8: ERROR: parentheses are required on a return statement
+total: 5 errors, 2 warnings, 9 lines checked
+[betty_code] Student stdout length: 462
+[betty_code] Student stderr:
+[betty_code] Student stderr length: 0
 
 
