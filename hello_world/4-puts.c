@@ -7,7 +7,7 @@
 /**
  * main-Display Programming is like building a multilingual puzzle
  *
- * Return: 0 Always 
+ * Return: 0 Always
  */
 int main(void)
 {
