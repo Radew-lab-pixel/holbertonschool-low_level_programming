@@ -1,7 +1,3 @@
-/**
- * Description: first c program
- */
-
 #include <stdio.h>
 
 /**
