@@ -332,3 +332,43 @@ while (a <= 'z')
 putchar('\n');
 return (0);
 }
+
+
+Task 5 : Write a program that prints all single digit numbers of base 10 starting from 0, followed by a new line.
+
+    All your code should be in the main function
+
+
+Answer 
+
+#include <stdio.h>
+/* more headers goes there */
+
+/**
+ * main - Entry point
+ *
+ * Description: '0-9 display '
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+int a = 0;
+
+while (a <= 9)
+{
+        printf("%d", a);
+        a++;
+}
+putchar('\n');
+return (0);
+}
+
+
+Write a program that prints all single digit numbers of base 10 starting from 0, followed by a new line.
+
+    You are not allowed to use any variable of type char
+    You can only use the putchar function (every other function (printf, puts, etc…) is forbidden)
+    You can only use putchar twice in your code
+    All your code should be in the main function
+
