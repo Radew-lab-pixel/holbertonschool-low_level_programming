@@ -16,7 +16,8 @@ char a= 'a';
 while (a <= 'z')
 { 
 	putchar(a);
-        a++;	
+        putchar('\t');
+	a++;	
 }
 return (0);
 }
