@@ -13,11 +13,9 @@ int main(void)
 {
 char a= 'a';
 
-/**or (a = '\a\'; a <= \'z\'; a++) **/
 while (a <= 'z')
 { 
 	putchar(a);
-	putchar(' ');
         a++;	
 }
 return (0);
