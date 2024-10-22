@@ -18,12 +18,12 @@ while (a <= 'z')
 	putchar(a);
 	a++;
 }
-putchar('\n');
 a= 'A';
 while (a <= 'Z')
 {
         putchar(a);
         a++;
 }
+putchar('\n');
 return (0);
 }
