@@ -6,7 +6,7 @@
 /**
  * main - Entry point
  *
- * Description: 'compare if n is negative,positive or zero'
+ * Description: 'compare if last digit of n  '
  * integer n: will be randomly generated
  *
  * Return: Always 0 (Success)
@@ -28,8 +28,11 @@ if (last_digit > 5)
 else if (last_digit == 0)
 { printf("and is 0");
 }
-else
+else if (last_digit < 6 && last_digit != 0)
 { printf("and is less than 6 and not 0\n");
 }
+else 
+{
+}	
 return (0);
 }
