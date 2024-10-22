@@ -305,3 +305,30 @@ Task 4 : Write a program that prints the alphabet in lowercase, followed by a ne
     All your code should be in the main function
     You can only use putchar twice in your code
 
+Answer ->
+
+#include <stdio.h>
+/* more headers goes there */
+
+/**
+ * main - Entry point
+ *
+ * Description: 'a-z display  except q and e '
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+char a = 'a';
+
+while (a <= 'z')
+{
+        if (a != 'q'  && a != 'e')
+        {
+        putchar(a);
+        }
+        a++;
+}
+putchar('\n');
+return (0);
+}
