@@ -11,7 +11,7 @@
  */
 int main(void)
 {
-char a = 'a';
+char a;
 
 for (a = 'a'; a++; a < 'z')
 	{
