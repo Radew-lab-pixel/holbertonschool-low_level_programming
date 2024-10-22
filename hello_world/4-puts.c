@@ -5,9 +5,9 @@
 #include <stdio.h>
 
 /**
- * main-Display Programming is like building a multilingual puzzle
+ * main - Entry point
  *
- * Return: 0 Always
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
