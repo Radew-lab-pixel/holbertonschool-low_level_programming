@@ -4,7 +4,7 @@
 /**
  * main - Entry point
  *
- * Description: '0-15 display in hexadecimal using Array '
+ * Description: '0-9 display '
  *
  * Return: Always 0 (Success)
  */
@@ -12,7 +12,7 @@ int main(void)
 {
 	int i = 0;
 
-while (i <= 15)
+while (i <= 9)
 {
 	putchar('0' + i);
 	putchar(',');
