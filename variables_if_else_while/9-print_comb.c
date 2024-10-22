@@ -15,7 +15,8 @@ int main(void)
 while (i <= 15)
 {
 	putchar('0' + i);
-	putchar('\t');
+	putchar(',');
+	putchar(' ');
 	i++;
 }
 putchar('\n');
