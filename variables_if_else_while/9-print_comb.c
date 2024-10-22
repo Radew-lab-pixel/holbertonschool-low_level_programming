@@ -14,7 +14,7 @@ int main(void)
 
 while (i <= 9)
 {
-	putchar('0' + i);
+	putchar(i);
 	putchar(',');
 	putchar(' ');
 	i++;
