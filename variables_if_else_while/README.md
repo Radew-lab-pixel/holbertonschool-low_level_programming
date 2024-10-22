@@ -434,3 +434,27 @@ Task 8 : Write a program that prints all the numbers of base 16 in lowercase, fo
     All your code should be in the main function
     You can only use putchar three times in your code
 
+answer -> 
+#include <stdio.h>
+/* more headers goes there */
+
+/**
+ * main - Entry point
+ *
+ * Description: '0-15 display in hexadecimal using Array '
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+        char hexa[] = "0123456789abcdef";
+        int i = 0;
+
+while (i <= 15)
+{
+        putchar(hexa[i]);
+        i++;
+}
+putchar('\n');
+return (0);
+}
