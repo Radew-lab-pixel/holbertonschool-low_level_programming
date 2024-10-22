@@ -4,8 +4,12 @@
 /* more headers goes there */
 
 /**
- * main-entry point
- * return (0): always
+ * main - Entry point
+ * 
+ * Description: 'compare if n is negative,positive or zero'
+ * integer n: will be randomly generated
+ * 
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
