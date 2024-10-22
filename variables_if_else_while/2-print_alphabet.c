@@ -13,11 +13,10 @@ int main(void)
 {
 char a= 'a';
 
-while (a <= 'z')
+while (*a <= 'z')
 { 
 	putchar(a);
-        putchar();
-	a++;	
+  	*a++;	
 }
 return (0);
 }
