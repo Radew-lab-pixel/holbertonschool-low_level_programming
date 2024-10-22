@@ -155,6 +155,25 @@ Task 6 : Write a C program that prints the size of various types on the computer
     You should produce the exact same output as in the example
     Warnings are allowed
     Your program should return 0
-    If you are using a linux on Vagrant you might have to install the package libc6-dev-i386 to test the -m32 gcc option (normally you dont need to do anything on your sandbox).
+    If you are using a linux on Vagrant you might have to install the package libc6-dev-i386 to test the -m32 gcc option (normally you dont need to do anything on your sandbox)
 
+Answer - > 
 
+NOT 
+
+#include <stdio.h>
+
+/**
+ * main-display size of data type,
+ *
+ * Return: 0 Always
+ */
+int main(void)
+{
+        printf("The total size of char data type is equal to : %ld\n", sizeof(char));
+        printf("The total size of the int data type is equal to : %ld\n", sizeof(int));
+        printf("The total size of long int data type is equal to : %ld\n", sizeof(long int));
+        printf("The total size of long long int data type is equal to : %ld\n", sizeof(long long int));
+        printf("The total size of float data type is equal to : %ld\n", sizeof(float));
+        return (0);
+}
