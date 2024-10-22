@@ -19,7 +19,7 @@ int last_digit;
 srand(time(0));
 n = rand() - RAND_MAX / 2;
 /*compare if last_digit of n is 0, >5  or <6  */
-last_digit = scanf("%1d", &n);
+last_digit = n % 10;
 printf("Last digit of %d is %d ", n, last_digit);
 
 if (last_digit > 5)
