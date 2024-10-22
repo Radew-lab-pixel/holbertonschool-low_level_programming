@@ -4,8 +4,8 @@
 /**
  * main - Entry point
  *
- *a Description: 'z-a display  '
- * 
+ * Description: 'z-a display'
+ *
  *
  * Return: Always 0 (Success)
  */
