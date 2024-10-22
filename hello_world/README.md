@@ -159,6 +159,32 @@ Task 6 : Write a C program that prints the size of various types on the computer
 
 Answer - > 
 
+#include <stdio.h>
+
+/**
+ * main-display size of data type,
+ *
+ * Return: 0 Always
+ */
+int main(void)
+
+{
+        char a; 
+        int b;
+        long int c;
+        long long int d;
+        float e;
+
+        printf("Size of a char : %d bytes (s)\n", sizeof(a));
+        "Size of a float: %d byte(s)\n
+        printf("Size of a int : %d bytes (s)\n", sizeof(b));
+        printf("Size of a long int : %d bytes (s)\n", sizeof(c));
+        printf("Size of a long long int : %d bytes (s)\n", sizeof(d));
+        printf("Size of a float : %d bytes (s)\n", sizeof(e));
+        return (0);
+}
+
+
 NOT 
 #include <stdio.h>
 
