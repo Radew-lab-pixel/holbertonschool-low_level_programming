@@ -119,6 +119,42 @@ if (last_digit > 5)
 { printf("and is greater than 5\n");
 }
 else if (last_digit == 0)
+{ printf("and is 0\n");
+}
+else
+{ printf("and is less than 6 and not 0\n");
+}
+return (0);
+}
+NOT
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+/* more headers goes there */
+
+/**
+ * main - Entry point
+ *
+ * Description: 'compare if last digit of n  '
+ * integer n: will be randomly generated
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+int n;
+int last_digit;
+
+srand(time(0));
+n = rand() - RAND_MAX / 2;
+/*compare if last_digit of n is 0, >5  or <6  */
+last_digit = n % 10;
+printf("Last digit of %d is %d ", n, last_digit);
+
+if (last_digit > 5)
+{ printf("and is greater than 5\n");
+}
+else if (last_digit == 0)
 { printf("and is 0");
 }
 /**else if (last_digit < 6 && last_digit != 0)
@@ -177,7 +213,7 @@ NOT
 /**
  * main - Entry point
  *
- * Description: 'compare if n is negative,positive or zero'
+ * Description: 'compare if n is <6,>5 ==0'
  * integer n: will be randomly generated
  *
  * Return: Always 0 (Success)
@@ -203,4 +239,10 @@ int main(void)
         }
         return (0);
 }
+
+Task 3 : Write a program that prints the alphabet in lowercase, followed by a new line.
+
+    You can only use the putchar function (every other function (printf, puts, etc…) is forbidden)
+    All your code should be in the main function
+    You can only use putchar twice in your code
 
