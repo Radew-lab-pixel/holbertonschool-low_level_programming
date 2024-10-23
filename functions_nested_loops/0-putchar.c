@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 /* more headers goes there */
 
 /**
@@ -10,13 +10,6 @@
  */
 int main(void)
 {
-	char c[] = "_putchar\n";
-	int i = 8; /*length of c[] */
-
-	while (i <= 8)
-	{
-		putchar(c[i]);
-		i++;
-}
-return (0);
+	write();
+	return (0);
 }
