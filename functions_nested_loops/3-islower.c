@@ -11,7 +11,7 @@
  **/
 int _islower(int c)
 {
-	char lower[]="abcdefghijklmnopqrstuvwxyz";
+	char lower[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
 
 	for (i = 0; i < 26; i++)
