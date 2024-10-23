@@ -3,7 +3,9 @@
 /* more headers goes there */
 
 /**
- * isalpha - Entry point c
+ * function _isalpha - Entry point c
+ *
+ * Paramter c - entry point c  
  *
  * Description: compare c is letter, lower or upper case
  *
