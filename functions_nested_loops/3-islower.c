@@ -4,7 +4,7 @@
  * main  - Entry point
  *
  * Description: _islower(int c)
- * Take int c and compare if lowercase 
+ * Take int c and compare if lowercase
  *
  * Return: 1 (Success) else 0
  */
