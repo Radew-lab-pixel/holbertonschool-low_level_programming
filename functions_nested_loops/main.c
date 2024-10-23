@@ -2,7 +2,7 @@
 
 void write()
 {
-char c = "_putchar\n";
+char c = "_putchar";
       /*  int i = 8; length of c[] */
 
 	putschar(c);
