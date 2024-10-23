@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * main  - Entry point
+ * _islower - Entry point
+ * c - input character
  *
- * Description: _islower(int c)
- * Take int c and compare if lowercase
+ * Description : Take  c and compare if lowercase
  *
  * Return: 1 (Success) else 0
  */
