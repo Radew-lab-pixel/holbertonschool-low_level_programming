@@ -27,10 +27,11 @@ int main(void)
 {
 	char c[] = "_putchar";
       	int progress;
-
-	for (  int i = 0; i< 8; i++ )
+	int i = 0;
+	while ( i< 8 )
 	{
         progress = _putchar(c[i]);
+	i++;
 	}
 	progress =_putchar('\n');
 	if ( progress == 1)
