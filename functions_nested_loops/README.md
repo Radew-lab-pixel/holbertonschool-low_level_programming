@@ -1,15 +1,17 @@
-/* Project 3 : C - Functions, nested loops
-*/
+# Project 3 : C - Functions, nested loops
 
-Task 0 : Write a program that prints _putchar, followed by a new line.
 
-    The program should return 0
+##Task 0 
+ Write a program that prints _putchar, followed by a new line.
+ The program should return 0
 
-Answer: 
+##Answer: 
+
 
 0-putchar.c 
 
-#include "main.h"
+'''
+\#include "main.h"
 
 /* more headers goes there */
 
@@ -35,17 +37,34 @@ int main(void)
         _putchar('\n');
         return (0);
 }
-
+'''
 main.h 
-
+'''
 #ifndef MAIN_H
 #define MAIN_H
 
 int _putchar(char c);
 
 #endif
+'''
 
+_putchar.c
+'''
+#include "main.h"
+#include <unistd.h>
 
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+        return (write(1, &c, 1));
+}
+'''
 NOT 
 
 0-putchar.c 
@@ -129,4 +148,48 @@ int main(void)
         return (1);
         }
 }
+
+##Task 1
+Write a function that prints the alphabet, in lowercase, followed by a new line.
+Prototype: void print_alphabet(void);
+You can only use _putchar twice in your code
+
+#Answer
+
+1-alphabet.c
+'''
+#include "main.h"
+
+/* more headers goes there */
+
+/**
+ * print_alphabet - Entry point
+ *
+ * Description: print a to z
+ *
+ * Return: Always 0 (Success)
+ */
+void print_alphabet(void)
+{
+        char a = 'a';
+
+        while (a <= 'z')
+        {
+        _putchar(a);
+        a++;
+        }
+        _putchar('\n');
+}
+'''
+
+main.h
+'''
+#ifndef MAIN_H
+#define MAIN_H
+
+int _putchar(char c);
+void print_alphabet(void);
+
+#endif
+'''
 
