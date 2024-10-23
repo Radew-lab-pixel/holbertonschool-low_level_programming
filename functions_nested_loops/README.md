@@ -7,6 +7,7 @@
 
 ##Answer: 
 
+Warning : For loop is not allowed in these tasks.
 
 0-putchar.c 
 
@@ -189,6 +190,56 @@ main.h
 
 int _putchar(char c);
 void print_alphabet(void);
+
+#endif
+'''
+
+##Task 2 :
+Write a function that prints 10 times the alphabet, in lowercase, followed by a new line.
+
+    Prototype: void print_alphabet_x10(void);
+    You can only use _putchar twice in your code
+
+#Answer 
+2-print_alphabet_x10,c
+'''
+ #include "main.h"
+
+/* more headers goes there */
+
+/**
+ * print_alphabet_x10 - Entry point
+ *
+ * Description: print a to z
+ *
+ * Return: Always 0 (Success)
+ **/
+void print_alphabet_x10(void)
+{
+        char a;
+        int i;
+
+        for (i = 0; i < 10; i++)
+        {
+        a = 'a';
+        while (a <= 'z')
+        {
+        _putchar(a);
+        a++;
+        }
+        _putchar('\n');
+        }
+}
+'''
+
+main.h
+'''
+#ifndef MAIN_H
+#define MAIN_H
+
+int _putchar(char c);
+void print_alphabet(void);
+void print_alphabet_x10(void);
 
 #endif
 '''
