@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 /* more headers goes there */
 
@@ -11,5 +12,9 @@
 int main(void)
 {
 	write();
+  	//char c = "\_putchar";
+      /*  int i = 8; length of c[] */
+
+       // putchar(c);
 	return (0);
 }

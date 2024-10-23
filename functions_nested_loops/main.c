@@ -2,10 +2,10 @@
 
 void write()
 {
-char c = "_putchar";
+//char c = "_putchar";
       /*  int i = 8; length of c[] */
 
-	putschar(c);
+	putchar("_putchar");
 	/**
         while (i <= 8)
         {
