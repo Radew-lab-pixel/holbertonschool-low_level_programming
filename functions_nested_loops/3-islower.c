@@ -1,14 +1,13 @@
 #include "main.h"
 
-/* more headers goes there */
-
 /**
- * print_alphabet_x10 - Entry point
+ * main  - Entry point
  *
- * Description: print a to z
+ * Description: _islower(int c)
+ * Take int c and compare if lowercase 
  *
- * Return: 1 (lower case) else 0 ( uppercase)
- **/
+ * Return: 1 (Success) else 0
+ */
 int _islower(int c)
 {
 	char lower[] = "abcdefghijklmnopqrstuvwxyz";
