@@ -3,9 +3,9 @@
 /* more headers goes there */
 
 /**
- * print_alphabet - Entry point
+ * print_alphabet _x10- Entry point
  *
- * Description: print a to z
+ * Description: print a to z 10 times`:wq
  *
  * Return: Always 0 (Success)
  */
