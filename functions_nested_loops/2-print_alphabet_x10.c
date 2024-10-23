@@ -3,11 +3,12 @@
 /* more headers goes there */
 
 /**
- * void print_alphabet _x10(void)- Entry point
+ * print_alphabet_x10 - Entry point
  *
- * Description: print a to z 10 times`:wq
+ * Description: print a to z
  *
- */
+ * Return: Always 0 (Success)
+ **/
 void print_alphabet_x10(void)
 {
 	char a;
