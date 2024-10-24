@@ -281,4 +281,94 @@ int _islower(int c)
 
 #Task 4 
 
+Write a function that checks for alphabetic character.
 
+    Prototype: int _isalpha(int c);
+    Returns 1 if c is a letter, lowercase or uppercase
+    Returns 0 otherwise
+
+FYI: The standard library provides a similar function: isalpha. Run man isalpha to learn more.
+
+#Answer
+4-isalpha.c
+'''
+
+#include "main.h"
+
+/**
+ * _isalpha - compare input is letter, lower or upper case
+ * @c : First operand int c
+ * Return: Always 1 (Success) else 0
+ * Example:
+ * _isalpha('A') -> 1
+ */
+
+int _isalpha(int c)
+{
+        char lower[] = "abcdefghijklmnopqrstuvwxyz";
+        char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        int i;
+
+        for (i = 0; i < 26; i++)
+        {
+                if  (c == lower[i] || c == upper[i])
+                {
+                        return (1);
+                }
+        }
+        return (0);
+}
+'''
+
+#Task 5 
+Write a function that prints the sign of a number.
+
+    Prototype: int print_sign(int n);
+    Returns 1 and prints + if n is greater than zero
+    Returns 0 and prints 0 if n is zero
+    Returns -1 and prints - if n is less than zero
+
+#Answer 
+
+5-sign.c 
+'''
+#include "main.h"
+
+/**
+ * print_sign - print the sign of the input n
+ * @n : First operand n
+ * Return: Always 1 ( n > 0 ), 0 ( n = 0 ) and -1 ( n < 0 )
+ * Example:
+ * print_sign(98) -> +1, 0
+ */
+
+int print_sign(int n)
+{
+        if (n > 0)
+        {
+                _putchar('+');
+                return (1);
+        }
+        else if (n == 0)
+        {
+                _putchar('0');
+                return (0);
+        }
+        else
+        {       _putchar('-');
+                return (-1);
+        }
+}
+'''
+
+#Task 6
+
+Write a function that computes the absolute value of an integer.
+
+    Prototype: int _abs(int);
+
+FYI: The standard library provides a similar function: abs. Run man abs to learn more.
+
+#Answer 
+6-abs.c
+''' 
