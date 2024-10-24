@@ -1,10 +1,8 @@
 #include "main.h"
 
-/* more headers goes there */
-
 /**
  * _isalpha - compare input is letter, lower or upper case
- * @c : First operand c
+ * @c : First operand int c
  * Return: Always 1 (Success) else 0
  * Example:
  * _isalpha('A') -> 1
