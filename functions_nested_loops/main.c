@@ -16,7 +16,7 @@ int main(void)
 * print_alphabet_x10();
 */
 
-	/**
+	/** Task 3 
 int r;
 
 r = _islower('H');
@@ -29,7 +29,7 @@ _putchar('\n');
 return (0);
 **/
 
-	/**
+	/** Task 4
 int r;
 
 r = _isalpha('H');
@@ -44,7 +44,7 @@ _putchar('\n');
 return (0);
 **/
 
-/**
+/** Task 5
 int r;
 
     r = print_sign(98);
@@ -70,6 +70,7 @@ int r;
     return (0);	
 */
 
+/** Task 6	
  int r;
 
     r = _abs(-1);
@@ -81,4 +82,16 @@ int r;
     r = _abs(-98);
     printf("%d\n", r);
     return (0);
-}
+*/
+
+int r;
+
+    print_last_digit(98);
+    print_last_digit(0);
+    r = print_last_digit(-1024);
+    _putchar('0' + r);
+    _putchar('\n');
+    return (0);
+	
+
+    }

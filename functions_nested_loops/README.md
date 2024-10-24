@@ -370,5 +370,38 @@ Write a function that computes the absolute value of an integer.
 FYI: The standard library provides a similar function: abs. Run man abs to learn more.
 
 #Answer 
+
 6-abs.c
+''' 
+#include "main.h"
+
+/**
+ * _abs - print the sign of the input n
+ * @n : First operand input  n
+ * Return: absolute value of input n
+ * Example:
+ * _abs(-98) -> 98
+ */
+
+int _abs(int n)
+{
+        if (n >= 0)
+        {
+                return (n);
+        }
+        else
+        {
+                n = n * -1;
+                return (n);
+        }
+}
+'''
+
+#Task 7 
+Write a function that prints the last digit of a number.
+
+    Prototype: int print_last_digit(int);
+    Returns the value of the last digit
+
+#Answer
 ''' 
