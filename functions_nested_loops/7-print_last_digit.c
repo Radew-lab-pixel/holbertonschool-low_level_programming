@@ -18,7 +18,11 @@ int print_last_digit(int n)
 	}
 	else if (n == -2147483648)
 	{
-		r = 2;
+		r = 8;
+	}
+	else if (n == 2147483647)
+	{
+		r = 7;
 	}
 	else
 	{
