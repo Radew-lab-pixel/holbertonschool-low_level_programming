@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * _islower - Entry point
- * c - input character
- *
- * Description : Take  c and compare if lowercase
+ * _islower - check if input  c is lowercase 
+ * @c : input character
  *
  * Return: 1 (Success) else 0
+ * Example:
+ * _islower(f) -> 1 
  */
+
 int _islower(int c)
 {
 	char lower[] = "abcdefghijklmnopqrstuvwxyz";
