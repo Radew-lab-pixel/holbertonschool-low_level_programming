@@ -103,11 +103,19 @@ jack_bauer();
     return (0);
 */
 
-/** Task 9 */
+/** Task 9 
 
 	times_table();
     	return (0);
+**/
 
+/** Task 10 
+ */
+  int n;
+
+    n = add(89, 9);
+    printf("%d\n", n);
+    return (0);
 
     }
 
