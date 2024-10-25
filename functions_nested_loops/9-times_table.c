@@ -27,7 +27,7 @@ void times_table(void)
 			whole = result / 10;
 			remain = result % 10;
 
-			if (result <= 9)
+			if ((result <= 9) && (whole != 0))
 			{
 			_putchar(' ');
 			}
