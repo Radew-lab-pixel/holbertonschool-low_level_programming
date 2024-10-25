@@ -84,6 +84,7 @@ int r;
     return (0);
 */
 
+/** Task 7	
 int r;
 
     print_last_digit(98);
@@ -95,4 +96,9 @@ int r;
     
     return (0);
 
+*/
+
+/** Task 8 */	
+jack_bauer();
+    return (0);
     }

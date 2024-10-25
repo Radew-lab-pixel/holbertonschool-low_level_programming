@@ -405,3 +405,89 @@ Write a function that prints the last digit of a number.
 
 #Answer
 ''' 
+
+#include "main.h"
+
+/**
+ * print_last_digit - print the last digit  of the input n
+ * @n : First operand input  n
+ * Return: last digit  of input n as int r
+ * Example:
+ * _print_last_digit(-98) -> 8
+ */
+
+int print_last_digit(int n)
+{
+        int r;
+
+        if (n > 0)
+        {
+                r = n % 10;
+        }
+        else if (n == -2147483648)
+        {
+                r = 8;
+        }
+        else if (n == 2147483647)
+        {
+                r = 7;
+        }
+        else
+        {
+                r = (n * -1) % 10;
+        }
+        _putchar (r + '0');
+        return (r);
+}
+'''
+
+#Task 8 
+
+
+
+
+NOT 
+
+'''
+#include "main.h"
+
+/**
+ * jack_bauer - print the last digit  of the input n
+ * @void : void operand input  
+ * Return: last digit  of input n as int r
+ * Example:
+ * jack_bauer() -> 00:00 .. 23:59
+ */
+
+void jack_bauer(void)
+{
+        int h0;
+        int m0;
+
+        for (h0 = 0; h0 <= 23; h0++)
+        {
+                m0 = 0;
+
+                while ( m0 <= 59 )
+                {
+                        if ( h0 <= 9 )
+                        {
+                                _putchar('0');
+                        }
+                        _putchar(h0 + '0');
+                        _putchar(':');
+
+                        if (m0 <= 9)
+                        {
+                                _putchar('0');
+                        }
+                        _putchar(m0 + '0');
+                        _putchar('\n');
+                        m0++;
+
+                }
+        }
+}
+
+'''
+
