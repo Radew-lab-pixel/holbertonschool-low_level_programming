@@ -98,7 +98,17 @@ int r;
 
 */
 
-/** Task 8 */	
+/** Task 8 	
 jack_bauer();
     return (0);
+*/
+
+/** Task 9 */
+
+	times_table();
+    	return (0);
+
+
     }
+
+    
