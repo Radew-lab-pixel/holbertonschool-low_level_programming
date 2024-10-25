@@ -606,4 +606,38 @@ void times_table(void)
 Write a function that adds two integers and returns the result.
 
     Prototype: int add(int, int);
+#Answer 
 
+10-add.c
+'''
+#include "main.h"
+
+/**
+ * add - add two integers and return the value
+ * @n : integer operand input 1
+ * @m : integer oprerand input 2
+ * Return: integer sum of the n and m
+ * Example:
+ * add ( 5, 10) -> 15
+ *
+ **/
+
+int add(int n, int m)
+{
+        int total = n + m;
+
+        return (total);
+}
+'''
+
+#Task 11
+Write a function that prints all natural numbers from n to 98, followed by a new line.
+
+    Prototype: void print_to_98(int n);
+    Numbers must be separated by a comma, followed by a space
+    Numbers should be printed in order
+    The first printed number should be the number passed to your function
+    The last printed number should be 98
+    You are allowed to use the standard library
+:`:wq
+ 
