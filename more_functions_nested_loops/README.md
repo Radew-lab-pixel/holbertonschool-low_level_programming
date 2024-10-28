@@ -113,3 +113,43 @@ Write a function that prints the numbers, from 0 to 9, followed by a new line.
 
 #Answer 
 '''
+#include "main.h"
+
+/**
+ * print_numbers - print number 0 to 9
+ * @void  : none input
+ *
+ * Return: none  ( Successful )
+ *a
+ *
+ * Example : print_numbers()  -> 0 .. 9
+ **/
+
+void print_numbers(void)
+{
+        int i = 0;
+
+        while (i <= 9)
+        {
+                _putchar(i + '0');
+                i++;
+        }
+        _putchar('\n');
+
+}
+'''
+
+#Task 4 : 
+'''
+
+Write a function that prints the numbers, from 0 to 9, followed by a new line.
+
+    Prototype: void print_most_numbers(void);
+    Do not print 2 and 4
+    You can only use _putchar twice in your code
+'''
+
+#Answer 
+'''
+
+
