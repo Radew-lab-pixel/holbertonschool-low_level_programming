@@ -15,9 +15,9 @@ void print_diagonal(int n)
 
 	if ( n > 0 ) /* go through the process only if n > 0*/
 	{
-		for (i = 0; i < n; i++) /*n number of lines*/
+		for (i = 1; i <= n; i++) /*n number of lines*/
 		{
-			for (j = 0; j < n; j++) /*n number of the spacing*/
+			for (j = 1; j <= n; j++) /*n number of the spacing*/
 			{
 				if (j == i) /*j line spacing counter is equal to number of line counter i*/
 				{
