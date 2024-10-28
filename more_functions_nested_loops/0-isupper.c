@@ -3,7 +3,8 @@
 /**
  * _isupper - check for upper case OF input c and return 1 if uppercase
  * @c : integer input c
- * Return as int 1 (successful) else 0
+ *
+ * Return: 1  (upper case)
  *
  * Example : _isupper(B) -> return 1
  **/
