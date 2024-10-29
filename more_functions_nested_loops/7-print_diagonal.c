@@ -23,9 +23,13 @@ void print_diagonal(int n)
 				{
 					_putchar('\\');
 				}
-				else /*if j not reaching i counter, add space*/
+				else if (j < i) /* if j not reaching i counter, add space*/
 				{
 					_putchar(' ');
+				}
+				else /* added to remove extra space if j reached end of counter i which is also n */
+				{
+				
 				}
 			} /*end for*/
 
