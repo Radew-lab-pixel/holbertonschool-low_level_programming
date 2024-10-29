@@ -12,28 +12,17 @@
 
 void rev_string(char *s)
 {
-	print_rev(s);
-}
-
-/**
- * print_rev  - display and reverse  string by input
- * @s  : string pointer s
- * Return: none
- *
- * Example : _print_rev("Hello World")
- */
-
-void print_rev(char *s)
-{
 	int length, count;
 
+	/*print_rev(s);*/
 	length = _strlen(s); /* length of s */
+	char *s_temp;
 
 	for (count = length - 1; count >= 0; count--)
 	{
-		_putchar(s[count]);
+		s_temp[length - count - 1] = s[count];
 	}
-	_putchar('\n');
+
 }
 
 /**
@@ -54,16 +43,4 @@ int _strlen(char *s)
 		i++;
 	}
 	return (i);
-}
-
-/**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
 }
