@@ -25,15 +25,15 @@ void print_diagonal(int n)
 				{
 					_putchar(' ');
 				}
-				else
+				else /* added to remove extra space if j reached end of counter i which is also n */
 				{
 				}
 			}
 
-			_putchar('\n');
+			_putchar('\n'); /* a new line*/
 		}
 	}
-	else
+	else /* if n < 0 , print a newline only */
 	{
 		_putchar('\n');
 	}

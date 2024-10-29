@@ -285,5 +285,200 @@ Write a function that draws a diagonal line on the terminal.
 #Answer
 
 '''
+#include "main.h"
+/**
+ * print_diagonal  - print diagonal line n times
+ * @n  : integer input
+ *
+ * Return: none  ( Successful )
+ *
+ * Example : print_diagonal(2)
+ **/
+void print_diagonal(int n)
+{
+        int i, j;
 
- 
+        if (n > 0) /* go through the process only if n > 0*/
+        {
+                for (i = 1; i <= n; i++) /*n number of lines*/
+                {
+                        for (j = 1; j <= n; j++) /*n number of the spacing*/
+                        {
+                                if (j == i) /*j line spacing counter is equal to number of line counter i*/
+                                {
+                                        _putchar('\\');
+                                }
+                                else if (j < i) /* if j not reaching i counter, add space*/
+                                {
+                                        _putchar(' ');
+                                }
+                                else /* added to remove extra space if j reached end of counter i which is also n */
+                                {
+                                }
+                        }
+
+                        _putchar('\n'); /* a new line*/
+                }
+        }
+        else /* if n < 0 , print a newline only */
+        {
+                _putchar('\n');
+        }
+}
+'''
+
+#Task 8 :
+'''
+Write a function that prints a square, followed by a new line.
+
+    Prototype: void print_square(int size);
+    You can only use _putchar function to print
+    Where size is the size of the square
+    If size is 0 or less, the function should print only a new line
+    Use the character # to print the square
+'''
+
+#Answer 
+'''
+#include "main.h"
+
+/**
+ * print_square - print square n times
+ * @size  : integer input
+ *
+ * Return: none  ( Successful )
+ *a
+ *
+ * Example : print_square(2)
+ **/
+
+void print_square(int size)
+{
+        int i = 0;
+        int j = 0;
+
+        if (size > 0)
+        {
+                for (j = 0; j < size; j++) /* number of row loop */
+                {
+                        for (i = 0; i < size; i++) /* number of space # loop */
+                        {
+                                _putchar('#');
+                        }
+                        _putchar('\n');
+                }
+        }
+        else
+        {
+                _putchar('\n');
+        }
+}
+'''
+
+#Task 9 
+'''
+The “Fizz-Buzz test” is an interview question designed to help filter out the 99.5% of programming job candidates who can’t seem to program their way out of a wet paper bag.
+
+Write a program that prints the numbers from 1 to 100, followed by a new line. But for multiples of three print Fizz instead of the number and for the multiples of five print Buzz. For numbers which are multiples of both three and five print FizzBuzz.
+
+    Each number or word should be separated by a space
+    You are allowed to use the standard library
+
+
+'''
+
+#Answer 
+'''
+#include <stdio.h>
+
+/**
+ * main - first entry
+ * @void  : nil input
+ *
+ * Return: 0  ( Successful )
+ **
+ * Example:
+ **/
+
+int main(void)
+
+{
+        int i;
+
+        for (i = 1; i <= 100; i++)
+        {
+                if ((i % 3) == 0) /* find multiple of 3 */
+                {
+                        printf("Fizz");
+                }
+                if ((i % 5) == 0) /* find multiple of 5 */
+                {
+                        printf("Buzz");
+                }
+                if (((i % 3) != 0) && ((i % 5) != 0)) /* if none multiple of 3 or 5 */
+                {
+                        printf("%d", i);
+                }
+                if (i != 100) /* only add space if i not 100 */
+                {
+                        printf(" ");
+                }
+        }
+        printf("\n");
+        return (0);
+}
+'''
+
+#Task 10 
+'''
+Write a function that prints a triangle, followed by a new line.
+
+    Prototype: void print_triangle(int size);
+    You can only use _putchar function to print
+    Where size is the size of the triangle
+    If size is 0 or less, the function should print only a new line
+    Use the character # to print the triangle
+'''
+
+#Answer 
+'''
+#include "main.h"
+
+/**
+ * print_triangle - print triangle n times
+ * @size  : integer input
+ *
+ * Return: none
+ *
+ * Example : print_triangle
+ */
+
+void print_triangle(int size)
+{
+        int row, column;
+
+        if (size > 0)
+        {
+                for (row = 1; row <= size; row++) /* no, of rows */
+                {
+                        for (column = 1; column <= size; column++) /*no, of column */
+                        {
+                                if ((column + row) >= (size + 1)) /* sum of column and row is greater than size */
+                                {
+                                        _putchar('#');
+                                }
+                                else
+                                {
+                                        _putchar(' ');
+                                }
+                        }
+                                _putchar('\n');
+                }
+        }
+        else
+        {
+                _putchar('\n');
+        }
+
+} 
+'''

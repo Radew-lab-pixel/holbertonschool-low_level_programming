@@ -15,11 +15,11 @@ void print_triangle(int size)
 
 	if (size > 0)
 	{
-		for (row = 1; row <= size; row++)
+		for (row = 1; row <= size; row++) /* no, of rows */
 		{
-			for (column = 1; column <= size; column++)
+			for (column = 1; column <= size; column++) /*no, of column */
 			{
-				if ((column + row) >= (size + 1))
+				if ((column + row) >= (size + 1)) /* sum of column and row is greater than size */
 				{
 					_putchar('#');
 				}
