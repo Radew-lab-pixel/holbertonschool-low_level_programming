@@ -28,11 +28,11 @@ int main(void)
 		{
 			printf("%d", i);
 		}
-		if (i!=100) /* only add space if i not 100 */
+		if (i != 100) /* only add space if i not 100 */
 		{
 			printf(" ");
 		}
 	}
-	printf("\n"); 
+	printf("\n");
 	return (0);
 }
