@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
- * _puts - display string by input
- * @str  : string pointer str
+ * print_rev  - display and reverse  string by input
+ * @s  : string pointer s
  *
  * Return: none
  *
- * Example : _puts("Hello World")
+ * Example : _print_rev("Hello World")
  */
 
-void _puts(char *str)
+void print_rev(char *s)
 {
 	int length, count;
 
-	length = _strlen(str);
+	length = _strlen(s);
 
-	for (count = 0; count < length; count++)
+	for (count = length; count >= 0; count--)
 	{
-		_putchar(str[count]);
+		_putchar(s[count]);
 	}
 	_putchar('\n');
 }
