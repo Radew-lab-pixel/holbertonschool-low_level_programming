@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * print_diagonal  - print diagonal line n times
  * @n  : integer input
@@ -8,12 +7,11 @@
  *
  * Example : print_diagonal(2)
  **/
-
 void print_diagonal(int n)
 {
 	int i, j;
 
-	if ( n > 0 ) /* go through the process only if n > 0*/
+	if (n > 0) /* go through the process only if n > 0*/
 	{
 		for (i = 1; i <= n; i++) /*n number of lines*/
 		{
@@ -29,12 +27,11 @@ void print_diagonal(int n)
 				}
 				else /* added to remove extra space if j reached end of counter i which is also n */
 				{
-				
 				}
-			} /*end for*/
+			}
 
-			_putchar('\n'); /*add a new line*/
-		} /*end for*/
+			_putchar('\n'); /* a new line*/
+		}
 	}
 	else /* if n < 0 , print a newline only */
 	{
