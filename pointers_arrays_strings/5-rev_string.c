@@ -1,9 +1,22 @@
 #include "main.h"
 
 /**
- * print_rev  - display and reverse  string by input
+ * rev_string  - display and reverse  string by input
  * @s  : string pointer s
  *
+ * Return: none
+ *
+ * Example : rev_string("Hello World")
+ */
+
+void rev_string(char *s)
+{
+	print_rev(s);
+}
+
+/**
+ * print_rev  - display and reverse  string by input
+ * @s  : string pointer s
  * Return: none
  *
  * Example : _print_rev("Hello World")
@@ -15,7 +28,7 @@ void print_rev(char *s)
 
 	length = _strlen(s); /* length of s */
 
-	for (count = length - 1; count >= 0; count--) /* count to start before '\0' thus length - 1 */
+	for (count = length - 1; count >= 0; count--)
 	{
 		_putchar(s[count]);
 	}
@@ -24,7 +37,6 @@ void print_rev(char *s)
 
 /**
  * _strlen - check the length of string
- * function declaration performed in main.h
  * @s  : char pointer s
  *
  * Return: integer value of length of *s

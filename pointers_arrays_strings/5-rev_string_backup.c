@@ -1,7 +1,21 @@
 #include "main.h"
+/**
+ * rev_string  - display and reverse  string by input
+ * @s  : string pointer s
+ *
+ * Return: none
+ *
+ * Example : rev_string("Hello World")
+ */
+
+void rev_string(char *s);
+{
+	print_rev(s);
+}
 
 /**
  * print_rev  - display and reverse  string by input
+ * function declaration performed in main.h
  * @s  : string pointer s
  *
  * Return: none
