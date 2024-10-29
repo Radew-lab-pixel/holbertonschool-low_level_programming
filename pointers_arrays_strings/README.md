@@ -65,4 +65,37 @@ FYI: The standard library provides a similar function: strlen. Run man strlen to
 
 #Answer 
 '''
+#include "main.h"
+
+/**
+ * _strlen - check the length of string
+ * @s  : integer pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+#Task 3  
+'''
+Write a function that prints a string, followed by a new line, to stdout.
+
+    Prototype: void _puts(char *str);
+
+FYI: The standard library provides a similar function: puts. Run man puts to learn more.
+'''
+#Answer 
+'''
 
