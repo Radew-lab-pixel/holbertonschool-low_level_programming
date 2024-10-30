@@ -13,22 +13,20 @@
 
 char *_strcpy(char *dest, char *src)
 {
-	int count, length;
+	int count;
 
-	length = _strlen(src);
-
-	/** char *start = dest; **/
+	char *start = dest;
 	
 	count = 0;
-	
-	while (count < length) 
+
+	while (src[count] != '\0')
 	{
 		*(dest + count) = *(src + count);
 		count++;
 	}
 
 	*(dest + count) = '\0';
-	return (dest);
+	return (start);
 }
 
 
@@ -42,7 +40,7 @@ char *_strcpy(char *dest, char *src)
  *
  * Example : _strlen(aa)
  */
-
+/**
 int _strlen(char *s)
 {
 	int i = 0;
@@ -53,4 +51,4 @@ int _strlen(char *s)
 	}
 	return (i);
 }
-
+*/
