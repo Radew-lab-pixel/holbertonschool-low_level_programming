@@ -1,5 +1,7 @@
 #include "main.h"
-#include <unistd.h>
+
+void print_rev_string(char *s);
+void swap_char (char *a, char *b);
 
 /**
  * rev_string  - display and reverse  string by input
@@ -12,22 +14,38 @@
 
 void rev_string(char *s)
 {
-	int length, count;
-
-	/*print_rev(s);*/
-	length = _strlen(s); /* length of s */
-	char *s_temp;
-
-	for (count = length - 1; count >= 0; count--)
-	{
-		s_temp[length - count - 1] = s[count];
-	}
-
+	print_rev_string(s);
 }
 
 /**
+ * print_rev_string  -  display and reverse  string by input
+ * modified from Task 4 - print_rev
+ * @s  : string pointer s
+ *
+ * Return: none
+ *
+ * Example : _print_rev("Hello World")
+ */
+
+void print_rev_string(char *s)
+{
+	int length, count, back_count;
+
+	length = _strlen(s) - 1; /* length of s , exclude '\0'  */
+
+	back_count = length;
+	for (count = 0; count < (length / 2); count++) /* count to start before '\0' thus length - 1 */
+	{
+		/** _putchar(s[count]); **/
+		swap_char (s + count, s + back_count);
+		back_count--;
+	}
+	/** _putchar('\n'); **/
+}
+/**
  * _strlen - check the length of string
- * @s  : char pointer s
+ * function declaration performed in main.h
+ * @s : char pointer s
  *
  * Return: integer value of length of *s
  *
@@ -43,4 +61,22 @@ int _strlen(char *s)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ * swap_char - swap the pointer values
+ * modified from Task 1 - swap_int
+ * @a : char pointer a
+ * @b : char pointer b
+ * Return: none
+ *
+ * Example : swap_char('A', 'z')
+ */
+
+void swap_char (char *a, char *b)
+{
+	char c = *a;
+
+	*a = *b;
+	*b = c;
 }
