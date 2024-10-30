@@ -40,6 +40,7 @@ void print_rev_string(char *s)
 		swap_char (s + count, s + back_count);
 		back_count--;
 	}
+	*(s + length + 1) = '\0'; /* add '\0' to end of s */ 	
 	/** _putchar('\n'); **/
 }
 /**
