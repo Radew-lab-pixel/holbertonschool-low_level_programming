@@ -34,7 +34,7 @@ void print_rev_string(char *s)
 	length = _strlen(s) - 1; /* length of s , exclude '\0'  */
 
 	back_count = length;
-	for (count = 0; count < (length / 2); count++) /* count to start before '\0' thus length - 1 */
+	for (count = 0; count <= (length / 2); count++) /* count to start before '\0' thus length - 1 */
 	{
 		/** _putchar(s[count]); **/
 		swap_char (s + count, s + back_count);
