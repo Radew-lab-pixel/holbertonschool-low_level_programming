@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * *_strcpy - copy both arrays
- * @dest  : string pointer dest, to be copied from src
- * @src : str point array src
- *
- * Return: Always @dest (Success)
- *
- * Example : _strcpy(a, "Hello World")
- */
+* *_strcpy - copy both arrays
+* @dest  : string pointer dest, to be copied from src
+* @src : str point array src
+*
+* Return: Always @dest (Success)
+*
+*/
 
 char *_strcpy(char *dest, char *src)
 {
@@ -17,10 +16,10 @@ char *_strcpy(char *dest, char *src)
 	length = _strlen(src);
 
 	/** char *start = dest; **/
-	
+
 	count = 0;
-	
-	while (count < length) 
+
+	while (count < length)
 	{
 		*(dest + count) = *(src + count);
 		count++;
@@ -29,9 +28,6 @@ char *_strcpy(char *dest, char *src)
 	*(dest + count) = '\0';
 	return (dest);
 }
-
-
-
 
 /**
  * _strlen - check the length of string
@@ -52,4 +48,3 @@ int _strlen(char *s)
 	}
 	return (i);
 }
-
