@@ -13,22 +13,10 @@
 
 char *_strcpy(char *dest, char *src)
 {
-int inc = 0;
-while (*(src + inc) != '\0')
-{
-*(dest + inc) = *(src + inc);
-inc++;
-}
-*(dest + inc) = '\0';
-return (dest);
-}
-
-/**
-char *_strcpy(char *dest, char *src)
-{
 	int count;
 
-	 
+	char *start = dest;
+	
 	count = 0;
 
 	while (src[count] != '\0')
@@ -36,10 +24,11 @@ char *_strcpy(char *dest, char *src)
 		*(dest + count) = *(src + count);
 		count++;
 	}
+
 	*(dest + count) = '\0';
-	return (dest);
+	return (start);
 }
-*/
+
 
 
 
