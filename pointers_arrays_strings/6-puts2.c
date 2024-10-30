@@ -17,27 +17,23 @@ void puts2(char *str)
 }
 
 /**
- * _puts_2x - display string if of multiple 2  by input
+ * _puts_2x - every second vhar in  string by input
  * Function modified from Task 3 3-puts.c
  * @str  : string pointer str
  *
  * Return: none
  *
- * Example : _puts_2x("123456789")
+ * Example : _puts_2x("123456789") -> 13579
  */
 void _puts_2x(char *str)
 {
-	int length, count, remain;
+	int length, count;
 
 	length = _strlen(str);
 
-	for (count = 0; count < length; count++)
+	for (count = 0; count < length; (count = count + 2))
 	{
-		remain = (str[count]) % 2; /* modulus 2 */
-		if (remain == 0)
-		{
-			_putchar(str[count]);
-		}
+		_putchar(str[count]);
 	}
 	_putchar('\n');
 }
