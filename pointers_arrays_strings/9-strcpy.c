@@ -11,7 +11,7 @@
  * Example : strcpy(a, "Hello World")
  */
 
-char* _strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int length, count;
 
@@ -23,8 +23,10 @@ char* _strcpy(char *dest, char *src)
 		*(dest + count) = *(src + count);
 		count++;
 	}
-	return dest;
+	*(dest + count) = '\0';
+	return (dest);
 }
+
 
 /**
  * _strlen - check the length of string
