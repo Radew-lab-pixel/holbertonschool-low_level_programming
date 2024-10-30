@@ -31,10 +31,10 @@ void print_rev_string(char *s)
 {
 	int length, count, back_count;
 
-	length = _strlen(s) - 1; /* length of s , exclude '\0'  */
+	length = _strlen(s) - 1; /* length of s , -1 to exclude '\0', if not will not update the changes of s */
 
 	back_count = length;
-	for (count = 0; count <= (length / 2); count++) /* count to start before '\0' thus length - 1 */
+	for (count = 0; count <= (length / 2); count++) /* count to start before '\0' thus length - 1 , if using count < (length/2) will cause issue with word count in assessment*/
 	{
 		/** _putchar(s[count]); **/
 		swap_char (s + count, s + back_count);
