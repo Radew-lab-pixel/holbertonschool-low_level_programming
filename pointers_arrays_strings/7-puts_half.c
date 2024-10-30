@@ -42,7 +42,7 @@ void _puts_halve(char *str)
 		count_offset = 0; /* keep original address */
 	}
 
-	for (count = count_offset; count < half_whole; count++)
+	for (count = count_offset; count <= half_whole; count++)
 	{
 		if ((str[count + half_whole]) != '\0')
 		{
