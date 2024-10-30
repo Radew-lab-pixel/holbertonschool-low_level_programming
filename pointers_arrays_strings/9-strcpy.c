@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * *_strcpy - copy both arrays
@@ -8,7 +7,7 @@
  *
  * Return: Always @dest (Success)
  *
- * Example : strcpy(a, "Hello World")
+ * Example : _strcpy(a, "Hello World")
  */
 
 char *_strcpy(char *dest, char *src)
