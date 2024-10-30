@@ -41,9 +41,13 @@ void _puts_halve(char *str)
 	{
 		count_offset = 0; /* keep original address */
 	}
+
 	for (count = count_offset; count < half_whole; count++)
 	{
-		_putchar(str[count + half_whole]); /*start from second half of str */
+		if ((str[count + half_whole]) != '\0')
+		{
+			_putchar(str[count + half_whole]); /*start from second half of str */
+		}
 	}
 	_putchar('\n');
 }
