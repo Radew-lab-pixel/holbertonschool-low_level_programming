@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strcpy- copy both arrays
+ * *_strcpy - copy both arrays
  * @dest  : string pointer dest, to be copied from src
  * @src : str point array src
  *
