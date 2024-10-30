@@ -26,15 +26,24 @@ void puts_half(char *str)
 
 void _puts_halve(char *str)
 {
-	int count, half;
+	int count, half_whole, count_offset, half_remain;
 
 	int length = _strlen(str);
 
-	half = length / 2;
+	half_whole = length / 2; /*whole number of length /2 */
+	half_remain = length % 2; /* remain of number of length /2 */
 
-	for (count = 0; count < half; count++)
+	if (half_remain != 0) /* the length is not in multipled of 2 - not perfect half */
 	{
-		_putchar(str[count + half]); /*start from second half of str */
+		count_offset = 1; /* count 1 address later */
+	}
+	else
+	{
+		count_offset = 0; /* keep original address */
+	}
+	for (count = count_offset; count < half_whole; count++)
+	{
+		_putchar(str[count + half_whole]); /*start from second half of str */
 	}
 	_putchar('\n');
 }
@@ -45,7 +54,6 @@ void _puts_halve(char *str)
  * @s  : char pointer s
  *
  * Return: integer value of length of *s
- *
  * Example : _strlen(aa)
  */
 
