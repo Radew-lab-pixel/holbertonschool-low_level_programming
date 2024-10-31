@@ -1,4 +1,6 @@
-##Task 0 : 
+##C - Pointers, arrays and strings
+
+#Task 0 : 
 ''
 Write a function that checks for uppercase character.
 
