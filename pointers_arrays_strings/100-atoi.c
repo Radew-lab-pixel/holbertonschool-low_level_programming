@@ -25,12 +25,11 @@ int _atoi(char *s)
 
 /**
 * *char2int - compare stc and convert from char array to integer
-*  @src : str point array src
+*  @str : str point array
 *
 * Return: Integer result (Success)
 *
 */
-
 int char2int (char *str)
 {
 	int result = 0; /* result of char to integer coversion */
