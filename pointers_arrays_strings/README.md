@@ -375,3 +375,310 @@ Write a function that prints half of a string, followed by a new line.
 
 #Answer 
 '''
+#include "main.h"
+
+void _puts_halve(char *str);
+/**
+ * puts_half - display second half of string
+ * @str : string pointer str
+ *
+ * Return : none
+ *
+ * Example : puts_halfway("Hello World")
+ */
+
+void puts_half(char *str)
+{
+        _puts_halve(str);
+}
+/**
+ * _puts_halve - display string by input
+ * function modified from Task 3 3-puts.c
+ * @str  : string pointer str
+ *
+ * Return: none
+ *
+ * Example : _puts("Hello World")
+ */
+
+void _puts_halve(char *str)
+{
+        int count, half_whole, count_offset, half_remain;
+
+        int length = _strlen(str);
+
+        half_whole = length / 2; /*whole number of length /2 */
+        half_remain = length % 2; /* remain of number of length /2 */
+
+        if (half_remain != 0)
+        /* the length is not in multipled of 2 - not perfect half */
+        {
+                count_offset = 1; /* count 1 address later */
+        }
+        else
+        {
+                count_offset = 0; /* keep original address */
+        }
+
+        for (count = count_offset; count <= half_whole; count++)
+        {
+                if ((str[count + half_whole]) != '\0')
+                {
+                        _putchar(str[count + half_whole]);
+                        /*start from second half of str */
+                }
+        }
+        _putchar('\n');
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+#Task 8 
+'''
+Write a function that prints n elements of an array of integers, followed by a new line.
+
+    Prototype: void print_array(int *a, int n);
+    where n is the number of elements of the array to be printed
+    Numbers must be separated by comma, followed by a space
+    The numbers should be displayed in the same order as they are stored in the array
+    You are allowed to use printf
+'''
+#Answer
+'''
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * print_array - display array by input n
+ * @a  : string pointer str
+ * @n : integer n for number of array
+ *
+ * Return: none
+ *
+ * Example : print_array("Hello World", 5)
+ */
+
+void print_array(int *a, int n)
+{
+        int count;
+
+        count = 0;
+
+        while (count < n)
+        {
+                if (count == (n - 1))
+                {
+                        printf("%d", *(a + count));
+                }
+                else
+                {
+                        printf("%d, ", *(a + count));
+                }
+                count++;
+        }
+        printf("\n");
+}
+
+'''
+#Task 9 
+'''
+
+    Prototype: char *_strcpy(char *dest, char *src);
+
+Write a function that copies the string pointed to by src, including the terminating null byte (\0), to the buffer pointed to by dest.
+
+    Return value: the pointer to dest
+
+FYI: The standard library provides a similar function: strcpy. Run man strcpy to learn more.
+'''
+#Answer 
+'''
+#include "main.h"
+
+/**
+* *_strcpy - copy both arrays
+* @dest  : string pointer dest, to be copied from src
+* @src : str point array src
+*
+* Return: Always @dest (Success)
+*
+*/
+
+char *_strcpy(char *dest, char *src)
+{
+        int count, length;
+
+        length = _strlen(src);
+
+        /** char *start = dest; **/
+
+        count = 0;
+
+        while (count < length)
+        {
+                *(dest + count) = *(src + count);
+                count++;
+        }
+
+        *(dest + count) = '\0';
+        return (dest);
+}
+
+/**
+ * _strlen - check the length of string
+ * @s  : integer pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+#Task 10 
+'''
+Write a function that convert a string to an integer.
+
+    Prototype: int _atoi(char *s);
+    The number in the string can be preceded by an infinite number of characters
+    You need to take into account all the - and + signs before the number
+    If there are no numbers in the string, the function must return 0
+    You are not allowed to use long
+    You are not allowed to declare new variables of “type” array
+    You are not allowed to hard-code special values
+    We will use the -fsanitize=signed-integer-overflow gcc flag to compile your code.
+
+FYI: The standard library provides a similar function: atoi. Run man atoi to learn more.
+'''
+
+#Answer 
+'''
+
+#include "main.h"
+
+/*char *_strcompareInt(char *dest, char *src);*/
+int char2int(char *str);
+
+/**
+*_atoi - extract integer from input s
+*
+* @s : str point array input s
+*
+* Return: int integer value (Success)
+*
+*/
+
+int _atoi(char *s)
+{
+        int result;
+
+        /*_strcompareInt(result, s);*/
+        result = char2int(s);
+
+        return (result);
+}
+
+
+/**
+* *char2int - compare stc and convert from char array to integer
+*  @str : str point array
+*
+* Return: Integer result (Success)
+*
+*/
+int char2int (char *str)
+{
+        unsigned int result = 0; /* result of char to integer coversion */
+        int sign = 1;  /* to indicate if - or +* default to +*/
+        int count = 0; /* counter for accessing the array */
+        int length = _strlen(str);
+        int num_become_char = 0;
+        /*flag to detect when the access the string next char */
+        /*after number is non numerical thus will ignore the rest of the string */
+
+        /* for (count = 0; str[count] != '\0' ; count++) */
+        for (count = 0; count < length; count++)
+        {
+                if (num_become_char == 0)
+                        /* if the num_become_char is still false 0 */
+                {
+                        if (str[count] == '-')
+                        /* if str[count] is negative sign */
+                        {
+                                sign = -1 * sign; /* multiply current sign factor by -1 */
+                        }
+                        else if ((str[count] >= '0') && (str[count]  <= '9'))
+                                /* if str between 0 and 9 , converted to integer */
+                        {
+                                result = result * 10 + (str[count] - '0');
+/* multiple each numerical by 10 if more digit found */
+/* -'0' is char  to integer */
+                        }
+                        else /*other character including + sign */
+                        {
+                                if ((str[count - 1] >= '0') && (str[count - 1] <= '9'))
+                                /* found the previous str[count] is numerical */
+                                {
+                                        num_become_char = 1;
+                                        /* set the num_become_char flag to be 1 thus will exit the loop*/
+                                }
+                        }
+                }
+                else
+                {
+                        result = result * sign; /* multiply result with sign */
+                        return (result); /* return result and terminate the program */
+                }
+        }
+        result = result * sign; /* multiply result with sign */
+        return (result); /* return result */
+}
+
+/**
+ * _strlen - check the length of string
+ * @s  : integer pointer s
+ *
+ * Return: integer value of length of *s
+ * * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+} 
+'''
+

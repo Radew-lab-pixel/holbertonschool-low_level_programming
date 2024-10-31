@@ -3,7 +3,8 @@
 void _puts_2x(char *str);
 
 /**
- * puts2 - display every other character of a string, starting with the first character
+ * puts2 - display every other character of a string
+ * starting with the first character
  * @str  : string pointer str
  *
  * Return: none

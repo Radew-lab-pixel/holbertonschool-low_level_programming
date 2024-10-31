@@ -33,7 +33,8 @@ void _puts_halve(char *str)
 	half_whole = length / 2; /*whole number of length /2 */
 	half_remain = length % 2; /* remain of number of length /2 */
 
-	if (half_remain != 0) /* the length is not in multipled of 2 - not perfect half */
+	if (half_remain != 0)
+	/* the length is not in multipled of 2 - not perfect half */
 	{
 		count_offset = 1; /* count 1 address later */
 	}
@@ -46,7 +47,8 @@ void _puts_halve(char *str)
 	{
 		if ((str[count + half_whole]) != '\0')
 		{
-			_putchar(str[count + half_whole]); /*start from second half of str */
+			_putchar(str[count + half_whole]);
+			/*start from second half of str */
 		}
 	}
 	_putchar('\n');
