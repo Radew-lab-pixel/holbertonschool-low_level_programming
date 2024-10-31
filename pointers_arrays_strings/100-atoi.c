@@ -32,7 +32,7 @@ int _atoi(char *s)
 */
 int char2int (char *str)
 {
-	int result = 0; /* result of char to integer coversion */
+	unsigned int result = 0; /* result of char to integer coversion */
 	int sign = 1;  /* to indicate if - or +* default to +*/
 	int count = 0; /* counter for accessing the array */
 	int length = _strlen(str);
