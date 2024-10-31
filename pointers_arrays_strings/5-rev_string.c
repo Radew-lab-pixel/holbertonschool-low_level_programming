@@ -36,19 +36,17 @@ void print_rev_string(char *s)
 
 	back_count = length;
 	for (count = 0; count <= (length / 2); count++)
-/**
- * count to start before '\0' thus length - 1,
- * if using count < (length/2) will cause issue with word count in
- * assessment
-*/
+
+/* count to start before '\0' thus length - 1, if using count < (length/2)*/
+/* will cause issue with word count in  assessment */
 	{
-		/** _putchar(s[count]); **/
+		/** _putchar(s[count]); */
 		swap_char (s + count, s + back_count);
 		back_count--;
 	}
 	*(s + length + 1) = '\0'; /* add '\0' to end of s */
-	/** _putchar('\n'); **/
 }
+
 /**
  * _strlen - check the length of string
  * function declaration performed in main.h
