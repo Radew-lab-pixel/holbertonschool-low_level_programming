@@ -14,7 +14,7 @@ char *_strcat(char *dest, char *src)
 	int length_dest, length_src, count;
 
 	length_src = _strlen(src); /* obtain of length of src */
-	length_dest = _strlen(dest)/* obtain length of dest */
+	length_dest = _strlen(dest); /* obtain length of dest */
 
 	for (count = 0; count < length_src; count++)
 	{
