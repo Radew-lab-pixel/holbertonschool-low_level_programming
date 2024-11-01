@@ -1,4 +1,4 @@
-##C - Pointers, arrays and strings
+##Week 4 C  - Pointers, arrays and strings
 
 #Task 0 
 '''
@@ -681,4 +681,82 @@ int _strlen(char *s)
         return (i);
 } 
 '''
+
+##Week 5 C - More pointers, arrays and strings
+
+#Task 0 : 
+'''
+
+Write a function that concatenates two strings.
+
+    Prototype: char *_strcat(char *dest, char *src);
+    This function appends the src string to the dest string, overwriting the terminating null byte (\0) at the end of dest, and then adds a terminating null byte
+    Returns a pointer to the resulting string dest
+
+FYI: The standard library provides a similar function: strcat. Run man strcat to learn mor
+'''
+
+#Answer 
+'''
+#include "main.h"
+
+/**
+ * _strcat - append src to dest
+ * @src  : string pointer str
+ * @dest : string pointer dest
+ *
+ * Return: dest ( successful )
+ *
+ */
+
+char *_strcat(char *dest, char *src)
+{
+        int length_dest, length_src, count;
+
+        length_src = _strlen(src); /* obtain of length of src */
+        length_dest = _strlen(dest); /* obtain length of dest */
+
+        for (count = 0; count < length_src; count++)
+        {
+                dest[length_dest + count] = src[count];
+        }
+        return (dest);
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+#Task 1 
+'''
+Write a function that concatenates two strings.
+
+    Prototype: char *_strncat(char *dest, char *src, int n);
+    The _strncat function is similar to the _strcat function, except that
+        it will use at most n bytes from src; and
+        src does not need to be null-terminated if it contains n or more bytes
+    Return a pointer to the resulting string dest
+
+FYI: The standard library provides a similar function: strncat. Run man strncat to learn more.
+'''
+
+
 
