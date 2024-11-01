@@ -1,46 +1,53 @@
 #include "main.h"
 
+int _charCal(char a, char b);
+
 /**
  * _strcmp - compare s1  and s2
  * @s1  : string pointer s1
  * @s2 : string pointer s2
- * 
+ *
  * Return: 0 ( successful )
- * > 0 if s1 > s2 
- * < 0 if s1 < s2 
+ * > 0 if s1 > s2
+ * < 0 if s1 < s2
  */
 
 int _strcmp(char *s1, char *s2)
 {
-	int length_s1, length_s2, length, count, flag;
+	int length_s1, length_s2, length, count;
+	int result;
 
 	length_s1 = _strlen(s1); /* obtain of length of src */
 	length_s2 = _strlen(s2); /* obtain length of dest */
-	
-	flag = 1; /* flag to detect if match */
 
-	if (length_s1 >= length_s2) 
+	/* match_detected = 0,  flag to detect if match */
+
+	/* detect if the both length not matching to prevent overflow */
+
+	if (length_s1 >= length_s2)
 	{
 		length = length_s2; /* assign length_s2 to length */
 	}
-	else 
+	else
 	{
 		length = length_s1; /* assign length_s1 to length */
 	}
 
+	/* count from 0 to length */
 
 	for (count = 0; count < length; count++)
 	{
-		if (s1[count] == s2[count])
+
+		result = _charCal(s1[count], s2[count]);
+		/* called in house charCal function */
+
+		/* result != 0 ( mismatch) */
+		if (result != 0)
 		{
-			flag = 0;
-		}	
-		else 
-		{
-			
+			return (result); /* exit early and return result */
 		}
 	}
-	return (dest);
+	return (result); /* reach end of length , return result ( mostly 0 )*/
 }
 
 /**
@@ -62,4 +69,38 @@ int _strlen(char *s)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ *  _charCal - integer difference between s1 and s2
+ * Description:  integer difference between s1 and s2
+ * return the difference
+ *
+ * @a : string pointer to s1
+ * @b : string pointer to s2
+ *
+ * Return: 0 ( successful )
+ * else difference value
+ *
+ * Example : _charCal(s1, s2)
+*/
+
+
+int _charCal(char a, char b)
+{
+	int int_a, int_b;
+
+	int_a = a - '0';
+	/*convert s1 (ASCII char) to integer*/
+	int_b = b - '0';
+
+	/* a and b matched */
+	if (int_a == int_b)
+	{
+		return (0);
+	}
+	else
+	{
+		return (int_a - int_b);
+	}
 }
