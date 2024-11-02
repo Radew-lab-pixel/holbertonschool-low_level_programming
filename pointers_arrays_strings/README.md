@@ -758,5 +758,260 @@ Write a function that concatenates two strings.
 FYI: The standard library provides a similar function: strncat. Run man strncat to learn more.
 '''
 
+#Answer
+'''
+#include "main.h"
+
+/**
+ * _strncat - append src to dest depend on n
+ * @src  : string pointer str
+ * @dest : string pointer dest
+ * @n : integer n
+ *
+ * if n is larger the src[count],
+ * src[count] will be used
+ * Return: dest ( successful )
+ *
+ */
+
+char *_strncat(char *dest, char *src, int n)
+{
+        int length_dest, length_src, count;
+
+        length_src = _strlen(src); /* obtain of length of src */
+        length_dest = _strlen(dest); /* obtain length of dest */
+        if (n > length_src) /* if n larger than length_src */
+        { /* append src to dest */
+                for (count = 0; count < length_src; count++)
+                {
+                        dest[length_dest + count] = src[count];
+                }
+        }
+        else /* n < length_Src */
+        {
+                /* append src[n] to dest */
+                for (count = 0; count < n; count++)
+                {
+                        dest[length_dest + count] = src[count];
+                }
+        }
+        return (dest);
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+} 
+'''
+
+#Task 2 : 
+'''
+Write a function that copies a string.
+
+    Prototype: char *_strncpy(char *dest, char *src, int n);
+    Your function should work exactly like strncpy
+
+FYI: The standard library provides a similar function: strncpy. Run man strncpy to learn more.
+'''
+#Answer 
+'''
+#include "main.h"
+
+/**
+ * _strncpy - copy src to dest depend on n
+ * @src  : string pointer str
+ * @dest : string pointer dest
+ * @n : integer n
+ *
+ * if n is larger the src[count],
+ * remainder dest[count] will be filled with '\0'
+ * Return: dest ( successful )
+ *
+ */
+
+char *_strncpy(char *dest, char *src, int n)
+{
+        int length_src, count;
+
+        length_src = _strlen(src); /* obtain of length of src */
+        /*length_dest = _strlen(dest);*/  /* obtain length of dest */
+        if (n > length_src) /* if n larger than length_src */
+        { /* copy src to dest */
+                for (count = 0; count < length_src; count++)
+                {
+                        dest[count] = src[count];
+                }
+                /* Add '\0' to remaining dest[n] */
+                while (count < n)
+                {
+                        dest[count] = '\0';
+                        count++;
+                }
+        }
+        else /* n < length_Src */
+        {
+                /* copy only  src[n] to dest */
+                for (count = 0; count < n; count++)
+                {
+                        dest[count] = src[count];
+                }
+        }
+        return (dest);
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+#Task 3 : 
+
+'''
+Write a function that compares two strings.
+
+    Prototype: int _strcmp(char *s1, char *s2);
+    Your function should work exactly like strcmp
+
+FYI: The standard library provides a similar function: strcmp. Run man strcmp to learn more.
+'''
+
+#Answer
+'''
+#include "main.h"
+
+int _charCal(char a, char b);
+
+/**
+ * _strcmp - compare s1  and s2
+ * @s1  : string pointer s1
+ * @s2 : string pointer s2
+ *
+ * Return: 0 ( successful )
+ * > 0 if s1 > s2
+ * < 0 if s1 < s2
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+        int length_s1, length_s2, length, count;
+        int result;
+
+        length_s1 = _strlen(s1); /* obtain of length of src */
+        length_s2 = _strlen(s2); /* obtain length of dest */
+
+        /* match_detected = 0,  flag to detect if match */
+
+        /* detect if the both length not matching to prevent overflow */
+
+        if (length_s1 >= length_s2)
+        {
+                length = length_s2; /* assign length_s2 to length */
+        }
+        else
+        {
+                length = length_s1; /* assign length_s1 to length */
+        }
+
+        /* count from 0 to length */
+
+        for (count = 0; count < length; count++)
+        {
+
+                result = _charCal(s1[count], s2[count]);
+                /* called in house charCal function */
+
+                /* result != 0 ( mismatch) */
+                if (result != 0)
+                {
+                        return (result); /* exit early and return result */
+                }
+        }
+        return (result); /* reach end of length , return result ( mostly 0 )*/
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+
+/**
+ *  _charCal - integer difference between s1 and s2
+ * Description:  integer difference between s1 and s2
+ * return the difference
+ *
+ * @a : string pointer to s1
+ * @b : string pointer to s2
+ *
+ * Return: 0 ( successful )
+ * else difference value
+ *
+ * Example : _charCal(s1, s2)
+*/
 
 
+int _charCal(char a, char b)
+{
+        int int_a, int_b;
+
+        int_a = a - '0';
+        /*convert s1 (ASCII char) to integer*/
+        int_b = b - '0';
+
+        /* a and b matched */
+        if (int_a == int_b)
+        {
+                return (0);
+        }
+        else
+        {
+                return (int_a - int_b);
+        }
+} 
+'''
