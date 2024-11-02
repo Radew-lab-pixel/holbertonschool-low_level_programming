@@ -27,8 +27,8 @@ void reverse_array(int *a, int n)
 	{
 		/* perform swap */
 		temp = a[count];
-		a[count] = a[n - count];
-		a[n - count] = temp;
+		a[count] = a[n - 1 - count];
+		a[n - 1 - count] = temp;
 		/* a[count] = temp[n - count]; */
 		/* copy for end of temp to start of a  NOT allowed*/
 	}
