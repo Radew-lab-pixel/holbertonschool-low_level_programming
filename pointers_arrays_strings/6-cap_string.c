@@ -21,12 +21,14 @@ char *cap_string(char *s)
 	int next_sep_detected = 0;
 
 	length = _strlen(s);
+
 	/* obtain of length of s */
 
 	/* count from 0 to length */
 	s[0] = _charToUpper(s[0]); /* first array to capital */
 
-	count = 1; 
+	count = 1;
+
 	while (count <= length)
 	{
 		/* detect current char if seperator */
@@ -35,18 +37,17 @@ char *cap_string(char *s)
 		/*s[count] = ' ';*/
 			/* replace current with space */
 		/* jump to next array */
-		next_sep_detected =_isSeperator(s[count + 1]);
+		next_sep_detected = _isSeperator(s[count + 1]);
 
 		/** check current is but next array is not seperator */
 		if ((sep_detected == 1) && (next_sep_detected == 0))
-			{	
-				/* confirmed next array is not seperator */
+		{
+		/* confirmed next array is not seperator */
 
-				s[count + 1] = _charToUpper(s[count + 1]);
-				sep_detected = 0; /* reset the flag */
-				count++;
-			}
-				
+			s[count + 1] = _charToUpper(s[count + 1]);
+			sep_detected = 0; /* reset the flag */
+			count++;
+		}
 		count++;
 	}
 	return (s); /* return result */
