@@ -20,17 +20,22 @@ void reverse_array(int *a, int n)
 	/* int temp[n]; */
 	/* temporary storage of a between [0..length] NOT allowed */
 
-	midway = n / 2; /* count for for loop to end midway of n */
-	/* between 0 and n /2 - midway */
-
-	for (count = 0; count <= midway; count++)
+	 /* failsafe check for n > 1 to prevent segmentation fault code 139  */
+	if (n > 1)
 	{
-		/* perform swap */
-		temp = a[count];
-		a[count] = a[n - 1 - count];
-		a[n - 1 - count] = temp;
-		/* a[count] = temp[n - count]; */
-		/* copy for end of temp to start of a  NOT allowed*/
+
+		midway = n / 2; /* count for for loop to end midway of n */
+		/* between 0 and n /2 - midway */
+
+		for (count = 0; count <= midway; count++)
+		{
+			/* perform swap */
+			temp = a[count];
+			a[count] = a[n - 1 - count];
+			a[n - 1 - count] = temp;
+			/* a[count] = temp[n - count]; */
+			/* copy for end of temp to start of a  NOT allowed*/
+		}
 	}
 
 }
