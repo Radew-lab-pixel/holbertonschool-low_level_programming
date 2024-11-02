@@ -1015,3 +1015,62 @@ int _charCal(char a, char b)
         }
 } 
 '''
+#Task 4 : 
+'''
+Write a function that reverses the content of an array of integers.
+
+    Prototype: void reverse_array(int *a, int n);
+    Where n is the number of elements of the array
+'''
+
+#Answer 
+'''
+#include "main.h"
+
+int _intlen(int *s);
+
+/**
+ * reverse_array - reverse array according to interger n
+ * @a  : string pointer to array a
+ * @n : integer n size of the array to be swapped
+ *
+ * Return: void ( successful )
+ *
+ */
+
+void reverse_array(int *a, int n)
+{
+        int temp, count, midway;
+
+        /*length = _intlen(a); */
+        /* obtain of array length of a */
+        /* int temp[n]; */
+        /* temporary storage of a between [0..length] NOT allowed */
+
+         /* failsafe check for n > 1 to prevent segmentation fault code 139  */
+        if (n > 1)
+        {
+
+                midway = n / 2; /* count for for loop to end midway of n */
+                /* between 0 and n /2 - midway */
+
+                for (count = 0; count <= midway; count++)
+                {
+                        /* perform swap */
+                        temp = a[count];
+                        a[count] = a[n - 1 - count];
+                        a[n - 1 - count] = temp;
+                        /* a[count] = temp[n - count]; */
+                        /* copy for end of temp to start of a  NOT allowed*/
+                }
+        }
+
+}
+'''
+
+#Task 5 
+'''
+Write a function that changes all lowercase letters of a string to uppercase.
+
+    Prototype: char *string_toupper(char *);
+'''
