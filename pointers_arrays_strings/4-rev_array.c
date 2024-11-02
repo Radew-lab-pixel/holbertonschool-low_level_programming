@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _intlen(int *s);
+
 /**
  * reverse_array - reverse array according to interger n
  * @a  : string pointer to array a
@@ -13,13 +15,15 @@ void reverse_array(int *a, int n)
 {
 	int temp, count, midway;
 
-	/* length = _strlen(a + '0');  obtain of length of a */
+	/*length = _intlen(a); */
+	/* obtain of array length of a */
 	/* int temp[n]; */
 	/* temporary storage of a between [0..length] NOT allowed */
 
 	midway = n / 2; /* count for for loop to end midway of n */
 	/* between 0 and n /2 - midway */
-	for (count = 0; count < midway; count++)
+
+	for (count = 0; count <= midway; count++)
 	{
 		/* perform swap */
 		temp = a[count];
@@ -32,16 +36,17 @@ void reverse_array(int *a, int n)
 }
 
 /**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
+ * _intlen - check the length of integer array
+ *
+ * Modified from _strlen
+ * @s  : int array  pointer s
  *
  * Return: integer value of length of *s
  *
- * Example : _strlen(aa)
+ * Example : _intlen(aa)
  */
 
-int _strlen(char *s)
+int _intlen(int *s)
 {
 	int i = 0;
 
