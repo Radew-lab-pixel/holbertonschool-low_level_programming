@@ -1074,3 +1074,354 @@ Write a function that changes all lowercase letters of a string to uppercase.
 
     Prototype: char *string_toupper(char *);
 '''
+#Answer 
+'''
+#include "main.h"
+
+char _charToUpper(char a);
+
+/**
+ * string_toupper - lowercse to uppercase
+ * @s  : string pointer s
+ *
+ * Return: string s
+ */
+
+char *string_toupper(char *s)
+{
+        int length, count;
+        /* char result; */
+
+        length = _strlen(s); /* obtain of length of s */
+
+        /* count from 0 to length */
+
+        for (count = 0; count < length; count++)
+        {
+                s[count] = _charToUpper(s[count]);
+        }
+        return (s); /* return result */
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+
+/**
+ *  _charToUpper - convert lowercase char to uppercase
+ * Description:  convert lowercase to uppercase
+ * return uppercase value
+ *
+ * @a : char a
+ *
+ * Return: b as uppercase
+ *
+ * Example : _charToUpper(a)
+*/
+
+
+char _charToUpper(char a)
+{
+        char b;
+
+        /*a between 'a' and 'z' */
+        if ((a >= 'a') && (a <= 'z'))
+        {
+                b = a - 32; /* convert a to uppercase (32 different) */
+        }
+        else
+        {
+                b = a; /* save a to be as a is uppercase */
+        }
+        return (b);
+}
+'''
+
+#Task 6 
+'''
+Write a function that capitalizes all words of a string.
+
+    Prototype: char *cap_string(char *);
+    Separators of words: space, tabulation, new line, ,, ;, ., !, ?, ", (, ), {, and }
+'''
+#Answer 
+''' 
+
+#include "main.h"
+
+char _charToUpper(char a);
+int _isSeperator(char a);
+
+/**
+ * cap_string - lowercase to uppercase depending on seperator
+ * @s  : string pointer s
+ *
+ * Return: string s
+ */
+
+char *cap_string(char *s)
+{
+        int length, count;
+
+        /* char result */
+
+        int sep_detected = 0;
+
+        int next_sep_detected = 0;
+
+        length = _strlen(s);
+
+        /* obtain of length of s */
+
+        /* count from 0 to length */
+        s[0] = _charToUpper(s[0]); /* first array to capital */
+
+        count = 1;
+
+        while (count <= length)
+        {
+                /* detect current char if seperator */
+                sep_detected = _isSeperator(s[count]);
+
+                /*s[count] = ' ';*/
+                        /* replace current with space */
+                /* jump to next array */
+                next_sep_detected = _isSeperator(s[count + 1]);
+
+                /** check current is but next array is not seperator */
+                if ((sep_detected == 1) && (next_sep_detected == 0))
+                {
+                /* confirmed next array is not seperator */
+
+                        s[count + 1] = _charToUpper(s[count + 1]);
+                        sep_detected = 0; /* reset the flag */
+                        count++;
+                }
+                count++;
+        }
+        return (s); /* return result */
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+
+/**
+ *  _charToUpper - convert lowercase char to uppercase
+ * Description:  convert lowercase to uppercase
+ * return uppercase value
+ *
+ * @a : char a
+ *
+ * Return: b as uppercase
+ *
+ * Example : _charToUpper(a)
+*/
+
+
+char _charToUpper(char a)
+{
+        char b;
+
+        /*a between 'a' and 'z' */
+        if ((a >= 'a') && (a <= 'z'))
+        {
+                b = a - 32; /* convert a to uppercase (32 different) */
+        }
+        else
+        {
+                b = a; /* save a to be as a is uppercase */
+        }
+        return (b);
+}
+
+/**
+ * _isSeperator - find it current input is a seperator
+ * Decription : find seperator
+ * @a : char a
+ *
+ * Return: 1 if seperator found
+ * else 0
+ * Seperator : space, tabulation, new line, ,, ;, ., !, ?, \", (, ), {, and }
+ */
+
+int _isSeperator(char a)
+{
+        int result;
+
+        switch (a)
+        {
+                case ' ':
+                        result = 1;
+                        break;
+
+                case '\t':
+                        result = 1;
+                        break;
+
+                case '\n':
+                        result = 1;
+                        break;
+
+                case ',':
+                        result = 1;
+                        break;
+
+                case ';':
+                        result = 1;
+                        break;
+
+                case '.':
+                        result = 1;
+                        break;
+
+                case '!':
+                        result = 1;
+                        break;
+
+                case '"':
+                        result = 1;
+                        break;
+
+                case '(':
+                        result = 1;
+                        break;
+
+                case ')':
+                        result = 1;
+                        break;
+
+                case '{':
+                        result = 1;
+                        break;
+
+                case '}':
+                        result = 1;
+                        break;
+
+                default:
+                        result = 0; /* no seperator */
+        }
+        return (result);
+}
+'''
+
+#Task 7 
+'''
+
+Write a function that encodes a string into 1337.
+
+    Letters a and A should be replaced by 4
+    Letters e and E should be replaced by 3
+    Letters o and O should be replaced by 0
+    Letters t and T should be replaced by 7
+    Letters l and L should be replaced by 1
+    Prototype: char *leet(char *);
+    You can only use one if in your code
+    You can only use two loops in your code
+    You are not allowed to use switch
+    You are not allowed to use any ternary operatio
+'''
+
+#Answer 
+'''
+
+#include "main.h"
+
+char _charToLeet(char a);
+
+/**
+ * leet -  convert string to leet value
+ * @s  : string pointer s
+ *
+ * Return: string s
+ */
+
+char *leet(char *s)
+{
+        int count;
+        /* char result; */
+
+        /*length = _strlen(s); */
+        /*obtain of length of s */
+
+        /* count from 0 to length */
+
+        /*for (count = 0; count < length; count++)*/
+        /*s[0] = _charToLeet(s[0]);*/
+        for (count = 0; s[count] != '\0'; count++)
+        /*for (count = 0; s[count] != '\n'; count++)*/
+        {
+                s[count] = _charToLeet(s[count]);
+        }
+        return (s); /* return result */
+}
+
+
+/**
+ *  _charToLeet - convert char to Leet style
+ * Description:  convert char to Leet
+ * return leet value
+ *
+ * @a : char a
+ *
+ * Return: result as converted leet value if leet
+ * else return a
+ *
+ * Example : _charToLeet(a)
+*/
+
+char _charToLeet(char a)
+{
+        char reference[5] = "aeotl";
+        char leet[5] = "43071";
+        char result = a;
+
+        int i;
+
+        for (i = 0; i < 5; i++)
+        {
+                /* match found for leet conversion */
+                if ((a == reference[i]) || (a == (reference[i] - 32)))
+                {
+                        result = leet[i];
+                        return (result); /*return leet value*/
+                }
+        }
+        return (result); /* return a (unchanged */
+}
+'''
