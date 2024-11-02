@@ -4,7 +4,7 @@ char _charToUpper(char a);
 int _isSeperator(char a);
 
 /**
- * string_toupper - lowercse to uppercase
+ * cap_string - lowercase to uppercase depending on seperator
  * @s  : string pointer s
  *
  * Return: string s
