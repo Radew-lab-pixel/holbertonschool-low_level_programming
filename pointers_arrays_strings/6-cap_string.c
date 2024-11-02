@@ -18,33 +18,36 @@ char *cap_string(char *s)
 
 	int sep_detected = 0;
 
+	int next_sep_detected = 0;
+
 	length = _strlen(s);
 	/* obtain of length of s */
 
 	/* count from 0 to length */
-	for (count = 0; count <= length; count++)
+	s[0] = _charToUpper(s[0]); /* first array to capital */
+
+	count = 1; 
+	while (count <= length)
 	{
 		/* detect current char if seperator */
 		sep_detected = _isSeperator(s[count]);
-		if (sep_detected == 1)
-		{
-			/*s[count] = ' ';*/
+
+		/*s[count] = ' ';*/
 			/* replace current with space */
-			/* jump to next array */
-			sep_detected = _isSeperator(s[count + 1]);
-			/** check current array is not seperator */
-			if (sep_detected == 0)
-			{
-				/* convert lower case -uppercase */
-				s[count] = _charToUpper(s[count]);
+		/* jump to next array */
+		next_sep_detected =_isSeperator(s[count + 1]);
+
+		/** check current is but next array is not seperator */
+		if ((sep_detected == 1) && (next_sep_detected == 0))
+			{	
+				/* confirmed next array is not seperator */
+
+				s[count + 1] = _charToUpper(s[count + 1]);
 				sep_detected = 0; /* reset the flag */
+				count++;
 			}
-			else
-			{
-				count++; /* skip amd progress to next array */
-				sep_detected = 0; /* reset the flag */
-			}
-		}
+				
+		count++;
 	}
 	return (s); /* return result */
 }
