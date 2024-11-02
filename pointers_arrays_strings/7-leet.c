@@ -20,7 +20,9 @@ char *leet(char *s)
 	/* count from 0 to length */
 
 	/*for (count = 0; count < length; count++)*/
-	for (count = 0; s[count] != '\0'; count++)
+	/*s[0] = _charToLeet(s[0]);*/
+	/*for (count = 0; s[count] != '\0'; count++)*/
+	for (count = 0; s[count] != '\n'; count++)
 	{
 		s[count] = _charToLeet(s[count]);
 	}
@@ -45,16 +47,18 @@ char _charToLeet(char a)
 {
 	char reference[5] = "aeotl";
 	char leet[5] = "43071";
+	char result = a;
 
-	int count;
+	int i;
 
-	for (count = 0; count < 5; count++)
+	for (i = 0; i < 5; i++)
 	{
 		/* match found for leet conversion */
-		if ((a == reference[count]) || ((a - 32) == reference[count]))
+		if ((a == reference[i]) || (a == (reference[i] - 32)))
 		{
-			return (leet[count]); /*return leet value*/
+			result = leet[i];
+			return (result); /*return leet value*/
 		}
 	}
-	return (a); /* return a (unchanged */
+	return (result); /* return a (unchanged */
 }
