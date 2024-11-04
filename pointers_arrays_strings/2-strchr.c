@@ -5,8 +5,8 @@
  * _strchr - search for char c in string
  * and remove all characteres prior char c and
  * keep the rest after
- * @s  : string pointer s
- * @c : string pointer c to llo for
+ * @s : string pointer s
+ * @c : string pointer c
  *
  * Return: s ( successful )
  *
@@ -27,50 +27,25 @@ char *_strchr(char *s, char c)
 
 	}
 
-	/* if ch is '\0', you should return
-	* the pointer to the `\0` of the string str
-	*/
+/**
+* if ch is '\0', you should return
+* the pointer to the `\0` of the string str
+*/
 
-
-	/*if (*s == '\0') */
-       	/* current *s is '\0' */
-	/* { */
-	/*	return (NULL); */
-	       	/* return (s); */
-		/* return string s */
-	/* } */                                                                                                        
-	
-
-	if (*s == c )                                                                                              
-    	{                                                                                                    
+	if (*s == c)
+	{
 		return (s);
 	}
 
-
-		/**
-		* if (char_found == 1)
-		* {
-		*	s[found_count] ='\0';
-		*	return (s);
-		* }
-		*
-		* else
-		* {
-		*	return (s='\0');
-		* }
-		*/
-
-
-	return (NULL); /* return (NULL) */
-
-	
+	return (NULL);
+	/* return (NULL) */
 }
 
 
 /**
  * _strlen - check the length of string
  * function declaration performed in main.h
- * @s  : char pointer s
+ * @s:char pointer s
  *
  * Return: integer value of length of *s
  *
