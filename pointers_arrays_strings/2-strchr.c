@@ -40,12 +40,12 @@ char *_strchr(char *s, char c)
 		/* return string s */
 	/* } */                                                                                                        
 	
-/*
-*	if (*s == c )                                                                                              
-*    	{                                                                                                    
-*		return (s);
-*	}
-*/
+
+	if (*s == c )                                                                                              
+    	{                                                                                                    
+		return (s);
+	}
+
 
 		/**
 		* if (char_found == 1)
@@ -61,7 +61,7 @@ char *_strchr(char *s, char c)
 		*/
 
 
-	return (s); /* return (s) */
+	return (NULL); /* return (NULL) */
 
 	
 }
