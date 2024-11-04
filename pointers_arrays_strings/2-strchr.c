@@ -19,8 +19,10 @@ char *_strchr(char *s, char c)
 		{
 			return (s); /* return string s */
 		}
-
+		else /* else increase s pointer address */
+		{
 		s++;
+		}
 	}
 
 	if (*s == '\0') /* current *s is '\0' */
