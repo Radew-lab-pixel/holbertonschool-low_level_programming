@@ -27,7 +27,8 @@ char *_strchr(char *s, char c)
 
 	if (*s == '\0') /* current *s is '\0' */
 	{
-		return ('\0'); /* return string s */
+		/*return ('\0');*/
+	       return (s);	/* return string s */
 	}
 
 
@@ -46,7 +47,7 @@ char *_strchr(char *s, char c)
 		* }
 		*/
 
-	return (0); /* return NULL */
+	return ('\0'); /* return NULL */
 }
 
 
