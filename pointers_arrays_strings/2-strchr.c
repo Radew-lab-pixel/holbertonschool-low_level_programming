@@ -26,14 +26,24 @@ char *_strchr(char *s, char c)
 		}
 	}
 
-	if (*s == '\0') /* current *s is '\0' */
-	{
-		return (NULL);
+	/* if ch is '\0', you should return
+	* the pointer to the `\0` of the string str
+	*/
+
+
+	/*if (*s == '\0') */
+       	/* current *s is '\0' */
+	/* { */
+	/*	return (NULL); */
 	       	/* return (s); */
 		/* return string s */
+	/* } */                                                                                                                
+	
+
+	if (*s == c)  /*copied from https://stackoverflow.com/questions/41863674/how-to-write-your-own-strchr-in-c-using-pointers */                                                                                                       
+     	{                                                                                                                      
+		return (s);
 	}
-
-
 
 
 		/**
@@ -48,10 +58,9 @@ char *_strchr(char *s, char c)
 		*	return (s='\0');
 		* }
 		*/
-	else
-	{
+
 	return (s); /* return (s) */
-	}
+
 	
 }
 
