@@ -20,10 +20,11 @@ char *_strchr(char *s, char c)
 		{
 			return (s); /* return string s */
 		}
-		else /* else increase s pointer address */
-		{
+		/*else */
+		/* else increase s pointer address */
+
 		s++;
-		}
+
 	}
 
 	/* if ch is '\0', you should return
