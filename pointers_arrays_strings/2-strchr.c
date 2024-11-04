@@ -39,7 +39,7 @@ char *_strchr(char *s, char c)
 	/* } */                                                                                                                
 	
 
-	if (*s == c)  /*copied from https://stackoverflow.com/questions/41863674/how-to-write-your-own-strchr-in-c-using-pointers */                                                                                                       
+	if (*s == c)                                                                                                       
      	{                                                                                                                      
 		return (s);
 	}
