@@ -27,10 +27,10 @@ char *_strchr(char *s, char c)
 
 	}
 
-/**
-* if ch is '\0', you should return
-* the pointer to the `\0` of the string str
-*/
+
+/* if ch is '\0', you should return */
+/* the pointer to the `\0` of the string str */
+
 
 	if (*s == c)
 	{
@@ -39,26 +39,4 @@ char *_strchr(char *s, char c)
 
 	return (NULL);
 	/* return (NULL) */
-}
-
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s:char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
 }
