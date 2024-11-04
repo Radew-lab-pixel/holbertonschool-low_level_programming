@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * _strchr - search for char c in string
@@ -36,14 +37,14 @@ char *_strchr(char *s, char c)
 	/*	return (NULL); */
 	       	/* return (s); */
 		/* return string s */
-	/* } */                                                                                                                
+	/* } */                                                                                                        
 	
-
-	if (*s == c)                                                                                                       
-     	{                                                                                                                      
-		return (s);
-	}
-
+/*
+*	if (*s == c )                                                                                              
+*    	{                                                                                                    
+*		return (s);
+*	}
+*/
 
 		/**
 		* if (char_found == 1)
@@ -57,6 +58,7 @@ char *_strchr(char *s, char c)
 		*	return (s='\0');
 		* }
 		*/
+
 
 	return (s); /* return (s) */
 
