@@ -47,8 +47,11 @@ char *_strchr(char *s, char c)
 		*	return (s='\0');
 		* }
 		*/
-
-	return (s); /* return NULL */
+	else
+	{
+	return (s); /* return (s) */
+	}
+	
 }
 
 
