@@ -25,6 +25,8 @@ int main(void)
  *
  * Return: Always 0.
  */
+
+/* Week 5 
 int main(void)
 {
     char s1[98] = "Hello ";
@@ -37,5 +39,44 @@ int main(void)
     printf("%s", s1);
     printf("%s", s2);
     printf("%s", ptr);
+    return (0);
+}
+
+*/
+
+void simple_print_buffer(char *buffer, unsigned int size)
+{
+        unsigned int i;
+
+        i = 0;
+        while (i < size)
+        {
+                if (i % 10)
+                {
+                        printf(" ");
+                }
+                if (!(i % 10) && i)
+                {
+                        printf("\n");
+                }
+                printf("0x%02x", buffer[i]);
+                i++;
+        }
+        printf("\n");
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char buffer[98] = {0x00};
+
+    simple_print_buffer(buffer, 98);
+    _memset(buffer, 0x01, 95);
+    printf("-------------------------------------------------\n");
+    simple_print_buffer(buffer, 98);
     return (0);
 }
