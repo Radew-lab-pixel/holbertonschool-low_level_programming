@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * _strchr - search for char c in string
@@ -27,7 +28,7 @@ char *_strchr(char *s, char c)
 
 	if (*s == '\0') /* current *s is '\0' */
 	{
-		return ('\0');
+		return (NULL);
 	       	/* return (s); */
 		/* return string s */
 	}
