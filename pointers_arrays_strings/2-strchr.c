@@ -13,15 +13,21 @@
 
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
+	while (*s != '\0') /* current *s not equal 0 or '\0' */
 	{
-		if (*s == c)
+		if (*s == c) /* current *s matches char c */
 		{
-			return (s);
+			return (s); /* return string s */
 		}
 
 		s++;
 	}
+
+	if (*s == '\0') /* current *s is '\0' */
+	{
+		return (s); /* return string s */
+	}
+
 
 
 
@@ -38,7 +44,7 @@ char *_strchr(char *s, char c)
 		* }
 		*/
 
-	return (0);
+	return (0); /* return NULL */
 }
 
 
