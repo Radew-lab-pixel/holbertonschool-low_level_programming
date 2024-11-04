@@ -27,7 +27,7 @@ char *_strchr(char *s, char c)
 
 	if (*s == '\0') /* current *s is '\0' */
 	{
-		return (s); /* return string s */
+		return ('\0'); /* return string s */
 	}
 
 

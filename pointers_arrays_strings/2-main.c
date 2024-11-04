@@ -62,14 +62,28 @@ int main(void)
 
 int main(void)
 {
-    char *s = "hello";
-    char *f;
 
-    f = _strchr(s, 'l');
+   char *s = "hello";
+   char *f;
+
+   char *s1 = "First, solve the problem. Then, write the code.";
+   /* char *f1; */
+
+
+   f = _strchr(s, 'l');
 
     if (f != NULL)
     {
         printf("%s\n", f);
     }
+
+    
+    f =_strchr(s1, 'a');
+
+    if (f != NULL)
+    {
+        printf("%s\n", f);
+    }
+
     return (0);
 }
