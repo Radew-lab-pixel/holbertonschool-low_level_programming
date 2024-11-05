@@ -45,6 +45,14 @@ char *_strpbrk(char *s, char *accept)
 		s++; /* increase *s address pointer by 1 */
 	}
 
+	if (*s == '\0')
+	{
+		return (0);
+	}
+
 	return (s);
-	/* return counter */
+
+
+
 }
+
