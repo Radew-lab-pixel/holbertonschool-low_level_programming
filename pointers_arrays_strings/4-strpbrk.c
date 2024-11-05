@@ -45,9 +45,9 @@ char *_strpbrk(char *s, char *accept)
 		s++; /* increase *s address pointer by 1 */
 	}
 
-	if (*s == '\0')
+	if (*s == '\0') /* reach end of line of s */
 	{
-		return (0);
+		return (0); /* return 0 - NULL */
 	}
 
 	return (s);
