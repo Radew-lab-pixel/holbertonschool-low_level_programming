@@ -1,11 +1,9 @@
 #include "main.h"
-
 /**
  * _strstr - find needle  in haystack
  * @haystack  : string pointer search target
- * @needle : string pointer  to be based on
- *
- * Return : char of matched word
+ * @needle: string pointer  to be based on
+ * Return: char haystack match else 0 if no match
  */
 
 char *_strstr(char *haystack, char *needle)
