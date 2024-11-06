@@ -55,8 +55,8 @@ int char2int (char *str)
 				/* if str between 0 and 9 , converted to integer */
 			{
 				result = result * 10 + (str[count] - '0');
-/* multiple each numerical by 10 if more digit found */
-/* -'0' is char  to integer */
+		/* multiple each numerical by 10 if more digit found */
+		/* -'0' is char  to integer */
 			}
 			else /*other character including + sign */
 			{

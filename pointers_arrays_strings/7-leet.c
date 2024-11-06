@@ -54,11 +54,11 @@ char _charToLeet(char a)
 	for (i = 0; i < 5; i++)
 	{
 		/* match found for leet conversion */
-		if ((a == reference[i]) || (a == (reference[i] - 32)))
+		if ((a == reference[i]) || (a == (reference[i] - 32))) 
 		{
 			result = leet[i];
 			return (result); /*return leet value*/
 		}
 	}
 	return (result); /* return a (unchanged */
-}
+}a
