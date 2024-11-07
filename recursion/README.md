@@ -99,3 +99,43 @@ int _strlen_recursion(char *s)
 '''
 3-factorial.c
 '''
+#include "main.h"
+
+/**
+ * factorial - Entry point
+ *
+ * Description: 'take input number and calculate the factorial'
+ * Formula: factorial(n) =  n * factorial (n -1 )
+ * @n: input integer n
+ *
+ * Return: Always 0 (Success)
+ */
+
+int factorial(int n)
+{
+        /* n is 1 meant reach top  of the stacks */
+        /* n is 0 meant int n originally is 0 */
+        if ((n == 1) || (n == 0))
+        {
+                return (1); /* return 1 as factorial(1)*/
+        }
+        else if (n < 0)
+        {
+                return (-1); /* return -1 */
+        }
+        else
+        {
+        /* (n-1) cannot be negative thus if such value is ommitted in recursion */
+        return (n * factorial(n - 1));
+        }
+}
+'''
+##Task 4 : Write a function that returns the value of x raised to the power of y.
+
+    Prototype: int _pow_recursion(int x, int y);
+    If y is lower than 0, the function should return -1
+
+FYI: The standard library provides a different function: pow. Run man pow to learn more.
+
+
+4-pow_recursion.c
