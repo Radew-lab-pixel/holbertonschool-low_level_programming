@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _puts_rev_recursion - Entry point
+ * _print_rev_recursion - Entry point
  *
  * Description: 'take input string and print reverese line'
  * @s: input string
