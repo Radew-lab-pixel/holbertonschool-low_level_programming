@@ -1,15 +1,16 @@
 #include "main.h"
 
+int cal_prime(int num);
 /**
- * _pow_recursion - Entry point
+ * _is_prime_number - Entry point
  *
- * Description: 'take input x  and raise it to power of y'
- * @x: input integer x of root value
- * @y: input integer y of power value
- * Return: integer value of result
+ * Description: 'find is n is prime number'
+ * @n: input integer n
+ * Return: integer value of of 0 or 1
  */
 
-int _pow_recursion(int x, int y)
+int is_prime_number(int n)
+
 {
 	/* if power value is 0 */
 	if (y == 0)
@@ -25,4 +26,26 @@ int _pow_recursion(int x, int y)
 		return (x * (_pow_recursion(x, y - 1)));
 	}
 
+}
+
+
+int cal_prime(int num) 
+{
+	if (num == 0)
+	{
+		return (0); /* 0 is not or is prime */
+	}
+	
+	else if (num == 2) 
+	{
+		return (1); /* 2 is prime */
+	}
+	else if (num / 2) 
+	{
+		return (0); /* 2 division is not prime */
+	}
+	else if ((num % i) == 0)
+	{
+
+	}
 }
