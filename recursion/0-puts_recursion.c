@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * _puts_recursion : print string followed by a new line
+ * _puts_recursion - Entry point
  *
- * Description : take char *s and print new line
+ * Description: 'take input string and put new line'
+ * @s: input string
  *
- * @s : input parameter string s
- *
- * Return : void (Always)
+ * Return: Always 0 (Success)
  */
 
 void _puts_recursion(char *s)
