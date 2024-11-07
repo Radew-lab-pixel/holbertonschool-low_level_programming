@@ -68,3 +68,34 @@ void _print_rev_recursion(char *s)
 FYI: The standard library provides a similar function: strlen. Run man strlen to learn more.
 
 2-strlen_recursion.c
+'''
+#include "main.h"
+
+/**
+ * _strlen_recursion - Entry point
+ *
+ * Description: 'take input string and find the length of string'
+ * @s: input string
+ *
+ * Return: integer value of length(Success)
+ */
+
+int _strlen_recursion(char *s)
+{
+        /* s is end of line */
+        if (*s == '\0')
+        {
+                return (0);  /* add 0 and exit */
+        }
+        /* add 1 to recursion everytime */
+        return (1 + _strlen_recursion(s + 1));
+}
+'''
+##Task 3 : Write a function that returns the factorial of a given number.
+
+    Prototype: int factorial(int n);
+    If n is lower than 0, the function should return -1 to indicate an error
+    Factorial of 0 is 1
+'''
+3-factorial.c
+'''
