@@ -1,434 +1,48 @@
-##Week 4 C  - Pointers, arrays and strings
+# Week 5 C - Even more pointers, arrays and strings
 
-#Task 0 
-'''
-Write a function that takes a pointer to an int as parameter and updates the value it points to to 98.
+    What are pointers to pointers and how to use them
+    What are multidimensional arrays and how to use them
+    What are the most common C standard library functions to manipulate strings
 
-    Prototype: void reset_to_98(int *n);
-'''
-#Answer
-'''
-#include "main.h"
+## Task 0 : Write a function that fills memory with a constant byte.
 
-/**
- * reset_to_98 -   updates the pointer value it points to to 98
- * @n  : integer pointer n
- *
- * Return: none
- *
- * Example : reset_to_98(20)
- */
+    Prototype: char *_memset(char *s, char b, unsigned int n);
+    The _memset() function fills the first n bytes of the memory area pointed to by s with the constant byte b
+    Returns a pointer to the memory area s
 
-void reset_to_98(int *n)
-{
-        *n = 98;
-}
-'''
+FYI: The standard library provides a similar function: memset. Run man memset to learn more. 
 
-#Task 1 
-'''
-Write a function that swaps the values of two integers.
-
-    Prototype: void swap_int(int *a, int *b);
-'''
-
-#Answer 
+0-memset.c
 '''
 #include "main.h"
 
 /**
- * swap_int - swap the pointer values
- * @a : integer pointer a
- * @b : integer pointer b
- * Return: none
+ * _memset - alter the array s  detail with char b data
+ * @s  : string pointer str s
+ * @b : char b to eplaced with
+ * @n : array range that to be altered
+ * Return: s ( successful )
  *
- * Example : swap_none(20, 10)
  */
 
-void swap_int(int *a, int *b)
-
+char *_memset(char *s, char b, unsigned int n)
 {
-        int c = *a;
+        int count;
 
-        *a = *b;
-        *b = c;
-}
-'''
-#Task 2 : 
-'''
-Write a function that returns the length of a string.
+        /*length = _strlen(s); */
+        /* obtain of length of array s */
 
-    Prototype: int _strlen(char *s);
+        /* unsigned int unsigned_length = (unsigned int) length; */
 
-FYI: The standard library provides a similar function: strlen. Run man strlen to learn more.
-'''
-
-#Answer 
-'''
-#include "main.h"
-
-/**
- * _strlen - check the length of string
- * @s  : integer pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
+        if ((int) n > 0) /* failsafe to check <= length*/
         {
-                i++;
-        }
-        return (i);
-}
-'''
-
-#Task 3  
-'''
-Write a function that prints a string, followed by a new line, to stdout.
-
-    Prototype: void _puts(char *str);
-
-FYI: The standard library provides a similar function: puts. Run man puts to learn more.
-'''
-#Answer 
-'''
-#include "main.h"
-
-/**
- * _puts - display string by input
- * @str  : string pointer str
- *
- * Return: none
- *
- * Example : _puts("Hello World")
- */
-
-void _puts(char *str)
-{
-        int length, count;
-
-        length = _strlen(str);
-
-        for (count = 0; count < length; count++)
-        {
-                _putchar(str[count]);
-        }
-        _putchar('\n');
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-'''
-
-#Task 4
-'''
-Write a function that prints a string, in reverse, followed by a new line.
-
-    Prototype: void print_rev(char *s);
-'''
-#Answer 
-''' 
-#include "main.h"
-
-/**
- * print_rev  - display and reverse  string by input
- * @s  : string pointer s
- *
- * Return: none
- *
- * Example : _print_rev("Hello World")
- */
-
-void print_rev(char *s)
-{
-        int length, count;
-
-        length = _strlen(s); /* length of s */
-
-        for (count = length - 1; count >= 0; count--) /* count to start before '\0' thus length - 1 */
-        {
-                _putchar(s[count]);
-        }
-        _putchar('\n');
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-'''
-
-#Task 5 
-'''
-Write a function that reverses a string.
-
-    Prototype: void rev_string(char *s);
-'''
-#Answer 
-'''
-#include "main.h"
-
-void print_rev_string(char *s);
-void swap_char (char *a, char *b);
-
-/**
- * rev_string  - display and reverse  string by input
- * @s  : string pointer s
- *
- * Return: none
- *
- * Example : rev_string("Hello World")
- */
-
-void rev_string(char *s)
-{
-        print_rev_string(s);
-}
-
-/**
- * print_rev_string  -  display and reverse  string by input
- * modified from Task 4 - print_rev
- * @s  : string pointer s
- *
- * Return: none
- *
- * Example : _print_rev("Hello World")
- */
-
-void print_rev_string(char *s)
-{
-        int length, count, back_count;
-
-        length = _strlen(s) - 1; /* length of s , -1 to exclude '\0', if not will not update the changes of s */
-
-        back_count = length;
-        for (count = 0; count <= (length / 2); count++) /* count to start before '\0' thus length - 1 , if using count < (length/2) will cause issue with word count in assessment*/
-        {
-                /** _putchar(s[count]); **/
-                swap_char (s + count, s + back_count);
-                back_count--;
-        }
-        *(s + length + 1) = '\0'; /* add '\0' to end of s */ 
-        /** _putchar('\n'); **/
-}
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-
-/**
- * swap_char - swap the pointer values
- * modified from Task 1 - swap_int
- * @a : char pointer a
- * @b : char pointer b
- * Return: none
- *
- * Example : swap_char('A', 'z')
- */
-
-void swap_char (char *a, char *b)
-{
-        char c = *a;
-
-        *a = *b;
-        *b = c;
-}
-'''
-
-Write a function that prints every other character of a string, starting with the first character, followed by a new line.
-
-    Prototype: void puts2(char *str);
-'''
-#Task 6 
-'''
-Write a function that prints every other character of a string, starting with the first character, followed by a new line.
-
-    Prototype: void puts2(char *str);
-'''
-#Answer 
-'''
-#include "main.h"
-
-void _puts_2x(char *str);
-
-/**
- * puts2 - display every other character of a string, starting with the first character
- * @str  : string pointer str
- *
- * Return: none
- *
- * Example : _puts2("123456789")
- */
-
-void puts2(char *str)
-{
-        _puts_2x(str);
-}
-
-/**
- * _puts_2x - every second vhar in  string by input
- * Function modified from Task 3 3-puts.c
- * @str  : string pointer str
- *
- * Return: none
- *
- * Example : _puts_2x("123456789") -> 13579
- */
-void _puts_2x(char *str)
-{
-        int length, count;
-
-        length = _strlen(str);
-
-        for (count = 0; count < length; (count = count + 2))
-        {
-                _putchar(str[count]);
-        }
-        _putchar('\n');
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-'''
-#Task 7 
-'''
-Write a function that prints half of a string, followed by a new line.
-
-    Prototype: void puts_half(char *str);
-    The function should print the second half of the string
-    If the number of characters is odd, the function should print the last n characters of the string, where n = (length_of_the_string - 1) / 2
-'''
-
-#Answer 
-'''
-#include "main.h"
-
-void _puts_halve(char *str);
-/**
- * puts_half - display second half of string
- * @str : string pointer str
- *
- * Return : none
- *
- * Example : puts_halfway("Hello World")
- */
-
-void puts_half(char *str)
-{
-        _puts_halve(str);
-}
-/**
- * _puts_halve - display string by input
- * function modified from Task 3 3-puts.c
- * @str  : string pointer str
- *
- * Return: none
- *
- * Example : _puts("Hello World")
- */
-
-void _puts_halve(char *str)
-{
-        int count, half_whole, count_offset, half_remain;
-
-        int length = _strlen(str);
-
-        half_whole = length / 2; /*whole number of length /2 */
-        half_remain = length % 2; /* remain of number of length /2 */
-
-        if (half_remain != 0)
-        /* the length is not in multipled of 2 - not perfect half */
-        {
-                count_offset = 1; /* count 1 address later */
-        }
-        else
-        {
-                count_offset = 0; /* keep original address */
-        }
-
-        for (count = count_offset; count <= half_whole; count++)
-        {
-                if ((str[count + half_whole]) != '\0')
+                for (count = 0; count < (int) n; count++)
                 {
-                        _putchar(str[count + half_whole]);
-                        /*start from second half of str */
+                        s[count] = b; /* replace s[count] with char b */
                 }
         }
-        _putchar('\n');
+
+        return (s);
 }
 
 /**
@@ -437,6 +51,63 @@ void _puts_halve(char *str)
  * @s  : char pointer s
  *
  * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+##Task 1 : Write a function that copies memory area.
+
+    Prototype: char *_memcpy(char *dest, char *src, unsigned int n);
+    The _memcpy() function copies n bytes from memory area src to memory area dest
+    Returns a pointer to dest
+
+FYI: The standard library provides a similar function: memcpy. Run man memcpy to learn more.
+
+1-memcpy.c
+'''
+#include "main.h"
+
+/**
+ * _memcpy - copy n number of array from src to dest
+ * @src  : string pointer str src
+ * @dest : string pointer str dest
+ * @n : array range that to be altered
+ * Return: s ( successful )
+ *
+ */
+char *_memcpy(char *dest, char *src, unsigned int n)
+{
+        int count;
+
+        if ((int) n > 0) /* failsafe to check n > 0*/
+        {
+                for (count = 0; count < (int) n; count++)
+                {
+                        dest[count] = src[count]; /* replace s[count] with char b */
+                }
+        }
+
+        return (dest);
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
  * Example : _strlen(aa)
  */
 
@@ -452,275 +123,399 @@ int _strlen(char *s)
 }
 '''
 
-#Task 8 
-'''
-Write a function that prints n elements of an array of integers, followed by a new line.
+##Task 2 : Write a function that locates a character in a string.
 
-    Prototype: void print_array(int *a, int n);
-    where n is the number of elements of the array to be printed
-    Numbers must be separated by comma, followed by a space
-    The numbers should be displayed in the same order as they are stored in the array
-    You are allowed to use printf
+    Prototype: char *_strchr(char *s, char c);
+    Returns a pointer to the first occurrence of the character c in the string s, or NULL if the character is not found
+
+FYI: The standard library provides a similar function: strchr. Run man strchr to learn more.
+
+2-strchr.c 
 '''
-#Answer
+#include "main.h"
+#include <stddef.h>
+
+/**
+ * _strchr - search for char c in string
+ * and remove all characteres prior char c and
+ * keep the rest after
+ * @s : string pointer s
+ * @c : string pointer c
+ *
+ * Return: s ( successful )
+ *
+ */
+
+char *_strchr(char *s, char c)
+{
+        while (*s != '\0') /* current *s not equal 0 or '\0' */
+        {
+                if (*s == c) /* current *s matches char c */
+                {
+                        return (s); /* return string s */
+                }
+                /*else */
+                /* else increase s pointer address */
+
+                s++;
+
+        }
+
+
+/* if ch is '\0', you should return */
+/* the pointer to the `\0` of the string str */
+
+
+        if (*s == c)
+        {
+                return (s);
+        }
+
+        return (NULL);
+        /* return (NULL) */
+}
+'''
+
+##Task 3 : Write a function that gets the length of a prefix substring.
+
+    Prototype: unsigned int _strspn(char *s, char *accept);
+    Returns the number of bytes in the initial segment of s which consist only of bytes from accept
+
+FYI: The standard library provides a similar function: strspn. Run man strspn to learn more.
+
+3-strspn.c 
+'''
+#include "main.h"
+#include <stddef.h>
+
+/**
+ * _strspn - search for matching char in the intial word
+ * and return the number matched
+ *
+ * @s : string pointer s where intial matching word is stored
+ * @accept : char containing chars to be matched
+ *
+ * Return: int of the number of matched character
+ *
+ */
+
+unsigned int _strspn(char *s, char *accept)
+
+{       unsigned int counter = 0;
+        /* counter for matched characters */
+        unsigned int counter_ref = 0;
+        /*counter for reference is *s == *accept is achieved */
+
+        char *begin_accept = accept;
+        /* *accept pointer is only -> one direction thus store begin location */
+
+        while (*s != '\0') /* current *s not equal 0 or '\0' */
+        {
+                counter_ref = counter;
+                /* stored the matched char counter for reference */
+
+                accept = begin_accept; /* reset *accept address to [0] */
+
+                while (*accept != '\0') /* accept is not end of line */
+                {
+                        if (*s == *accept) /* current *s matches current *accept */
+                        {
+                        counter++; /* increase counter value */
+                        }
+
+                        accept++; /* increase *accept address pointer by 1 */
+                }
+
+                if (counter == counter_ref) /* no change in counter meant no match */
+                {
+                        return (counter); /* terminate and return the matched counter */
+                }
+
+                s++; /* increase *s address pointer by 1 */
+        }
+
+
+        return (counter);
+        /* return counter */
+}
+'''
+
+##Task 4 : Write a function that searches a string for any of a set of bytes.
+
+    Prototype: char *_strpbrk(char *s, char *accept);
+    The _strpbrk() function locates the first occurrence in the string s of any of the bytes in the string accept
+    Returns a pointer to the byte in s that matches one of the bytes in accept, or NULL if no such byte is found
+
+FYI: The standard library provides a similar function: strpbrk. Run man strpbrk to learn more.
+
+4-strpbrk.c 
+'''
+#include "main.h"
+#include <stddef.h>
+
+/**
+ * _strpbrk - search for matching char in the intial word
+ * and return the matched characters
+ *
+ * @s : string pointer s where intial matching word is stored
+ * @accept : char containing chars to be matched
+ *
+ * Return: int of the number of matched character
+ *
+ */
+
+char *_strpbrk(char *s, char *accept)
+
+{
+        /*unsigned int counter = 0; */
+        /*counter for matched characters */
+        /*unsigned int counter_ref = 0;*/
+        /*counter for reference is *s == *accept is achieved */
+
+        char *begin_accept = accept;
+        /* *accept pointer is only -> one direction thus store begin location */
+
+        while (*s != '\0') /* current *s not equal 0 or '\0' */
+        {
+                /*counter_ref = counter;*/
+                /* stored the matched char counter for reference */
+
+                accept = begin_accept; /* reset *accept address to [0] */
+
+                while (*accept != '\0') /* accept is not end of line */
+                {
+                        if (*s == *accept) /* current *s matches current *accept */
+                        {
+                        /* counter++; */
+                        /* increase counter value */
+
+                        return (s) ; /* terminate and return remaining *s */
+                        }
+                        accept++; /* increase *accept address pointer by 1 */
+                }
+
+                s++; /* increase *s address pointer by 1 */
+        }
+
+        if (*s == '\0') /* reach end of line of s */
+        {
+                return (0); /* return 0 - NULL */
+        }
+
+        return (s);
+
+}
+'''
+#Task 5 : Write a function that locates a substring.
+
+    Prototype: char *_strstr(char *haystack, char *needle);
+    The _strstr() function finds the first occurrence of the substring needle in the string haystack. The terminating null bytes (\0) are not compared
+    Returns a pointer to the beginning of the located substring, or NULL if the substring is not found.
+
+FYI: The standard library provides a similar function: strstr. Run man strstr to learn more.
+
+5-strstr.c 
+'''
+#include "main.h"
+/**
+ * _strstr - find needle  in haystack
+ * @haystack  : string pointer search target
+ * @needle: string pointer  to be based on
+ * Return: char haystack match else 0 if no match
+ */
+
+char *_strstr(char *haystack, char *needle)
+{
+        int count;
+        int match = 0;
+        /* match flag if haystack and needle matches */
+        int length = _strlen(needle);
+
+        /* length of needle */
+        if (length == 0)
+
+        /* failsafe if length is 0 */
+        {
+                return (haystack);
+                /* return haystack and exit */
+        }
+        while (*haystack != '\0')
+        {       count = 0; /* reset count to 0 */
+                if (haystack[count] == needle[count]) /* first match found ! */
+                {
+                        match = 1;
+                        /* match found with first character of needle and among s array */
+                        count = 1;
+                        /* forward count by 1 */
+
+                        /* count < needle length & match found */
+                        while ((count < length) && (match == 1))
+                        {
+                                if (haystack[count] == needle[count])
+                                {
+                                        count++; /* increase both haystack and needle array position by 1 */
+                                        match = 1; /* reaffirm match is found */
+                                }
+                                else     /* there a mismatch along the search */
+                                {
+                                        match = 0; /* match reset to 0 */
+                                }
+                        }
+/* count and length the same while  match also is 1 entire needle string matches a word in haystack */
+                        if ((count == length) & (match == 1))
+                        {
+                                return (haystack);
+                        }
+                }
+                haystack++;
+/* progress to next char in haystack */
+        }
+        if (*haystack == '\0') /* reach end of line of haystack */
+        {
+                return (0); /* return 0 - NULL */
+        }
+        return (haystack);
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+#Task 6 : Write a function that prints the chessboard.
+
+    Prototype: void print_chessboard(char (*a)[8]);
+
+7-print_chessboard.c 
+
+'''
+
+#include "main.h"
+
+/**
+ * print_chessboard - print chessboard
+ * @a  : 2D array with 8 columns
+ *
+ * Return: void
+ */
+
+void print_chessboard(char (*a)[8])
+{
+        /* length of first row or number of column */
+        int length = _strlen(a[0]);
+
+        int row = 0;
+        int column = 0;
+
+        if (length < 8) /* failsafe if length is not 8 */
+        {
+                return;
+                /* return  and exit */
+        }
+        while (row < 8)
+        {
+                column = 0; /*column reset to 0 */
+                while (column < 8)
+                {
+                        _putchar(a[row][column]);
+                        column++;
+                }
+                _putchar('\n');
+                row++;
+        }
+        return;  /*successful */
+}
+
+/**
+ * _strlen - check the length of string
+ * function declaration performed in main.h
+ * @s  : char pointer s
+ *
+ * Return: integer value of length of *s
+ *
+ * Example : _strlen(aa)
+ */
+
+int _strlen(char *s)
+{
+        int i = 0;
+
+        while (s[i] != '\0')
+        {
+                i++;
+        }
+        return (i);
+}
+'''
+
+##Task 7 : Write a function that prints the sum of the two diagonals of a square matrix of integers.
+
+    Prototype: void print_diagsums(int *a, int size);
+    Format: see example
+    You are allowed to use the standard library
+
+8-print_diagsums.c 
 '''
 #include "main.h"
 #include <stdio.h>
 
 /**
- * print_array - display array by input n
- * @a  : string pointer str
- * @n : integer n for number of array
+ * print_diagsums - calculate the forward and backward
  *
- * Return: none
- *
- * Example : print_array("Hello World", 5)
+ * Description : value of the diagonal sum of the square matrix
+ * @a  : char 2D array with square columns
+ * @size : int size of row and column of array a
+ * Return: void
  */
 
-void print_array(int *a, int n)
+void print_diagsums(int *a, int size)
 {
-        int count;
+        /* counter */
+        int count = 0;
 
-        count = 0;
+        /* when 2D array passed as pointer *a */
+        /* pointer a stored the passed 2D array as 1D array */
+        /* value of diagnonal summation */
+        int sum_forward = 0;
+        int sum_backward = 0;
 
-        while (count < n)
+        while (count < (size * size))
         {
-                if (count == (n - 1))
-                {
-                        printf("%d", *(a + count));
-                }
-                else
-                {
-                        printf("%d, ", *(a + count));
-                }
-                count++;
-        }
-        printf("\n");
-}
+                /* sum of forward diagnoal */
+                sum_forward = sum_forward + a[count];
 
-'''
-#Task 9 
-'''
-
-    Prototype: char *_strcpy(char *dest, char *src);
-
-Write a function that copies the string pointed to by src, including the terminating null byte (\0), to the buffer pointed to by dest.
-
-    Return value: the pointer to dest
-
-FYI: The standard library provides a similar function: strcpy. Run man strcpy to learn more.
-'''
-#Answer 
-'''
-#include "main.h"
-
-/**
-* *_strcpy - copy both arrays
-* @dest  : string pointer dest, to be copied from src
-* @src : str point array src
-*
-* Return: Always @dest (Success)
-*
-*/
-
-char *_strcpy(char *dest, char *src)
-{
-        int count, length;
-
-        length = _strlen(src);
-
-        /** char *start = dest; **/
-
-        count = 0;
-
-        while (count < length)
-        {
-                *(dest + count) = *(src + count);
-                count++;
+                /* increment of the count */
+                count = count + size + 1;
         }
 
-        *(dest + count) = '\0';
-        return (dest);
-}
+        /* backward diagonal summation */
+        count = size - 1; /* first backward search position of *a */
 
-/**
- * _strlen - check the length of string
- * @s  : integer pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
+        while (count < size * size - 1)
         {
-                i++;
+                sum_backward = sum_backward + a[count];
+                count = count + size - 1;
         }
-        return (i);
-}
-'''
-#Task 10 
-'''
-Write a function that convert a string to an integer.
 
-    Prototype: int _atoi(char *s);
-    The number in the string can be preceded by an infinite number of characters
-    You need to take into account all the - and + signs before the number
-    If there are no numbers in the string, the function must return 0
-    You are not allowed to use long
-    You are not allowed to declare new variables of “type” array
-    You are not allowed to hard-code special values
-    We will use the -fsanitize=signed-integer-overflow gcc flag to compile your code.
+        printf("%d, %d\n", sum_forward, sum_backward);
 
-FYI: The standard library provides a similar function: atoi. Run man atoi to learn more.
-'''
-
-#Answer 
-'''
-
-#include "main.h"
-
-/*char *_strcompareInt(char *dest, char *src);*/
-int char2int(char *str);
-
-/**
-*_atoi - extract integer from input s
-*
-* @s : str point array input s
-*
-* Return: int integer value (Success)
-*
-*/
-
-int _atoi(char *s)
-{
-        int result;
-
-        /*_strcompareInt(result, s);*/
-        result = char2int(s);
-
-        return (result);
-}
-
-
-/**
-* *char2int - compare stc and convert from char array to integer
-*  @str : str point array
-*
-* Return: Integer result (Success)
-*
-*/
-int char2int (char *str)
-{
-        unsigned int result = 0; /* result of char to integer coversion */
-        int sign = 1;  /* to indicate if - or +* default to +*/
-        int count = 0; /* counter for accessing the array */
-        int length = _strlen(str);
-        int num_become_char = 0;
-        /*flag to detect when the access the string next char */
-        /*after number is non numerical thus will ignore the rest of the string */
-
-        /* for (count = 0; str[count] != '\0' ; count++) */
-        for (count = 0; count < length; count++)
-        {
-                if (num_become_char == 0)
-                        /* if the num_become_char is still false 0 */
-                {
-                        if (str[count] == '-')
-                        /* if str[count] is negative sign */
-                        {
-                                sign = -1 * sign; /* multiply current sign factor by -1 */
-                        }
-                        else if ((str[count] >= '0') && (str[count]  <= '9'))
-                                /* if str between 0 and 9 , converted to integer */
-                        {
-                                result = result * 10 + (str[count] - '0');
-/* multiple each numerical by 10 if more digit found */
-/* -'0' is char  to integer */
-                        }
-                        else /*other character including + sign */
-                        {
-                                if ((str[count - 1] >= '0') && (str[count - 1] <= '9'))
-                                /* found the previous str[count] is numerical */
-                                {
-                                        num_become_char = 1;
-                                        /* set the num_become_char flag to be 1 thus will exit the loop*/
-                                }
-                        }
-                }
-                else
-                {
-                        result = result * sign; /* multiply result with sign */
-                        return (result); /* return result and terminate the program */
-                }
-        }
-        result = result * sign; /* multiply result with sign */
-        return (result); /* return result */
-}
-
-/**
- * _strlen - check the length of string
- * @s  : integer pointer s
- *
- * Return: integer value of length of *s
- * * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-} 
-'''
-
-##Week 5 C - More pointers, arrays and strings
-
-#Task 0 : 
-'''
-
-Write a function that concatenates two strings.
-
-    Prototype: char *_strcat(char *dest, char *src);
-    This function appends the src string to the dest string, overwriting the terminating null byte (\0) at the end of dest, and then adds a terminating null byte
-    Returns a pointer to the resulting string dest
-
-FYI: The standard library provides a similar function: strcat. Run man strcat to learn mor
-'''
-
-#Answer 
-'''
-#include "main.h"
-
-/**
- * _strcat - append src to dest
- * @src  : string pointer str
- * @dest : string pointer dest
- *
- * Return: dest ( successful )
- *
- */
-
-char *_strcat(char *dest, char *src)
-{
-        int length_dest, length_src, count;
-
-        length_src = _strlen(src); /* obtain of length of src */
-        length_dest = _strlen(dest); /* obtain length of dest */
-
-        for (count = 0; count < length_src; count++)
-        {
-                dest[length_dest + count] = src[count];
-        }
-        return (dest);
 }
 
 /**
@@ -745,683 +540,3 @@ int _strlen(char *s)
 }
 '''
 
-#Task 1 
-'''
-Write a function that concatenates two strings.
-
-    Prototype: char *_strncat(char *dest, char *src, int n);
-    The _strncat function is similar to the _strcat function, except that
-        it will use at most n bytes from src; and
-        src does not need to be null-terminated if it contains n or more bytes
-    Return a pointer to the resulting string dest
-
-FYI: The standard library provides a similar function: strncat. Run man strncat to learn more.
-'''
-
-#Answer
-'''
-#include "main.h"
-
-/**
- * _strncat - append src to dest depend on n
- * @src  : string pointer str
- * @dest : string pointer dest
- * @n : integer n
- *
- * if n is larger the src[count],
- * src[count] will be used
- * Return: dest ( successful )
- *
- */
-
-char *_strncat(char *dest, char *src, int n)
-{
-        int length_dest, length_src, count;
-
-        length_src = _strlen(src); /* obtain of length of src */
-        length_dest = _strlen(dest); /* obtain length of dest */
-        if (n > length_src) /* if n larger than length_src */
-        { /* append src to dest */
-                for (count = 0; count < length_src; count++)
-                {
-                        dest[length_dest + count] = src[count];
-                }
-        }
-        else /* n < length_Src */
-        {
-                /* append src[n] to dest */
-                for (count = 0; count < n; count++)
-                {
-                        dest[length_dest + count] = src[count];
-                }
-        }
-        return (dest);
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-} 
-'''
-
-#Task 2 : 
-'''
-Write a function that copies a string.
-
-    Prototype: char *_strncpy(char *dest, char *src, int n);
-    Your function should work exactly like strncpy
-
-FYI: The standard library provides a similar function: strncpy. Run man strncpy to learn more.
-'''
-#Answer 
-'''
-#include "main.h"
-
-/**
- * _strncpy - copy src to dest depend on n
- * @src  : string pointer str
- * @dest : string pointer dest
- * @n : integer n
- *
- * if n is larger the src[count],
- * remainder dest[count] will be filled with '\0'
- * Return: dest ( successful )
- *
- */
-
-char *_strncpy(char *dest, char *src, int n)
-{
-        int length_src, count;
-
-        length_src = _strlen(src); /* obtain of length of src */
-        /*length_dest = _strlen(dest);*/  /* obtain length of dest */
-        if (n > length_src) /* if n larger than length_src */
-        { /* copy src to dest */
-                for (count = 0; count < length_src; count++)
-                {
-                        dest[count] = src[count];
-                }
-                /* Add '\0' to remaining dest[n] */
-                while (count < n)
-                {
-                        dest[count] = '\0';
-                        count++;
-                }
-        }
-        else /* n < length_Src */
-        {
-                /* copy only  src[n] to dest */
-                for (count = 0; count < n; count++)
-                {
-                        dest[count] = src[count];
-                }
-        }
-        return (dest);
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-'''
-
-#Task 3 : 
-
-'''
-Write a function that compares two strings.
-
-    Prototype: int _strcmp(char *s1, char *s2);
-    Your function should work exactly like strcmp
-
-FYI: The standard library provides a similar function: strcmp. Run man strcmp to learn more.
-'''
-
-#Answer
-'''
-#include "main.h"
-
-int _charCal(char a, char b);
-
-/**
- * _strcmp - compare s1  and s2
- * @s1  : string pointer s1
- * @s2 : string pointer s2
- *
- * Return: 0 ( successful )
- * > 0 if s1 > s2
- * < 0 if s1 < s2
- */
-
-int _strcmp(char *s1, char *s2)
-{
-        int length_s1, length_s2, length, count;
-        int result;
-
-        length_s1 = _strlen(s1); /* obtain of length of src */
-        length_s2 = _strlen(s2); /* obtain length of dest */
-
-        /* match_detected = 0,  flag to detect if match */
-
-        /* detect if the both length not matching to prevent overflow */
-
-        if (length_s1 >= length_s2)
-        {
-                length = length_s2; /* assign length_s2 to length */
-        }
-        else
-        {
-                length = length_s1; /* assign length_s1 to length */
-        }
-
-        /* count from 0 to length */
-
-        for (count = 0; count < length; count++)
-        {
-
-                result = _charCal(s1[count], s2[count]);
-                /* called in house charCal function */
-
-                /* result != 0 ( mismatch) */
-                if (result != 0)
-                {
-                        return (result); /* exit early and return result */
-                }
-        }
-        return (result); /* reach end of length , return result ( mostly 0 )*/
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-
-/**
- *  _charCal - integer difference between s1 and s2
- * Description:  integer difference between s1 and s2
- * return the difference
- *
- * @a : string pointer to s1
- * @b : string pointer to s2
- *
- * Return: 0 ( successful )
- * else difference value
- *
- * Example : _charCal(s1, s2)
-*/
-
-
-int _charCal(char a, char b)
-{
-        int int_a, int_b;
-
-        int_a = a - '0';
-        /*convert s1 (ASCII char) to integer*/
-        int_b = b - '0';
-
-        /* a and b matched */
-        if (int_a == int_b)
-        {
-                return (0);
-        }
-        else
-        {
-                return (int_a - int_b);
-        }
-} 
-'''
-#Task 4 : 
-'''
-Write a function that reverses the content of an array of integers.
-
-    Prototype: void reverse_array(int *a, int n);
-    Where n is the number of elements of the array
-'''
-
-#Answer 
-'''
-#include "main.h"
-
-int _intlen(int *s);
-
-/**
- * reverse_array - reverse array according to interger n
- * @a  : string pointer to array a
- * @n : integer n size of the array to be swapped
- *
- * Return: void ( successful )
- *
- */
-
-void reverse_array(int *a, int n)
-{
-        int temp, count, midway;
-
-        /*length = _intlen(a); */
-        /* obtain of array length of a */
-        /* int temp[n]; */
-        /* temporary storage of a between [0..length] NOT allowed */
-
-         /* failsafe check for n > 1 to prevent segmentation fault code 139  */
-        if (n > 1)
-        {
-
-                midway = n / 2; /* count for for loop to end midway of n */
-                /* between 0 and n /2 - midway */
-
-                for (count = 0; count <= midway; count++)
-                {
-                        /* perform swap */
-                        temp = a[count];
-                        a[count] = a[n - 1 - count];
-                        a[n - 1 - count] = temp;
-                        /* a[count] = temp[n - count]; */
-                        /* copy for end of temp to start of a  NOT allowed*/
-                }
-        }
-
-}
-'''
-
-#Task 5 
-'''
-Write a function that changes all lowercase letters of a string to uppercase.
-
-    Prototype: char *string_toupper(char *);
-'''
-#Answer 
-'''
-#include "main.h"
-
-char _charToUpper(char a);
-
-/**
- * string_toupper - lowercse to uppercase
- * @s  : string pointer s
- *
- * Return: string s
- */
-
-char *string_toupper(char *s)
-{
-        int length, count;
-        /* char result; */
-
-        length = _strlen(s); /* obtain of length of s */
-
-        /* count from 0 to length */
-
-        for (count = 0; count < length; count++)
-        {
-                s[count] = _charToUpper(s[count]);
-        }
-        return (s); /* return result */
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s  : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-
-/**
- *  _charToUpper - convert lowercase char to uppercase
- * Description:  convert lowercase to uppercase
- * return uppercase value
- *
- * @a : char a
- *
- * Return: b as uppercase
- *
- * Example : _charToUpper(a)
-*/
-
-
-char _charToUpper(char a)
-{
-        char b;
-
-        /*a between 'a' and 'z' */
-        if ((a >= 'a') && (a <= 'z'))
-        {
-                b = a - 32; /* convert a to uppercase (32 different) */
-        }
-        else
-        {
-                b = a; /* save a to be as a is uppercase */
-        }
-        return (b);
-}
-'''
-
-#Task 6 
-'''
-Write a function that capitalizes all words of a string.
-
-    Prototype: char *cap_string(char *);
-    Separators of words: space, tabulation, new line, ,, ;, ., !, ?, ", (, ), {, and }
-'''
-#Answer 
-''' 
-
-#include "main.h"
-
-char _charToUpper(char a);
-int _isSeperator(char a);
-
-/**
- * cap_string - lowercase to uppercase depending on seperator
- * @s  : string pointer s
- *
- * Return: string s
- */
-
-char *cap_string(char *s)
-{
-        int length, count;
-
-        /* char result */
-
-        int sep_detected = 0;
-
-        int next_sep_detected = 0;
-
-        length = _strlen(s);
-
-        /* obtain of length of s */
-
-        /* count from 0 to length */
-        s[0] = _charToUpper(s[0]); /* first array to capital */
-
-        count = 1;
-
-        while (count <= length)
-        {
-                /* detect current char if seperator */
-                sep_detected = _isSeperator(s[count]);
-
-                /*s[count] = ' ';*/
-                        /* replace current with space */
-                /* jump to next array */
-                next_sep_detected = _isSeperator(s[count + 1]);
-
-                /** check current is but next array is not seperator */
-                if ((sep_detected == 1) && (next_sep_detected == 0))
-                {
-                /* confirmed next array is not seperator */
-
-                        s[count + 1] = _charToUpper(s[count + 1]);
-                        sep_detected = 0; /* reset the flag */
-                        count++;
-                }
-                count++;
-        }
-        return (s); /* return result */
-}
-
-/**
- * _strlen - check the length of string
- * function declaration performed in main.h
- * @s : char pointer s
- *
- * Return: integer value of length of *s
- *
- * Example : _strlen(aa)
- */
-
-int _strlen(char *s)
-{
-        int i = 0;
-
-        while (s[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
-}
-
-/**
- *  _charToUpper - convert lowercase char to uppercase
- * Description:  convert lowercase to uppercase
- * return uppercase value
- *
- * @a : char a
- *
- * Return: b as uppercase
- *
- * Example : _charToUpper(a)
-*/
-
-
-char _charToUpper(char a)
-{
-        char b;
-
-        /*a between 'a' and 'z' */
-        if ((a >= 'a') && (a <= 'z'))
-        {
-                b = a - 32; /* convert a to uppercase (32 different) */
-        }
-        else
-        {
-                b = a; /* save a to be as a is uppercase */
-        }
-        return (b);
-}
-
-/**
- * _isSeperator - find it current input is a seperator
- * Decription : find seperator
- * @a : char a
- *
- * Return: 1 if seperator found
- * else 0
- * Seperator : space, tabulation, new line, ,, ;, ., !, ?, \", (, ), {, and }
- */
-
-int _isSeperator(char a)
-{
-        int result;
-
-        switch (a)
-        {
-                case ' ':
-                        result = 1;
-                        break;
-
-                case '\t':
-                        result = 1;
-                        break;
-
-                case '\n':
-                        result = 1;
-                        break;
-
-                case ',':
-                        result = 1;
-                        break;
-
-                case ';':
-                        result = 1;
-                        break;
-
-                case '.':
-                        result = 1;
-                        break;
-
-                case '!':
-                        result = 1;
-                        break;
-
-                case '"':
-                        result = 1;
-                        break;
-
-                case '(':
-                        result = 1;
-                        break;
-
-                case ')':
-                        result = 1;
-                        break;
-
-                case '{':
-                        result = 1;
-                        break;
-
-                case '}':
-                        result = 1;
-                        break;
-
-                default:
-                        result = 0; /* no seperator */
-        }
-        return (result);
-}
-'''
-
-#Task 7 
-'''
-
-Write a function that encodes a string into 1337.
-
-    Letters a and A should be replaced by 4
-    Letters e and E should be replaced by 3
-    Letters o and O should be replaced by 0
-    Letters t and T should be replaced by 7
-    Letters l and L should be replaced by 1
-    Prototype: char *leet(char *);
-    You can only use one if in your code
-    You can only use two loops in your code
-    You are not allowed to use switch
-    You are not allowed to use any ternary operatio
-'''
-
-#Answer 
-'''
-
-#include "main.h"
-
-char _charToLeet(char a);
-
-/**
- * leet -  convert string to leet value
- * @s  : string pointer s
- *
- * Return: string s
- */
-
-char *leet(char *s)
-{
-        int count;
-        /* char result; */
-
-        /*length = _strlen(s); */
-        /*obtain of length of s */
-
-        /* count from 0 to length */
-
-        /*for (count = 0; count < length; count++)*/
-        /*s[0] = _charToLeet(s[0]);*/
-        for (count = 0; s[count] != '\0'; count++)
-        /*for (count = 0; s[count] != '\n'; count++)*/
-        {
-                s[count] = _charToLeet(s[count]);
-        }
-        return (s); /* return result */
-}
-
-
-/**
- *  _charToLeet - convert char to Leet style
- * Description:  convert char to Leet
- * return leet value
- *
- * @a : char a
- *
- * Return: result as converted leet value if leet
- * else return a
- *
- * Example : _charToLeet(a)
-*/
-
-char _charToLeet(char a)
-{
-        char reference[5] = "aeotl";
-        char leet[5] = "43071";
-        char result = a;
-
-        int i;
-
-        for (i = 0; i < 5; i++)
-        {
-                /* match found for leet conversion */
-                if ((a == reference[i]) || (a == (reference[i] - 32)))
-                {
-                        result = leet[i];
-                        return (result); /*return leet value*/
-                }
-        }
-        return (result); /* return a (unchanged */
-}
-'''
