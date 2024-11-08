@@ -62,3 +62,37 @@ int main(int argc, char *argv[])
 
 2-args.c
 '''
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - main entry
+ *
+ * Description : Take command line argument
+ * and display each argument line by line
+ * @argc: integer argc with no. of arguments value
+ * @argv: integer array of arguments
+ * Return : 0 (Always)
+ * Return: 0  (Always)
+ */
+
+int main(int argc, char *argv[])
+{
+        while (argc > 0) /* argc is positive, ignore argv[0] */
+        {
+                printf("%s\n", *argv++);
+                argc--;
+        }
+        return (0); /* exit successfully*/
+}
+'''
+
+##Task 3: Write a program that multiplies two numbers.
+
+    Your program should print the result of the multiplication, followed by a new line
+    You can assume that the two numbers and result of the multiplication can be stored in an integer
+    If the program does not receive two arguments, your program should print Error, followed by a new line, and return 1
+
+3-mul.c
+'''
