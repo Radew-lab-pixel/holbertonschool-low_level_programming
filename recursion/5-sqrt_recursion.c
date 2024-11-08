@@ -13,11 +13,20 @@ int _sqrt_recursion(int n)
 {
 	int result;
 
+	if (n <= 0)
+	{
+		return (-1); /* all 0 and negative num not welcome */
+	}
+
 	if ((n < 9) && (n > 1))
 	{
 		return (-1); /* no nature sqrt between 2 and 8 */
 	}
-	result = cal_sqrt(n, n / 2);
+	if (n == 1)
+	{
+		return (1); /* 1 is also sqrt of 1 */
+	}
+	result = cal_sqrt(n, n / 2); /* start cal_sqrt() if none above is achieve */
 	/* count start with half n ( n/2) to speed the process up*/
 	return (result);
 }
