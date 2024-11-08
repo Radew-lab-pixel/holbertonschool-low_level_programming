@@ -12,7 +12,7 @@ int _isalpha(int c);
  * @argv: arrays of argument passed
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int result, reading, argv_Alpha;
 
@@ -23,7 +23,7 @@ int main (int argc, char *argv[])
 	{	
 		argv_Alpha = check_argv(*argv);
 
-		if (argv_Alpha == 1) /*alphabet found in current argv[]*/ 
+		if (argv_Alpha == 1) /*alphabet found in current argv[]*/
 		{
 			printf("Error\n");
 			return (0);
@@ -42,17 +42,27 @@ int main (int argc, char *argv[])
 		argc--;
 		argv++;
 	}
-	
-	printf("%d\n", result);	
+
+	printf("%d\n", result);
 	return (0);
 }
 
+/*
+ * check_argv - compare s[] which is argv for
+ * alphabet
+ * Description: check each character in *s if
+ * there alphabet
+ * @s: string array s
+ *
+ * Return: 1 (Alphabet detected) or 0 (none)
+ */
+
 int check_argv(char *s)
-{	
+{
 	int result;
 
 	while (*s != '\0')
-	{	
+	{
 
 		result = _isalpha(*s);
 		if (result == 1) /* alphabet detected */
