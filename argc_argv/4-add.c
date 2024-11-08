@@ -14,14 +14,21 @@ int _isalpha(int c);
 
 int main (int argc, char *argv[])
 {
-	int result, reading;
+	int result, reading, argv_Alpha;
 
         result = 0;
 	argv++;
 
 	while (argc > 1) /* ignore 1st argv[]*/
 	{	
-		check_argv(*argv)
+		argv_Alpha = check_argv(*argv);
+
+		if (argv_Alpha == 1) /*alphabet found in current argv[]*/ 
+		{
+			printf("Error\n");
+			return (0);
+		}
+
 		reading = atoi(*argv);
 		if (reading == 0)
 		{
@@ -44,7 +51,7 @@ int check_argv(char *s)
 {	
 	int result;
 
-	while (s != '\0')
+	while (*s != '\0')
 	{	
 
 		result = _isalpha(*s);
