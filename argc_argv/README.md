@@ -96,3 +96,43 @@ int main(int argc, char *argv[])
 
 3-mul.c
 '''
+#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * main - main entry
+ *
+ * Description : multiply two numbers
+ * @argc : number of argument ( number entered )
+ * @argv : argument arrays ( number entered )
+ *
+ * Return: 0(Always)
+ */
+
+int main(int argc, char *argv[])
+{
+        int num1, num2;
+
+        if (argc != 3) /* 3 argc including command */
+        {
+                printf("Error\n");
+                return (0);
+        }
+        num1 = atoi(argv[1]); /* string to integer */
+        num2 = atoi(argv[2]);
+        printf("%d\n", num1 * num2);
+        return (0);
+}
+'''
+
+##Task 4 : Write a program that adds positive numbers.
+
+    Print the result, followed by a new line
+    If no number is passed to the program, print 0, followed by a new line
+    If one of the number contains symbols that are not digits, print Error, followed by a new line, and return 1
+    You can assume that numbers and the addition of all the numbers can be stored in an int
+
+4-add.c
+'''
+
