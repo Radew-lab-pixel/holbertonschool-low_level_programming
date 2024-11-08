@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3) /* 3 argc including command */
 	{
-		return (1);
+		printf("Error\n");
+		return (0);
 	}
 	num1 = atoi(argv[1]); /* string to integer */
 	num2 = atoi(argv[2]);
