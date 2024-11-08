@@ -42,6 +42,13 @@ int _sqrt_recursion(int n)
 
 int cal_sqrt(int num, int count)
 {
+	/* base 0 - when count is 46340 meant */
+	/* 4630 * 46240 = INT_MAX ( 2147483647) */
+	if (count > 46240)
+	{
+		/* reduce count value by 1 to prevent overflow */
+		count = 462339;
+	}
 	/* base 1 - when count * count = 1 */
 	if ((count * count) == num)
 	{
