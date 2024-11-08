@@ -7,20 +7,23 @@ int _isalpha(int c);
 
 /**
  * main - main entry
- * Description: Add all numbers
- * @argc: number of argument
- * @argv: arrays of argument passed
+ *
+ * Description : add all numbers
+ * @argc : number of argument ( number entered )
+ * @argv : argument arrays ( number entered )
+ *
+ * Return: 0( None) or sum value
  */
 
 int main(int argc, char *argv[])
 {
 	int result, reading, argv_Alpha;
 
-        result = 0;
+	result = 0;
 	argv++;
 
 	while (argc > 1) /* ignore 1st argv[]*/
-	{	
+	{
 		argv_Alpha = check_argv(*argv);
 
 		if (argv_Alpha == 1) /*alphabet found in current argv[]*/
@@ -47,11 +50,12 @@ int main(int argc, char *argv[])
 	return (0);
 }
 
-/*
+/**
  * check_argv - compare s[] which is argv for
  * alphabet
- * Description: check each character in *s if
- * there alphabet
+ *
+ * Description : check all characters if is alphabet
+ *
  * @s: string array s
  *
  * Return: 1 (Alphabet detected) or 0 (none)
@@ -63,12 +67,11 @@ int check_argv(char *s)
 
 	while (*s != '\0')
 	{
-
 		result = _isalpha(*s);
 		if (result == 1) /* alphabet detected */
 		{
-			return (1); /* return 1 */ 
-		}	
+			return (1); /* return 1 */
+		}
 
 		s++; /*increase s[] position */
 	}
@@ -77,6 +80,7 @@ int check_argv(char *s)
 
 /**
  * _isalpha - compare input is letter, lower or upper case
+ *
  * @c : First operand int c
  * Return: Always 1 (Success) else 0
  * Example:
