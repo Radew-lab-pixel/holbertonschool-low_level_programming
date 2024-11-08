@@ -1,6 +1,6 @@
 #include "main.h"
 
-int cal_prime(int num);
+int cal_prime(int num, int count);
 /**
  * _is_prime_number - Entry point
  *
@@ -12,40 +12,40 @@ int cal_prime(int num);
 int is_prime_number(int n)
 
 {
-	/* if power value is 0 */
-	if (y == 0)
+	/*int count = 2;*/
+       	/* count start from 2 */
+
+	int result;
+
+	if (n <= 2)
 	{
-		return (1); /* return value 1 and terminate the recursion */
+		return (0);
 	}
-	else if (y < 0)/* y can't be negative */
-	{
-		return (-1); /* return value -1 and terminate */
-	}
-	else
-	{
-		return (x * (_pow_recursion(x, y - 1)));
-	}
+     
+	result = cal_prime(n, n / 2);
+	
+	return (result);
 
 }
 
 
-int cal_prime(int num) 
+int cal_prime(int num, int count) 
 {
-	if (num == 0)
-	{
-		return (0); /* 0 is not or is prime */
-	}
 	
-	else if (num == 2) 
-	{
-		return (1); /* 2 is prime */
-	}
-	else if (num / 2) 
-	{
-		return (0); /* 2 division is not prime */
-	}
-	else if ((num % i) == 0)
-	{
-
-	}
+	
+	if (count == 1)
+    {
+        return 1;
+    }
+    else
+    {
+       if (num % count == 0)
+       {
+         return 0;
+       }
+       else
+       {
+         return cal_prime(num, count - 1);
+       }       
+    }
 }
