@@ -4,7 +4,7 @@
 
 int check_argv(char *s);
 int _isalpha(int c);
-int cal_coins(int c, int *mint);
+int cal_coins(int c, int *mint, int mint_qty);
 
 /**
  * main - main entry
@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
 {
 	int result, reading, argv_Alpha;
 
-	int mint = {25, 10, 5, 2 , 1};
+	int mint[] = {25, 10, 5, 2, 1};
+	int mint_qty = 5; /* mint coin value qty , mint array size*/
 
 	result = 0;
 	argv++;
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
 		else
 		{
 			/*result = result + reading;*/
-			result = cal_coins(reading, mint);
+			result = cal_coins(reading, mint, mint_qty);
 		}
 		argc--;
 		argv++;
@@ -111,27 +112,31 @@ int _isalpha(int c)
  * cal_coins - find the number coins for the change
  *
  * @c : First int c for the amount
- * @mint : array int for the coins value that minted 
+ * @mint : array int for the coins value that minted
+ * @mint_qty : mint coin value type
  * Return: anmount of coins
  *
  */
 
-int cal_coins(int c, int *mint)
+int cal_coins(int c, int *mint, int mint_qty)
 {
-	int count, coin_num, coin_needed ;
+	int count, coin_num, coin_needed;
 
+	/*int length = *(&mint + 1) - mint;   &mint[5] - &mint[0]; */
 
-	int length = *(&mint + 1) - mint; /*  &mint[5] - &mint[0]; */
+	/*length = 5;  size of mint array */
 
 	count = 0;
 	coin_num = 0;
 	coin_needed = 0;
-	while (count < length)
+	/*printf("length %d\n:",length);*/
+	while (count < mint_qty)
 	{
-		coin_num =  c / mint[count];
+		coin_num =  c / mint[count]; /* c value divide by mint[count] */
+		/*printf("amount %d coin_num %d\n", c, coin_num);*/
 		coin_needed = coin_needed + coin_num;
-		c = c - mint_count * coin_num;
-		count++; 
+		c = c - mint[count] * coin_num;
+		count = count + 1;
 	}
 	return (coin_needed);
 
