@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	result = 0;
 	argv++; /*forward argv to ignore ./change command */
 	
-	if (argc < 1) /*alphabet found in current argv[]*/
+	if (argc <= 1) /*only command ./change */
 	{
 		printf("Error\n");
 		return (0);
