@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 
 	result = 0;
 	argv++; /*forward argv to ignore ./change command */
-	
+
 	if (argc <= 1) /*only  detected ./change command*/
 	{
 		printf("Error\n");
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 			printf("0\n");
 			return (0); /* exit */
 		}
-		/*if (reading < 0) reading is -ve */	
+		/*if (reading < 0) reading is -ve */
 		/*printf("negative reading : %d",reading);*/
 		/*reading = reading * -1/10; don't ask me why, the bot say so */
 		else
