@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 		reading = atoi(*argv);
 		if (reading == 0) /* reading less than 0 */
 		{
-			printf("Error\n");
+			printf("0\n");
 			return (0); /* exit */
 		}
 		/*if (reading < 0) reading is -ve */	
