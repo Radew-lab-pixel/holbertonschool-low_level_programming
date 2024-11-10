@@ -26,28 +26,34 @@ int is_prime_number(int n)
 }
 
 
-int cal_prime(int num, int count) 
+/**
+ * cal_prime - Entry point
+ *
+ * Description: sub function to find prime of input n
+ * @num: input integer n
+ * @count: input integer count for recursion
+ * Return: integer value of of 0 or 1
+ */
+
+int cal_prime(int num, int count)
 {
-	 if (num == 0)
-        {
-                return (0); /* 0 is not or is prime */
+        /* base 1 - count has reach num value */
+        if (num == count)
+        {       /* count reach value of num thus only num is dividable by num */
+                return (1);
         }
 
-        if (num  == 1)
+        /* base 2 - num modulus count not 0  */
+        if ((num % count) == 0)
         {
-                return (0); /* 1  is not prime */
+                if (num != count) /* reconfirm num not current count value*/
+                {
+                        return (0); /* num dividable by other value than itself */
+                        /* not prime */
+                }
         }
-        if (num / 2)
-        {
-                return (0); /* 2 division is not prime */
-        }
+        /* Segmentation fault (core dumped) if use count++*/
+        /* return (cal_prime(num, count++));*/
+        return (cal_prime(num, count = count + 1));
 
-	
-	if ((num % count) == 0)
-	{
-		return (1);
-	}
-	 
-	
-		return (cal_prime(num, count++));
-	}
+}
