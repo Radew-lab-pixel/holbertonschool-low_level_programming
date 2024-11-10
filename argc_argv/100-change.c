@@ -48,12 +48,16 @@ int main(int argc, char *argv[])
 			printf("Error\n");
 			return (0); /* exit */
 		}
-		else if (reading < 0) /*reading is -ve */
-		{
-			reading = reading * - 1; /* don't ask me why, the bot say so */
-		}
+		/*if (reading < 0) reading is -ve */	
+		/*printf("negative reading : %d",reading);*/
+		/*reading = reading * -1/10; don't ask me why, the bot say so */
 		else
 		{
+			if (reading < 0)
+			{
+				printf("0\n");
+				return (0);
+			}
 			/*result = result + reading;*/
 			result = cal_coins(reading, mint, mint_qty);
 		}
