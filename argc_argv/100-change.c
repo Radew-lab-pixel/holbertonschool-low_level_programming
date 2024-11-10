@@ -24,7 +24,13 @@ int main(int argc, char *argv[])
 	int mint_qty = 5; /* mint coin value qty , mint array size*/
 
 	result = 0;
-	argv++;
+	argv++; /*forward argv to ignore ./change command */
+	
+	if (argc < 1) /*alphabet found in current argv[]*/
+	{
+		printf("Error\n");
+		return (0);
+	}
 
 	while (argc > 1) /* ignore 1st argv[]*/
 	{
@@ -37,7 +43,7 @@ int main(int argc, char *argv[])
 		}
 
 		reading = atoi(*argv);
-		if (reading == 0)
+		if (reading < 0) /* reading less than 0 */
 		{
 			printf("Error\n");
 			return (0); /* exit */
