@@ -33,19 +33,22 @@ char *_strdup(char *str)
 	/*if (length == 0) */
 	/* return ('\0'); */
 
-	dest = (char *) malloc((length) * sizeof(char));
+	dest = (char *) malloc((length + 1) * sizeof(char));
 
 /*duplicate = (char *) malloc(size * sizeof(char)); */
 /*+1 for '\0' character */
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
-
-		
-	if (*temp == '\0')
+	if ((str == NULL) || (dest == NULL))
 	{
-		/* if (temp == NULL) does not work in old version */
 		return (NULL);
 	}
+		
+	/**if(*temp == '\0') **/
+	
+		/* if (temp == NULL) does not work in old version */
+	/**	return (NULL); **/
+	
 	else
 	{
 		while (count < length)
@@ -53,6 +56,7 @@ char *_strdup(char *str)
 			dest[count] = temp[count];
 			count++;
 		}
+		dest[length] = '\0';
 		return (dest);
 	}
 }
