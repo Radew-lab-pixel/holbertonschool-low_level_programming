@@ -30,12 +30,10 @@ char *_strdup(char *str)
 	length = _strlen(temp); /* length of str */
 
 	/*printf( "Length : %d ", length);*/
-	if (length == 0)
-	{
-		return ('\0');
-	}
+	/*if (length == 0) */
+	/* return ('\0'); */
 
-	dest = (char *) malloc(length * sizeof(char));
+	dest = (char *) malloc((length) * sizeof(char));
 
 /*duplicate = (char *) malloc(size * sizeof(char)); */
 /*+1 for '\0' character */
