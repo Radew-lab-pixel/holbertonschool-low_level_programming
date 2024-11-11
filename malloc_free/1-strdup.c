@@ -29,9 +29,10 @@ char *_strdup(char *str)
 
 	length = _strlen(temp); /* length of str */
 
-	if (length < 1)
+	/*printf( "Length : %d ", length);*/
+	if (length == 0)
 	{
-		return (NULL);
+		return ('\0');
 	}
 
 	dest = (char *) malloc(length * sizeof(char));
@@ -42,7 +43,7 @@ char *_strdup(char *str)
 /*printf("size : %d",size);*/
 
 	if (dest == NULL)
-	{	
+	{
 		/* if (temp == NULL) does not work in old version */
 		return (NULL);
 	}
