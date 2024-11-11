@@ -21,22 +21,26 @@ char *_strdup(char *str)
 
 	int count = 0;
 	char *temp = str;
+
+	int length;
+	char *dest;
 	/* create a temporary temp pointer due to free() in main.c */
 	/* else free(): invalid pointer and Aborted (core dumped) */
 
-	int length = _strlen(temp); /* length of str */
+	length = _strlen(temp); /* length of str */
 
-	char *dest = (char *) malloc(length * sizeof(char));
+	if (length < 1)
+	{
+		return (NULL);
+	}
+
+	dest = (char *) malloc(length * sizeof(char));
 
 /*duplicate = (char *) malloc(size * sizeof(char)); */
 /*+1 for '\0' character */
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
 
-	if (length < 1)
-	{
-		return (NULL);
-	}
 	if (dest == NULL)
 	{	
 		/* if (temp == NULL) does not work in old version */
