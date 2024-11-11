@@ -27,14 +27,14 @@ char *str_concat(char *s1, char *s2)
 	/* else free(): invalid pointer and Aborted (core dumped) */
 
 	/* do a check of str prior to other checks to prevent memory eror */
-	if (s1 == NULL)
+	if (temp1 == NULL)
 	{
-		s1 = "";
+		temp1 = "";
 	}
 
-	if (s2 == NULL)
+	if (temp2 == NULL)
 	{
-		s2 = "";
+		temp2 = "";
 	}
 
 	length_s1 = _strlen(temp1); /* length of s1 */
