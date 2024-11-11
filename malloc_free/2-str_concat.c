@@ -29,12 +29,12 @@ char *str_concat(char *s1, char *s2)
 	/* do a check of str prior to other checks to prevent memory eror */
 	if (s1 == NULL)
 	{
-		return (temp2);
+		*temp1 = '\0'; 
 	}
 
 	if (s2 == NULL)
 	{
-		return (temp1);
+		*temp2 = '\0';
 	}
 
 	length_s1 = _strlen(temp1); /* length of s1 */
