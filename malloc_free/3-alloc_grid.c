@@ -27,7 +27,9 @@ int **alloc_grid(int width, int height)
 	}
 	
 	arr = (int**) malloc(height * sizeof(int*)); /* same as arr[][]*/
-	/* sizeof(int) size is 4 bytes regardless if 32 or 64 bits machine */
+	/* sizeof(int) size is 4 bytes regardless if 32 or 64 bits machine  */
+	/* thus has to set to sizeof(int*) as 32 bits machine, integer size is  4 bytes */
+	/* 64 bits machine, however will be 8 bytes */
 	
 	if (arr == NULL)
 	{	
@@ -44,7 +46,8 @@ int **alloc_grid(int width, int height)
 
 		for(i = 0; i < height; i++) 
 		{
-	    		arr[i] = malloc(width * sizeof(int));
+	    		/*arr[i] = malloc(width * sizeof(int));*/
+			arr[i] = (int*) malloc(width * sizeof(int*)); /* overcome malloc fails in bot*/
 			
 			if (arr[i] == NULL)
 			{
