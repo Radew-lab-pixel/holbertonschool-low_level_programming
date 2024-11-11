@@ -26,11 +26,12 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 	
-	arr = (int**) malloc(height * sizeof(int)); /* same as arr[][]*/
+	arr = (int**) malloc(height * sizeof(int*)); /* same as arr[][]*/
 	/* int size is 4 bytes regardless if 32 or 64 bits machine */
 	
 	if (arr == NULL)
 	{	
+		free(arr);
 		return (NULL);
 	}
 
