@@ -37,9 +37,9 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	/* if (str == NULL*/
-	if (dest = NULL)
-	{
+	if (dest == NULL)
+	{	
+		/* if (temp == NULL) does not work in old version */
 		return (NULL);
 	}
 	else
