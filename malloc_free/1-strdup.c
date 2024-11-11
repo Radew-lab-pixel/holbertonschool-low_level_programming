@@ -46,7 +46,7 @@ char *_strdup(char *str)
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
 	if (dest == NULL)
-	{
+	{	free (dest);
 		return (NULL);
 	}
 
