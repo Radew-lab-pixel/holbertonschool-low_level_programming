@@ -29,12 +29,12 @@ char *str_concat(char *s1, char *s2)
 	/* do a check of str prior to other checks to prevent memory eror */
 	if (s1 == NULL)
 	{
-		*temp1 = '\0'; 
+		s1 = "";
 	}
 
 	if (s2 == NULL)
 	{
-		*temp2 = '\0';
+		s2 = "";
 	}
 
 	length_s1 = _strlen(temp1); /* length of s1 */
@@ -53,8 +53,8 @@ char *str_concat(char *s1, char *s2)
 
 	/**if(*temp == '\0') **/
 
-		/* if (temp == NULL) does not work in old version */
-	/**	return (NULL); **/
+	/* if (temp == NULL) does not work in old version */
+	/**return (NULL); **/
 
 	if (dest == NULL)
 	{
