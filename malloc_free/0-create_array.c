@@ -3,20 +3,22 @@
 char *create_array(unsigned int size, char c);
 
 /**
- * create_array : create an array and initialize it with specific content
- * Description : create an array and intialise the content with c
+ * create_array - main entry
+ *
+ * Description: create an array and intialise the content with c
+ *
  * @size : size of the array
  * @c : char c that is content
- * Return : char array or NULL if invalide
+ * Return: NULL (invalid) or a  array
  */
 
-char *create_array(unsigned int size, char c) 
+char *create_array(unsigned int size, char c)
 {
 	unsigned int i = 0;
 
-	char *a = (char*) malloc(size * sizeof(char));
-	
-	if (size <=0)
+	char *a = (char *) malloc(size * sizeof(char));
+
+	if (size <= 0)
 	{
 		return (NULL);
 	}
@@ -25,9 +27,8 @@ char *create_array(unsigned int size, char c)
 	{
 		return (NULL);
 	}
-      	
 
-	if (size <=0)
+	if (size <= 0)
 	{
 		return (NULL);
 	}
