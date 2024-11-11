@@ -33,7 +33,7 @@ char *_strdup(char *str)
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
 
-	if (length <= 0)
+	if (length < 1)
 	{
 		return (NULL);
 	}
