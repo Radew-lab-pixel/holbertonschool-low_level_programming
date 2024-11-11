@@ -40,7 +40,7 @@ char *_strdup(char *str)
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
 
-	if (dest == NULL)
+	if (temp == NULL)
 	{
 		/* if (temp == NULL) does not work in old version */
 		return (NULL);
