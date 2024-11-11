@@ -27,6 +27,12 @@ char *_strdup(char *str)
 	/* create a temporary temp pointer due to free() in main.c */
 	/* else free(): invalid pointer and Aborted (core dumped) */
 
+	/* do a check of str prior to other checks to prevent memory eror */
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+
 	length = _strlen(temp); /* length of str */
 
 	/*printf( "Length : %d ", length);*/
@@ -39,16 +45,16 @@ char *_strdup(char *str)
 /*+1 for '\0' character */
 /*size = sizeof(str); */
 /*printf("size : %d",size);*/
-	if ((str == NULL) || (dest == NULL))
+	if (dest == NULL)
 	{
 		return (NULL);
 	}
-		
+
 	/**if(*temp == '\0') **/
-	
+
 		/* if (temp == NULL) does not work in old version */
 	/**	return (NULL); **/
-	
+
 	else
 	{
 		while (count < length)

@@ -28,8 +28,7 @@ int main(void)
     }
     printf("%s\n", s);
     free(s);
-    return (0);
-
+    
     s = _strdup(NULL);
     if (s == NULL)
     {
@@ -37,4 +36,7 @@ int main(void)
         return (1);
     }
     printf("%s\n", s);
-    free(s);}
+    free(s);
+	return (0);
+}
+
