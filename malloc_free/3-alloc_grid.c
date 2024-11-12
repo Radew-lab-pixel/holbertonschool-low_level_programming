@@ -69,18 +69,18 @@ int **alloc_grid(int width, int height)
 		/*	create garbage values */
 		for (i = 0; i < height; i++)
 		{
-		for (j = 0; j < width; j++)
+			for (j = 0; j < width; j++)
 			{
 			/*if (arr[j] == NULL) */
-			/*	{	*/
+			/*{*/
 			/* while (i >= 0) */
-			/*	{ 	*/
-			/* free(arr[i]); */
-			/*	i--; */
-			/*	}	*/
-			/* free(arr);	*/
-			/* return (NULL); */
-			/*	}*/
+				/*{*/
+				/* free(arr[i]); */
+				/*	i--; */
+				/*	}	*/
+				/* free(arr);	*/
+				/* return (NULL); */
+				/*	}*/
 				arr[i][j] = 0;  /* fill garabage value with 0 */
 			}
 		}
