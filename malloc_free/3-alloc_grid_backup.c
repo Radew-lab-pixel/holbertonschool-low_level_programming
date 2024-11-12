@@ -11,7 +11,7 @@ int **alloc_grid(int width, int height);
  * Description: create a 2D array
  *
  * @width : int width ( column of array)
- * @height : int height (row of array)
+ * @height : int height (row of array) 
  * Return: NULL (invalid) or a  array
  */
 
@@ -19,40 +19,36 @@ int **alloc_grid(int width, int height)
 {
 	int i = 0;
 	int j, **arr;  /*  **arr = arr[][] */
-
+	
 	/* Allocation */
 	if ((width <= 0) || (height <= 0))
 	{
 		return (NULL);
 	}
-
-	arr = (int **) malloc(height * sizeof(int *)); /* same as arr[][]*/
+	
+	arr = (int**) malloc(height * sizeof(int*)); /* same as arr[][]*/
 	/* sizeof(int) size is 4 bytes regardless if 32 or 64 bits machine  */
-	/* thus has to set to sizeof(int*) as 32 bits machine, */
-	/* integer size is  4 bytes */
+	/* thus has to set to sizeof(int*) as 32 bits machine, integer size is  4 bytes */
 	/* 64 bits machine, however will be 8 bytes */
-
+	
 	if (arr == NULL)
-	{
+	{	
 		free(arr);
 		return (NULL);
 	}
 
 	else /*arr created */
 	{
-		/*int **arr = malloc(height * sizeof(int*)); */
-		/* same as arr[][] */
-		/*int* points to an address location as */
-		/*it is a pointer to a variable*/
+		/*int **arr = malloc(height * sizeof(int*));  same as arr[][] */
+		/*int* points to an address location as it is a pointer to a variable*/
 		/* for 32 bits machine , its 4 bytes */
 		/* for 64 bits machine , its 8 bytes */
 
-		for (i = 0; i < height; i++)
+		for(i = 0; i < height; i++) 
 		{
-			arr[i] = (int *) malloc(width * sizeof(int));
-			/* arr[i] = (int*) malloc(width * sizeof(int*)); */
-			/*	overcome malloc fails in bot*/
-
+	    		arr[i] = malloc(width * sizeof(int));
+			/* arr[i] = (int*) malloc(width * sizeof(int*));  overcome malloc fails in bot*/
+			
 			if (arr[i] == NULL)
 			{
 				while (i >= 0) /* free arr[i] * to pass valgrind */
@@ -62,32 +58,36 @@ int **alloc_grid(int width, int height)
 					i--;
 				}
 					return (NULL);
-			}
+			}	
+		
 		}
+	
 
-		/*  Utilization - set 0 in all elements as malloc only */
-		/*	create garbage values */
-		for (i = 0; i < height; i++)
+		/*  Utilization - set 0 in all elements as malloc only create garbage values */
+		for (i = 0; i < height; i++) 
 		{
-		for (j = 0; j < width; j++)
+			for (j = 0; j < width; j++)
 			{
-			/*if (arr[j] == NULL) */
-			/*	{	*/
-			/* while (i >= 0) */
-			/*	{ 	*/
-			/* free(arr[i]); */
-			/*	i--; */
-			/*	}	*/
-			/* free(arr);	*/
-			/* return (NULL); */
-			/*	}*/
+				/*
+				if (arr[j] == NULL)
+				{	
+					while (i >= 0)
+					{ 
+						free(arr[i]);
+						i--;
+					}
+					free(arr);
+					return (NULL);
+				}*/
+				
 				arr[i][j] = 0;  /* fill garabage value with 0 */
+
 			}
+
 		}
 		return (arr); /* return arr in 2D */
 	}
 }
-
 /**
  * str_concat - main entry
  *
@@ -109,6 +109,7 @@ char *str_concat(char *s1, char *s2)
 	char *dest;
 	/* create a temporary temp pointer temp1 and temp2  due to free() in main.c */
 	/* else free(): invalid pointer and Aborted (core dumped) */
+
 	/* do a check of str prior to other checks to prevent memory eror */
 	if (temp1 == NULL)
 	{
@@ -122,17 +123,20 @@ char *str_concat(char *s1, char *s2)
 
 	length_s1 = _strlen(temp1); /* length of s1 */
 	length_s2 = _strlen(temp2); /* length of s2 */
+
 	/*printf( "Length : %d %d\n", length_s1, length_s2);*/
 	/*if (length == 0) */
 	/* return ('\0'); */
+
 	dest = (char *) malloc((length_s1 + length_s2 + 1) * sizeof(char));
 
-	/*duplicate = (char *) malloc(size * sizeof(char)); */
-	/*+1 for '\0' character */
-	/*size = sizeof(str); */
-	/*printf("size : %d",size);*/
+/*duplicate = (char *) malloc(size * sizeof(char)); */
+/*+1 for '\0' character */
+/*size = sizeof(str); */
+/*printf("size : %d",size);*/
 
 	/**if(*temp == '\0') **/
+
 	/* if (temp == NULL) does not work in old version */
 	/**return (NULL); **/
 
