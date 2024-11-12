@@ -16,6 +16,13 @@ void free_grid(int **grid, int height)
 {
 	int count = 0;
 	int length;
+
+	if (grid == NULL)
+	{
+		free(grid);
+		return;
+	}
+
 	/*** Redudant - discovered later not needed **/
 	while (*grid[count] != '\0')
 	{
