@@ -17,14 +17,14 @@ int *array_range(int min, int max)
 	int *dest;
 	int count = 0;
 
-	if (min > max)
+	if (min >= max)
 	{
 		return (NULL);
 	}
 
 	length = max - min; /* length or size of array */
 
-	dest = malloc((1+ length) * sizeof(int)); /* add additoonal for "\0'*/
+	dest = malloc((1 + length) * sizeof(int)); /* add additoonal for "\0'*/
 
 	if (dest == NULL)
 	{
@@ -42,7 +42,7 @@ int *array_range(int min, int max)
 				return (NULL);
 			}
 		}
-		dest[count] = '\0';	
+		dest[count] = '\0';
 		return (dest);
 	}
 
