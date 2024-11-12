@@ -14,7 +14,8 @@
 
 void *malloc_checked(unsigned int b)
 {
-	unsigned int *dest = (unsigned int *) malloc(sizeof(b));
+	/* unsigned int *dest = (unsigned int *) malloc(sizeof(b)); */
+	char *dest = (char *) malloc(sizeof(b));
 
 	if (dest == NULL)
 	{
