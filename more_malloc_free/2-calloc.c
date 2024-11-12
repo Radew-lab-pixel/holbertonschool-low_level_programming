@@ -34,7 +34,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	for (count = 0; count < (int) nmemb * size; count++)
+	for (count = 0; count < (int) (nmemb * size); count++)
 	{
 		dest[count] = 0; /* intialize dest all to 0 */
 
