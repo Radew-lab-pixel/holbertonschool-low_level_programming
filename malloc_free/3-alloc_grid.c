@@ -51,8 +51,13 @@ int **alloc_grid(int width, int height)
 			
 			if (arr[i] == NULL)
 			{
-				free(arr[i]);
-				return (NULL);
+				while (i >= 0) /* free arr[i] * to pass valgrind */
+				{
+					free(arr[i]);
+					free(arr);
+					i--;
+				}
+					return (NULL);
 			}	
 		
 		}
@@ -61,8 +66,19 @@ int **alloc_grid(int width, int height)
 		/*  Utilization - set 0 in all elements as malloc only create garbage values */
 		for (i = 0; i < height; i++) 
 		{
-			for (j = 0; j < width; j++) 
+			for (j = 0; j < width; j++)
 			{
+				if (arr[j] == NULL)
+				{	
+					while (i >= 0)
+					{ 
+						free(arr[i]);
+						i--;
+					}
+					free(arr);
+					return (NULL);
+				}
+
 				arr[i][j] = 0;  /* fill garabage value with 0 */
 
 			}
