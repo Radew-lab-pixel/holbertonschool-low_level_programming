@@ -22,21 +22,22 @@ int *array_range(int min, int max)
 		return (NULL);
 	}
 
-	length = max - min; /* length or size of array */
-
-	dest = malloc((1 + length) * sizeof(int)); /* add additoonal for "\0'*/
-
+	if (min == max)
+	{
+		length = 1;
+	}
+	else
+	{
+		length = max - min; /* length or size of array */
+	}
+	dest = (int *) malloc((1 + length) * sizeof(int)); /* add additonal for "\0'*/
 	if (dest == NULL)
 	{
 		free(dest);
 		return (NULL);
 	}
 
-	/*	if (length == 0) */
-	/*	*dest = min; don't know why but please checker*/
-
-	while (count <= length)
-	/*	for (count = 0; count < length; count++) */
+	for (count = 0; count < length; count++)
 		{
 			dest[count] = count + min;
 			if (dest == NULL)
@@ -44,10 +45,7 @@ int *array_range(int min, int max)
 				free(dest);
 				return (NULL);
 			}
-			count++;
 		}
-		dest[count] = '\0';
-		return (dest);
-	
-
+	dest[count] = '\0';
+	return (dest);
 }
