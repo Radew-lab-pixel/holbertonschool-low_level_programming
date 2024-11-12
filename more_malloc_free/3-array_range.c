@@ -17,7 +17,7 @@ int *array_range(int min, int max)
 	int *dest;
 	int count = 0;
 
-	if (min >= max)
+	if (min > max)
 	{
 		return (NULL);
 	}
@@ -32,7 +32,12 @@ int *array_range(int min, int max)
 		return (NULL);
 	}
 	else
-	{
+	{	
+		if (length == 0)
+		{
+			*dest = min; /* don't know why but please checker*/
+		}
+
 		for (count = 0; count < length; count++)
 		{
 			dest[count] = count + min;
