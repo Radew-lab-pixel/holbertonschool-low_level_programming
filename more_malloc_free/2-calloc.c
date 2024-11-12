@@ -19,7 +19,7 @@ int _strlen(char *s);
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *dest;
-	int count = 0;
+	unsigned int count = 0;
 
 	if ((nmemb == 0) || (size == 0))
 	{
@@ -34,7 +34,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	for (count = 0; count < (int) nmemb; count++)
+	for (count = 0; count < nmemb; count++)
 	{
 		dest[count] = 0; /* intialize dest all to 0 */
 
