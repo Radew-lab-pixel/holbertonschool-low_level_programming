@@ -35,7 +35,8 @@ int *array_range(int min, int max)
 	/*	if (length == 0) */
 	/*	*dest = min; don't know why but please checker*/
 
-		for (count = 0; count < length + 1; count++)
+	while (count <= length)
+	/*	for (count = 0; count < length; count++) */
 		{
 			dest[count] = count + min;
 			if (dest == NULL)
@@ -43,6 +44,7 @@ int *array_range(int min, int max)
 				free(dest);
 				return (NULL);
 			}
+			count++;
 		}
 		dest[count] = '\0';
 		return (dest);
