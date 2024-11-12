@@ -26,7 +26,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	dest = (char *) malloc(nmemb * size); /* total heap size */
+	dest = malloc(nmemb * size); /* total heap size */
 
 	if (dest == NULL)
 	{
@@ -38,13 +38,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		dest[count] = 0; /* intialize dest all to 0 */
 
-		if (dest == NULL)
-		{
+		/*if (dest == NULL) */
+		/*{*/
 			/* to please valgrind */
 			/*free(dest[count]);*/
-			free(dest);
-			return (NULL);
-		}
+		/*	free(dest); */
+		/*	return (NULL);*/
+		/*}*/
 	}
 	return (dest);
 
