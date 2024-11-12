@@ -26,7 +26,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	dest = malloc(nmemb * size); /* total heap size */
+	dest = (char *) malloc(nmemb * size); /* total heap size */
 
 	if (dest == NULL)
 	{
@@ -36,7 +36,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	for (count = 0; count < (int) nmemb; count++)
 	{
-		dest[count] = 0; /* intialize dest all to '0' */
+		dest[count] = 0; /* intialize dest all to 0 */
 
 		if (dest == NULL)
 		{
