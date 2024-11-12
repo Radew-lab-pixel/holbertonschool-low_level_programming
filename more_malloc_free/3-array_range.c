@@ -33,7 +33,7 @@ int *array_range(int min, int max)
 	}
 	else
 	{
-		for (count = 0; count < length; count++)
+		for (count = 0; count <= length; count++)
 		{
 			dest[count] = count + min;
 			if (dest == NULL)
