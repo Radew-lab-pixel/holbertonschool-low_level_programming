@@ -36,8 +36,13 @@ int *array_range(int min, int max)
 		for (count = 0; count < length; count++)
 		{
 			dest[count] = count + min;
+			if (dest == NULL)
+			{
+				free(dest);
+				return (NULL);
+			}
 		}
-		dest[count] = '\0';
+		dest[count] = '\0';	
 		return (dest);
 	}
 
