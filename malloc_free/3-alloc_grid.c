@@ -68,6 +68,7 @@ int **alloc_grid(int width, int height)
 		{
 			for (j = 0; j < width; j++)
 			{
+				/*
 				if (arr[j] == NULL)
 				{	
 					while (i >= 0)
@@ -77,8 +78,8 @@ int **alloc_grid(int width, int height)
 					}
 					free(arr);
 					return (NULL);
-				}
-
+				}*/
+				
 				arr[i][j] = 0;  /* fill garabage value with 0 */
 
 			}
