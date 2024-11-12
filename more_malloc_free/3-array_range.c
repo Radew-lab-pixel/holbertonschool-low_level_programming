@@ -24,7 +24,7 @@ int *array_range(int min, int max)
 
 	length = max - min; /* length or size of array */
 
-	dest = (int *) malloc(1 + length * sizeof(int)); /* add additoonal for "\0'*/
+	dest = malloc(1 + length * sizeof(int)); /* add additoonal for "\0'*/
 
 	if (dest == NULL)
 	{
