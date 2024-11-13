@@ -14,12 +14,12 @@
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	struct dog adoggy; /* create struct dog variable */
+	struct dog doggy; /* create struct dog variable */
 
 	doggy.name = name;
 	doggy.age = age;
 	doggy.owner = owner;
 
 	*d = doggy;
-	return (void);
+	/*return (0); */
 }
