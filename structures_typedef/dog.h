@@ -4,13 +4,12 @@
 #include <stdio.h>
 
 /**
- * struct dog - create structure for three elements
+ * struct dog - create structure for dog
  *
  * @name: char array
  * @age: float
  * @owner: char array
- *
- * Description: create stuct dog with three elements
+ * Description : create stuct dog with three elements
  */
 
 struct dog
