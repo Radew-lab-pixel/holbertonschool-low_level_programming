@@ -15,11 +15,18 @@
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	struct dog doggy; /* create struct dog variable */
+	
+	if (d == NULL)
+	{
+		/*return (NULL);*/
+		return;
+	}
 
 	doggy.name = name;
 	doggy.age = age;
 	doggy.owner = owner;
 
 	*d = doggy;
+	return;
 	/*return (0); */
 }
