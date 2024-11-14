@@ -17,7 +17,7 @@ void print_dog(struct dog *d)
 	dest = d; /*copy d to dest */
 
 	printf("Name: %s\nAge: %.6f\n", dest->name, dest->age);
-	printf("Owner: %s\n", *dest.owner);
+	printf("Owner: %s\n", (*dest).owner);
 	return;
 
 }
