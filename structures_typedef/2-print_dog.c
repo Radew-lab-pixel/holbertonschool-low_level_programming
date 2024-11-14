@@ -18,7 +18,7 @@ void print_dog(struct dog *d)
 
 	if (dest->name == NULL)
 	{
-		dest->name = "(null)";
+		dest->name = "(nil)";
 	}
 	/* if (dest->age == NULL) float variable can't be null */
 	/*{*/
@@ -26,7 +26,7 @@ void print_dog(struct dog *d)
 	/*}*/
 	if (dest->owner == NULL)
 	{
-		dest->owner = "(null)";
+		dest->owner = "(nil)";
 	}
 
 
