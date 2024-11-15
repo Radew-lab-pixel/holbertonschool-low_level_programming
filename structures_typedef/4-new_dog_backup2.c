@@ -1,7 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
 
-int _strlen(char* source);
 char* _strcpy(char* destination, char* source);
 
 /**
@@ -19,7 +18,12 @@ char* _strcpy(char* destination, char* source);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dest;
-	int length_name, length_owner;
+	int count = 0;
+
+	if (name == NULL || owner == NULL)
+	{
+		return (NULL);
+	}
 
 	dest = (dog_t *) malloc(sizeof(dog_t));
 	if (dest == NULL)
@@ -30,9 +34,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 		/*exit(0);*/
 	}
-	length_name = _strlen(name);
-	/*dest->name = (char *) malloc(sizeof(name));*/
-	dest->name = (char *) malloc((length_name + 0) * sizeof(char));
+	dest->name = (char *) malloc(sizeof(name));
 	if (dest->name  == NULL)
         {
                 free(dest->name);
@@ -42,10 +44,8 @@ dog_t *new_dog(char *name, float age, char *owner)
                 /*exit(0);*/
         }
 
-	length_owner = _strlen(owner);
-	/*dest->owner = (char *) malloc(sizeof(owner));*/
-	dest->owner = (char *) malloc((length_owner + 0) * sizeof(char));
-	/* age is float thus can't be NULL */
+	dest->owner = (char *) malloc(sizeof(owner));
+        /* age is float thus can't be NULL */
         if (dest->owner == NULL)
         {
                 free(dest->name);
@@ -59,35 +59,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* age being a float variable , no malloc */
 	/*dest->age = malloc(sizeof(age));*/
 	/*dest->name = name; */
-	/* checker want this ??? */
-	dest->name = _strcpy(dest->name, name);
+	/* checker don't want this ??? */
+	/*dest->name = _strcpy(dest->name, name);*/
+
+	for (count = 0; name[count] != '\0'; count++)
+        {
+                dest->name[count]  = name[count];
+        }
+	dest->name[count] = '\0';
+
 	dest->age = age;
 	/*Checker don't this want :(*/
 	/*(*dest).owner = owner;*/
-	/*Checker want this */
-	(*dest).owner = _strcpy(dest->owner, owner);
-
+	/*Checker don't want this */
+	/*dest->owner = _strcpy(dest->owner, owner);*/
+	count = 0;
+	for (count = 0; owner[count] != '\0'; count++)
+        {
+                dest->owner[count]  = owner[count];
+        }
 	return (dest);
-}
-
-/**
- * _strlen - duplicate of strlen
- *
- * Description : find the length of the char *
- * @source : char * array
- * Return: integer value of length of source
- */
-
-int _strlen(char* source)
-{
-	char *temp;  
-	int count = 0;
-	temp  = source;
-
-	for (count = 0; temp[count] != '\0'; count++)
-	{
-	}
-	return (count);
 }
 
 
