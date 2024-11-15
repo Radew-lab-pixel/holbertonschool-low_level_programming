@@ -1,8 +1,8 @@
 #include "dog.h"
 #include <stdlib.h>
 
-int _strlen(char* source);
-char *_strcpy(char* dest, char* src);
+int _strlen(char *source);
+char *_strcpy(char *dest, char *src);
 
 /**
  * new_dog - function create a attribute
@@ -23,7 +23,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	dest = (dog_t *) malloc(sizeof(dog_t));
 	if (dest == NULL)
-	{	
+	{
 		/*free(dest->name);*/
 		/*free(dest->owner);*/
 		free(dest);
@@ -31,17 +31,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 		/*exit(0);*/
 	}
 	length_name = _strlen(name);
+
 	/*dest->name = (char *) malloc(sizeof(name));*/
 	dest->name = (char *) malloc((length_name + 1) * sizeof(char));
 	if (dest->name  == NULL)
-        {
-                free(dest->name);
-                /*free((*dest).age[0]);*/
-                free(dest);
-                return (NULL);
-                /*exit(0);*/
-        }
-
+	{
+		free(dest->name);
+		/*free((*dest).age[0]);*/
+		free(dest);
+		return (NULL);
+		/*exit(0);*/
+	}
 	length_owner = _strlen(owner);
 	/*dest->owner = (char *) malloc(sizeof(owner));*/
 	dest->owner = (char *) malloc((length_owner + 1) * sizeof(char));
@@ -50,15 +50,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/*(in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)*/
 
 	/* age is float thus can't be NULL */
-        if (dest->owner == NULL)
-        {
-                free(dest->name);
-                /*free((*dest).age[0]);*/
-                free(dest->owner);
-                free(dest);
-                return (NULL);
-                /*exit(0);*/
-        }
+	if (dest->owner == NULL)
+	{
+		free(dest->name);
+		/*free((*dest).age[0]);*/
+		free(dest->owner);
+		free(dest);
+		return (NULL);
+		/*exit(0);*/
+	}
 
 	/* age being a float variable , no malloc */
 	/*dest->age = malloc(sizeof(age));*/
@@ -70,7 +70,6 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/*(*dest).owner = owner;*/
 	/*Checker want this */
 	(*dest).owner = _strcpy(dest->owner, owner);
-
 	return (dest);
 }
 
@@ -82,10 +81,11 @@ dog_t *new_dog(char *name, float age, char *owner)
  * Return: integer value of length of source
  */
 
-int _strlen(char* source)
+int _strlen(char *source)
 {
-	char *temp;  
+	char *temp;
 	int count = 0;
+
 	temp  = source;
 
 	for (count = 0; temp[count] != '\0'; count++)
@@ -94,14 +94,13 @@ int _strlen(char* source)
 	return (count);
 }
 
-
 /**
- * _strcpy - duplicate of strcpy 
+ * _strcpy - duplicate of strcpy
  *
  * Description : copy the content of one string to another
- * @destination : string variable to be copied to
- * @source : string variable to be copied from 
- * Return: destination
+ * @dest : string variable to be copied to
+ * @src: string variable to be copied from
+ * Return: dest
  */
 
 char *_strcpy(char *dest, char *src)
@@ -123,4 +122,3 @@ char *_strcpy(char *dest, char *src)
 	*(dest + count) = '\0';
 	return (dest);
 }
-
