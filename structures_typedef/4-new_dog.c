@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int _strlen(char* source);
-char* _strcpy(char* destination, char* source);
+char *_strcpy(char* dest, char* src);
 
 /**
  * new_dog - function create a attribute
@@ -32,7 +32,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	length_name = _strlen(name);
 	/*dest->name = (char *) malloc(sizeof(name));*/
-	dest->name = (char *) malloc((length_name + 0) * sizeof(char));
+	dest->name = (char *) malloc((length_name + 1) * sizeof(char));
 	if (dest->name  == NULL)
         {
                 free(dest->name);
@@ -44,7 +44,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	length_owner = _strlen(owner);
 	/*dest->owner = (char *) malloc(sizeof(owner));*/
-	dest->owner = (char *) malloc((length_owner + 0) * sizeof(char));
+	dest->owner = (char *) malloc((length_owner + 1) * sizeof(char));
+	/* if no length_owner + 1 ,  Invalid read of size 1 */
+	/*==1409==    at 0x484ED24: strlen*/
+	/*(in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)*/
+
 	/* age is float thus can't be NULL */
         if (dest->owner == NULL)
         {
@@ -100,16 +104,23 @@ int _strlen(char* source)
  * Return: destination
  */
 
-char* _strcpy(char* destination, char* source)
+char *_strcpy(char *dest, char *src)
 {
-	char *temp;
-	int count = 0;
-	
-	temp = source;
+	int count, length;
 
-	for (count = 0; temp[count] != '\0'; count++)
+	length = _strlen(src);
+
+	/** char *start = dest; **/
+
+	count = 0;
+
+	while (count < length)
 	{
-		destination[count]  = source[count];
+		*(dest + count) = *(src + count);
+		count++;
 	}
-	return (destination);
+
+	*(dest + count) = '\0';
+	return (dest);
 }
+
