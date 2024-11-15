@@ -53,12 +53,25 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* age being a float variable , no malloc */
 	/*dest->age = malloc(sizeof(age));*/
-	dest->name = name;
+	/*dest->name = name; */
+	/* checker want this ??? */
+	dest->name = _strcpy(dest->name, name);
 	dest->age = age;
-	(*dest).owner = owner;
+	/*Checker don't this want :(*/
+	/*(*dest).owner = owner;*/
+	/*Checker want this */
+	(*dest).owner = _strcpy(dest->owner, owner);
+
 	return (dest);
 }
 
+/**
+ * _strlen - duplicate of strlen
+ *
+ * Description : find the length of the char *
+ * @source : char * array
+ * Return: integer value of length of source
+ */
 
 int _strlen(char* source)
 {
@@ -72,6 +85,15 @@ int _strlen(char* source)
 	return (count);
 }
 
+
+/**
+ * _strcpy - duplicate of strcpy 
+ *
+ * Description : copy the content of one string to another
+ * @destination : string variable to be copied to
+ * @source : string variable to be copied from 
+ * Return: destination
+ */
 
 char* _strcpy(char* destination, char* source)
 {
