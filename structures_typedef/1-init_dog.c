@@ -2,7 +2,7 @@
 
 /**
  * init_dog - to print struct attributes
- * struct dog - struct of datatype
+ * struct dog - structure of the dog
  *
  * Description: function to create struct nameddog
  *
