@@ -1,6 +1,7 @@
 #include "dog.h"
 #include <stdlib.h>
 
+int _strlen(char* source);
 char* _strcpy(char* destination, char* source);
 
 /**
@@ -18,12 +19,6 @@ char* _strcpy(char* destination, char* source);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *dest;
-	int count = 0;
-
-	if (name == NULL || owner == NULL)
-	{
-		return (NULL);
-	}
 
 	dest = (dog_t *) malloc(sizeof(dog_t));
 	if (dest == NULL)
@@ -59,26 +54,35 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* age being a float variable , no malloc */
 	/*dest->age = malloc(sizeof(age));*/
 	/*dest->name = name; */
-	/* checker don't want this ??? */
-	/*dest->name = _strcpy(dest->name, name);*/
-
-	for (count = 0; name[count] != '\0'; count++)
-        {
-                dest->name[count]  = name[count];
-        }
-	dest->name[count] = '\0';
-
+	/* checker want this ??? */
+	dest->name = _strcpy(dest->name, name);
 	dest->age = age;
 	/*Checker don't this want :(*/
 	/*(*dest).owner = owner;*/
-	/*Checker don't want this */
-	/*dest->owner = _strcpy(dest->owner, owner);*/
-	count = 0;
-	for (count = 0; owner[count] != '\0'; count++)
-        {
-                dest->owner[count]  = owner[count];
-        }
+	/*Checker want this */
+	(*dest).owner = _strcpy(dest->owner, owner);
+
 	return (dest);
+}
+
+/**
+ * _strlen - duplicate of strlen
+ *
+ * Description : find the length of the char *
+ * @source : char * array
+ * Return: integer value of length of source
+ */
+
+int _strlen(char* source)
+{
+	char *temp;  
+	int count = 0;
+	temp  = source;
+
+	for (count = 0; temp[count] != '\0'; count++)
+	{
+	}
+	return (count);
 }
 
 
