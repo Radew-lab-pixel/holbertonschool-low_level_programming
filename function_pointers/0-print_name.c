@@ -15,5 +15,5 @@ void print_name(char *name, void (*f)(char *))
 
 	f(tname); /* callback function to printf the name */
 
-	return (void);
+	/* return; -- removed due to betty */
 }
