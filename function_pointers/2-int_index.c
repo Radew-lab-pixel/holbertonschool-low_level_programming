@@ -16,13 +16,17 @@ int int_index(int *array, int size, int (*cmp)(int))
 	/*index = int_index(array, 20, is_98) */
 	/* int is_98(int elem) */
 	/* return (98 == elem); */
-	
-	int *tarray = array; /* copy of array */
 
-        int count = 0;
-        int flag;
+	int *tarray = array; /* copy of array */
+	int count = 0;
+	int flag;
 
 	if (size <= 0)
+	{
+		return (-1);
+	}
+
+	if ((tarray == NULL) || (cmp == NULL))
 	{
 		return (-1);
 	}
