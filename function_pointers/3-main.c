@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	{
 		/*return (NULL)*/
 		/*return (0);*/
+		printf("Error\n");
 		exit(98);	
 	}
 	/* argv[1] and argv[3] are digit */
