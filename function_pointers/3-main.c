@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	/*va_list args; list of variadic lists */
 	/* va_start(args, **tagrv);  enabled variadic access */
 
-	if (argc < 4) /* less than 4 arguments */
+	if ((argc < 4) || (argc > 4)) /* less than 4 arguments */
 	{
 		/*return (NULL)*/
 		/*return (0);*/

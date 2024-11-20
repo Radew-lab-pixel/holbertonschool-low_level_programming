@@ -1,4 +1,5 @@
 #include "3-calc.h"
+#include <stdlib.h>
 
 /**
  * get_op_func - search for respective function
@@ -37,7 +38,7 @@ int (*get_op_func(char *s))(int, int)
 		}
 		i++;
 	}
-
+	printf("Error\n");
+	exit (99);
 	return (ops[5].f);
-
 }
