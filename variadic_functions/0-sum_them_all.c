@@ -10,10 +10,11 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	unsigned int count;
-	unsigned result = 0;
+	unsigned int result = 0;
 	va_list args; /* declaring va */
+
 	va_start(args, n); /* initalizing start of pointer */
-	
+
 	if (n == 0)
 	{
 		return (0);
@@ -22,8 +23,8 @@ int sum_them_all(const unsigned int n, ...)
 	for (count = 0; count < n; count++)
 	{
 		/*add result and advance on args */
-		result = result + va_arg(args, unsigned int); 
+		result = result + va_arg(args, unsigned int);
 	}
 	va_end(args); /*end variadic process */
-	return result;
+	return (result);
 }
