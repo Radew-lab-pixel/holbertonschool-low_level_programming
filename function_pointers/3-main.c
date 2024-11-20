@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 /**
  * main - main entry
@@ -10,7 +11,7 @@
  * Return : 0 if successful
  */
 
-int main(int argc, char *agrv[])
+int main(int argc, char *argv[])
 {
 	int result, a, b;
 	char *op; /* operand*/
@@ -19,25 +20,21 @@ int main(int argc, char *agrv[])
 
 	if (argc < 4) /* less than 4 arguments */
 	{
-		return (NULL); 
+		/*return (NULL);*/
+	       return (0);	
 	}
 	/* argv[1] and argv[3] are digit */
-	if (((isdigit(argv[1])) != 0) && ((isdigit(argv[3])) != 0))
-	{
-		
-		a = atoi(argv[1]);
-		b = atoi(argv[3]);
-		op = argv[2];
-		/*int (*get_op_func(char *s))(int, int);*/
-		result = get_op_func(op, a, b);
-		printf("%d\n",result);
-		return (0); 
-	}
-	else
-	{
-		return (NULL);
-	}
-
-	
-
+	/* if i use isdigit , it causes segmentation error as too many isdigit in if loop*/
+	/*if (((isdigit(argv[1])) != 0) && ((isdigit(argv[3])) != 0)) */
+	/*{ */
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	/*op = *(argv[2]);*/
+	op = (char*) argv[2];
+	/*int (*get_op_func(char *s))(int, int);*/
+	result = get_op_func(op)(a, b);
+	printf("%d\n",result);
+	return (0); 	
+	/*return (NULL); */
+	/*return (0); */
 }

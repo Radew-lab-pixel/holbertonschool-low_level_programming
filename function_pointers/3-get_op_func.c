@@ -23,7 +23,7 @@ int (*get_op_func(char *s))(int, int)
 	/*char *ts;  copy of the s */
 
 	/* typedef struct op */
-	/*{
+	/*{ */
     	/* char *op; */
     	/* int (*f)(int a, int b); */
 	/*} op_t; */
@@ -38,6 +38,6 @@ int (*get_op_func(char *s))(int, int)
 		i++;
 	}
 
-
+	return (ops[5].f);
 
 }
