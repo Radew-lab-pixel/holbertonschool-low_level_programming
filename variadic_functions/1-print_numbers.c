@@ -9,7 +9,8 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	
-	unsigned int count, result;
+	unsigned int count;
+       	int result;
 
 	/* Declare a variable of type va_list. */
 	va_list argptr;
@@ -21,7 +22,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		/* Get the next additional argument argptr. */
 		result = va_arg(argptr, int);
-		printf("%u", result);
+		/* printf("%u", result); removed due to checker */
+		printf("%d", result);
 
 		if (count != (n - 1)) /*not last argumet argptr */
 		{
