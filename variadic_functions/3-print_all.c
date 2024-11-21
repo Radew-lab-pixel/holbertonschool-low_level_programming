@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <string.h>
 
 void print_char(va_list argptr);
 void print_int(va_list argptr);
@@ -18,7 +19,6 @@ void print_all(const char * const format, ...)
     	/*char *form; */
         /*void (*f)(va_list);*/
 	int count = 0;
-	char *result;
 
 	op_t ops[] = {
 		{"c", print_char},
@@ -50,8 +50,9 @@ void print_all(const char * const format, ...)
  * Return: void
  */
 void print_char(va_list argptr)
-{
-	printf("%c", va_arg(argptr, char));
+{	
+	/*'char' is promoted to 'int' when passed through */
+	printf("%c", va_arg(argptr, int));
 }
 
 /**
@@ -71,7 +72,8 @@ void print_int(va_list argptr)
  */
 void print_float(va_list argptr)
 {
-	printf("%f", va_arg(argptr, float));
+	/*  'float' is promoted to 'double' when passed throug*/
+	printf("%f", va_arg(argptr, double));
 }
 
 /**
@@ -82,5 +84,5 @@ void print_float(va_list argptr)
 
 void print_string(va_list argptr)
 {
-	printf("%s", va_arg(argptr, char *);
+	printf("%s", va_arg(argptr, char *));
 }
