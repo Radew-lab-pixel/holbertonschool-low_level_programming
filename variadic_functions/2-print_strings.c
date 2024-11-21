@@ -18,11 +18,25 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	
 	/* Initialize the va variable argptr  where n is detected no. */
 	va_start(argptr, n);
+
+	/* Checker want if seperator is NULL, not display NULL*/
+	if (separator == NULL)
+	{
+		separator = ""; 
+		/* despite const char *, the content can be changed */
+		/* only address it pointed to can't be changed */
+	}
 	
 	while (count < n)
 	{	
 		/* get the next addition*/
 		result = va_arg(argptr, char*);
+
+		/* checker want null in result emoved */
+		if (result == NULL)
+		{
+			result = "";
+		}
 		printf("%s", result);
 
 		if (count != (n - 1)) /* not end of argument*/
