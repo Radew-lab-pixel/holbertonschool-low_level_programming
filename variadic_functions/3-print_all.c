@@ -19,7 +19,7 @@ void print_all(const char * const format, ...)
     	/*char *form; */
         /*void (*f)(va_list);*/
 	int count = 0;
-	/*int strcmp_compare;*/
+	/*int strcmp_compare; */
 
 	op_t ops[] = {
 		{"c", print_char},
@@ -35,8 +35,8 @@ void print_all(const char * const format, ...)
 	while (count < 5)
 	{	
 		/*strcmp_compare = strcmp(ops[count].form, format); */
-		/*if (strcmp_compare == 0)  matched */
-		if ((ops[count].form) == format) 
+		/*if (strcmp_compare == 0) matched */
+		if (ops[count].form == format)
 		{
 			ops[count].f(argptr); /* callback function */
 			count = 5; /* exit the loop */

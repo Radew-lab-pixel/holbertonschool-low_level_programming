@@ -8,5 +8,6 @@
 int main(void)
 {
     print_all("ceis", 'B', 3, "stSchool");
+    print_all("s", 'B', 3, "stSchool");
     return (0);
 }
