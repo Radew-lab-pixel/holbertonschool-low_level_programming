@@ -45,14 +45,19 @@ void print_all(const char * const format, ...)
  * print_char - print char function link to callback
  *
  * @argptr : va_list variable
- * Return : void
+ * Return: void
  */
 void print_char(va_list argptr)
 {
-	printf("%c",va_arg(argptr, char));
+	printf("%c", va_arg(argptr, char));
 }
 
+/**
+ * print_int - print int function
+ * @argptr : va_list variable
+ * Return: void
+ */
 void print_int(va_list argptr)
 {
-
+	printf("%d", va_arg(argptr, int));
 }
