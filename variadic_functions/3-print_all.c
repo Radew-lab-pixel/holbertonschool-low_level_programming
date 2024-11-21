@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 
-void print_char(va_list args);
+void print_char(va_list argptr);
+void print_int(va_list argptr);
 
 /**
  * print_all - print all argument
@@ -26,13 +27,13 @@ void print_all(const char * const format, ...)
 		};
 	
 	va_list argptr; /*declaring argptr variadic list */
-	/*va_start (argptr, format); intialize argptr */
+	va_start (argptr, format); /*intialize argptr */
 
 	while (count < 5)
 	{
 		if (strcmp(ops[count].form, format) == 0) /* matched */
 		{
-			ops[count].f; /* callback function ops[count].f */
+			ops[count].f(argptr); /* callback function */
 			count = 5; /* exit the loop */
 		}
 		count++;
@@ -40,7 +41,18 @@ void print_all(const char * const format, ...)
 	return;
 }
 
-void print_char(va_list args)
+/**
+ * print_char - print char function link to callback
+ *
+ * @argptr : va_list variable
+ * Return : void
+ */
+void print_char(va_list argptr)
 {
-	va_
+	printf("%c",va_arg(argptr, char));
+}
+
+void print_int(va_list argptr)
+{
+
 }
