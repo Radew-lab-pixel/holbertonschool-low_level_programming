@@ -17,6 +17,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	/* Initialize that variable */
 	va_start(argptr, n);
+	
+	/* checker want if separator is null, ignored it */
+	if (separator == NULL)
+	{
+		separator = ""; 
+		/* const char * still change content but not address */
+	}
 
 	for (count = 0; count < n; count++)
 	{
