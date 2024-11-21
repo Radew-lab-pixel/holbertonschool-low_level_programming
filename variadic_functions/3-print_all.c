@@ -2,6 +2,8 @@
 
 void print_char(va_list argptr);
 void print_int(va_list argptr);
+void print_float(va_list argptr);
+void print_string(va_list argptr);
 
 /**
  * print_all - print all argument
@@ -60,4 +62,25 @@ void print_char(va_list argptr)
 void print_int(va_list argptr)
 {
 	printf("%d", va_arg(argptr, int));
+}
+
+/**
+ * print_float - print float function
+ * @argptr : va_list variable
+ * Return: void
+ */
+void print_float(va_list argptr)
+{
+	printf("%f", va_arg(argptr, float));
+}
+
+/**
+ * print_string - print string function
+ * @argptr : va_list variable
+ * Return: void
+ */
+
+void print_string(va_list argptr)
+{
+	printf("%s", va_arg(argptr, char *);
 }
