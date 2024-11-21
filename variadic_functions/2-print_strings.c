@@ -3,7 +3,7 @@
 /**
  * print_strings - function to process argument and print its content
  * @separator : separator input
- * @n : no . of arguments
+ * @n : last fixed argument parameter
  * Return: void
  */
 
@@ -15,7 +15,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	/*Declare a variable type va_list*/
 	va_list argptr;
 
-	/* Initialize the va variable argptr  where n is detected no. */
+	/* Initialize the va variable argptr  where n last fixed argument. */
 	va_start(argptr, n);
 
 	/* Checker want if seperator is NULL, not display NULL*/

@@ -3,7 +3,7 @@
 /**
  * print_numbers - function to process variadic arguments
  * @separator : seperator identifier
- * @n : detected no. of integer variable
+ * @n : detected no. of integer variable which last fixed argument param
  * Return: void
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
@@ -14,7 +14,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	/* Declare a variable of type va_list. */
 	va_list argptr;
 
-	/* Initialize that variable */
+	/* Initialize that variable where n is last fixed parameter in arguments*/
 	va_start(argptr, n);
 
 	/* checker want if separator is null, ignored it */

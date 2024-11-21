@@ -3,7 +3,7 @@
 /**
  * sum_them_all - function to sum all values
  *
- * @n : list of unsigned int n
+ * @n : list of unsigned int n and also last fixed argument
  * Return: summation value
  */
 
