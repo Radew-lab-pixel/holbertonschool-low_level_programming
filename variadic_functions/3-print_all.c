@@ -1,5 +1,7 @@
 #include "variadic_functions.h"
 
+void print_char(va_list args);
+
 /**
  * print_all - print all argument
  *
@@ -24,7 +26,7 @@ void print_all(const char * const format, ...)
 		};
 	
 	va_list argptr; /*declaring argptr variadic list */
-	va_start (argptr, format); /*intialize argptr */
+	/*va_start (argptr, format); intialize argptr */
 
 	while (count < 5)
 	{
@@ -35,7 +37,10 @@ void print_all(const char * const format, ...)
 		}
 		count++;
 	}
-	
+	return;
 }
 
-
+void print_char(va_list args)
+{
+	va_
+}
