@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 	{	
 		/*printf("Current fomat[] is %c\n", format[format_count]);*/
 		count = 0;
-		while (count < 3) /* compare to ops[].f */
+		while (count < 4) /* compare to ops[].f */
 		{	
 			/**strcmp_compare = strcmp(ops[count].form, format[format_count]); */
 			/*if (strcmp_compare == 0)  matched */
@@ -54,6 +54,8 @@ void print_all(const char * const format, ...)
 			/*printf("%c matches \n", ops[count].form); */
 			(ops[count].f)(argptr); /* callback function */
 			/* exit the loop */
+			/*valid_types[j].f(argp);*/
+			
 			}
 			count++;
 		}
@@ -106,7 +108,12 @@ void print_float(va_list argptr)
 void print_string(va_list argptr)
 {
 	char *ptr;
+	
 	ptr = va_arg(argptr, char *);	
+	if (ptr == NULL)
+	{
+		ptr = "(nil)";
+	}
 	printf("%s", ptr);
 	/*printf("%s", va_arg(argptr, char *));*/
 }
