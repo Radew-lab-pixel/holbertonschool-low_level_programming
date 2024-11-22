@@ -23,11 +23,11 @@ void print_all(const char * const format, ...)
 	/*int strcmp_compare; */
 
 	op_t ops[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string},
-		{NULL, NULL}
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_string},
+		/*{NULL, NULL}*/
 		};
 	
 	va_list argptr; /*declaring argptr variadic list */
@@ -39,12 +39,13 @@ void print_all(const char * const format, ...)
 	while (format_count < format_length) /* loop through format char * */
 	{	
 		printf("Current fomat[] is %c\n", format[format_count]);
-		while (count < 5) /* compare to ops[].f */
+		while (count < 4) /* compare to ops[].f */
 		{	
 			/**strcmp_compare = strcmp(ops[count].form, format[format_count]); */
 			/*if (strcmp_compare == 0)  matched */
-			if ((ops[count].form - "\0") == format[format_count])
-			{
+			if ((ops[count].form ) == format[format_count])
+			{	
+				printf("%c matches \n", ops[count].form);
 			ops[count].f(argptr);/* callback function */
 			/* exit the loop */
 			count = 5;

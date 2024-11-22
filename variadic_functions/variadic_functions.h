@@ -13,7 +13,7 @@
 
 typedef struct ops
 {
-	char *form;
+	char form;
 	/*char form;*/
 	void (*f)(va_list);
 } op_t;
