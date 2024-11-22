@@ -15,8 +15,27 @@ void print_string(va_list argptr);
 
 void print_all(const char * const format, ...)
 
-{
-    	printf("%s", format);	
+{	
+	/*   char *form; */
+        /*char form;*/
+	opt list[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+		};
+	
+        void (*f)(va_list);
+    	/*printf("%s", format);*/
+	const char *ptr_format;
+	
+	va_list argptr; /* declare valist variable */
+	
+	ptr = format;
+	va_start(argptr, ptr_format); /* intialize argptr */
+
+	
+		
 }
 
 /**
