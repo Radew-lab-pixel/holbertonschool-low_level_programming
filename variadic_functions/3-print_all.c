@@ -35,7 +35,7 @@ void print_all(const char * const format, ...)
 	
 	/* format will contain the each individual format for the argu */
 	format_length = strlen(format);
-	printf("Format length is %d\n", format_length);
+	/*printf("Format length is %d\n", format_length); */
 	while (format_count < format_length) /* loop through format char * */
 	{	
 		printf("Current fomat[] is %c\n", format[format_count]);
@@ -45,7 +45,7 @@ void print_all(const char * const format, ...)
 			/*if (strcmp_compare == 0)  matched */
 			if ((ops[count].form ) == format[format_count])
 			{	
-				printf("%c matches \n", ops[count].form);
+			/*printf("%c matches \n", ops[count].form); */
 			ops[count].f(argptr);/* callback function */
 			/* exit the loop */
 			count = 5;
