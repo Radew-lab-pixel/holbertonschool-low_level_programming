@@ -14,46 +14,49 @@ void print_string(va_list argptr);
  */
 
 void print_all(const char * const format, ...)
-
-{	
-	/*   char *form; */
-        /*char form;*/
-	/*  void (*f)(va_list);*/
-
-	int count  = 0;
-    	/*printf("%s", format);*/
-	/*const char *ptr_format; */
+{
 	char *str;
+	int count = 0;
+	int end = 0;
 
-	va_list argptr; /* declare valist variable */
-	/*ptr_format = format;*/
+	va_list argptr;
 
-	va_start (argptr, format); /* intialize argptr */
-	
-	while (format[count])
+	va_start(argptr, format);
+
+	while (format != NULL && format[count] != '\0')
 	{
 		switch (format[count])
 		{
-			case 'c' : print_char(argptr);
-				   break;
-			case 'i' : print_int(argptr);
-				   break;
-			case 'f' : print_float(argptr);
-				   break;
-			case 's' : /*print_string(argptr); */
-				   /*printf("%s", va_arg(argptr, char*/
-					str = va_arg(argptr, char *);
-					if (!str)
-					{	
-						printf("(nil)");
-						break;
-					}
-					printf("%s", str);
-					break; 
+			case 'c':
+				printf("%c", va_arg(argptr, int));
+				end = 0;
+				break;
+
+			case 'i':
+				printf("%i", va_arg(argptr, int));
+				end = 0;
+				break;
+			case 'f':
+				printf("%f", va_arg(argptr, double));
+				end = 0;
+				break;
+			case 's':
+				str = va_arg(argptr, char*);
+				if (str == NULL)
+					str = "(nil)";
+				printf("%s", str);
+				end = 0;
+				break;
+			default:
+				end = 1;
+				break;
 		}
+		if (format[count + 1] != '\0' && end == 0)
+			printf(", ");
 		count++;
-	}	
-	va_end(argptr);	
+	}
+	printf("\n");
+	va_end(argptr);
 }
 
 /**
