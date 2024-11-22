@@ -21,17 +21,29 @@ void print_all(const char * const format, ...)
 
 	va_list argptr; /*declaring va_list argptr */
 
+	if (format == NULL)
+	{
+		return;
+	}
+
 	va_start(argptr, format); /*intialing argptr */
 	
 	operand = ", "; /* operand between arg */
 	
 	while ((format[count] != '\0') && (format != NULL))
 	{
-		if (format[count + 1] == '\0') /* if next format[] is not \0*/
-                {
-                        operand = "";
-                }
+		/* if (format[count + 1] == '\0')  if next format[] is not \0*/
+		/*	operand = ""; */
+                
 		
+		switch (format[count + 1])
+				{
+					case '\0': operand = "";			
+						break;
+					
+					default : break;
+				}	
+
 		switch (format[count]) /* get current format[]*/
 		{
 			case 'c':
@@ -66,6 +78,7 @@ void print_all(const char * const format, ...)
 	}
 	printf("\n");
 	va_end(argptr); /*end va_list argptr */
+	return;
 }
 
 /**
