@@ -17,25 +17,33 @@ void print_all(const char * const format, ...)
 {
 	char *str; 
 	int count = 0;
+	char *operand;
 
 	va_list argptr; /*declaring va_list argptr */
 
 	va_start(argptr, format); /*intialing argptr */
-
+	
+	operand = ", "; /* operand between arg */
+	
 	while ((format[count] != '\0') && (format != NULL))
 	{
+		if (format[count + 1] == '\0') /* if next format[] is not \0*/
+                {
+                        operand = "";
+                }
+		
 		switch (format[count]) /* get current format[]*/
 		{
 			case 'c':
-				printf("%c", va_arg(argptr, int));
+				printf("%c%s", va_arg(argptr, int), operand);
 				break;
 
 			case 'i':
-				printf("%i", va_arg(argptr, int));
+				printf("%i%s", va_arg(argptr, int), operand);
 				break;
 
 			case 'f':
-				printf("%f", va_arg(argptr, double));
+				printf("%f%s", va_arg(argptr, double), operand);
 				break;
 
 			case 's':
@@ -44,17 +52,16 @@ void print_all(const char * const format, ...)
 				{
 					str = "(nil)";
 				}
-				printf("%s", str);
+				printf("%s%s", str, operand);
 				break;
 
 			default:
 				break;
 		}
 
-		if (format[count + 1] != '\0') /* if next format[] is not \0*/
-		{
-			printf(", ");
-		}
+		/*if (format[count + 1] == '\0')  if next format[] is not \0 */ 
+		/*operand = ""; */
+		/*printf(", ");*/
 		count++;
 	}
 	printf("\n");
