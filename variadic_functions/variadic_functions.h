@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#define VALIDTYPESCONDITIONAL(f_count) (format[f_count] == 'c' || format[f_count] == 'i' || format[f_count] == 'f' || format[f_count] == 's')
-
 /*
  * struct ops - Struct ops
  * @form : format operand

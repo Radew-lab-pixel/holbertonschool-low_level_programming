@@ -16,7 +16,43 @@ void print_string(va_list argptr);
 void print_all(const char * const format, ...)
 
 {
-    	printf("%s", format);	
+    	/*char *form; */
+        /*void (*f)(va_list);*/
+	int count = 0;
+	int f_count = 0;
+	
+	va_list argptr; /*declaring argptr variadic list */
+	/*int format_length; */
+	/*int strcmp_compare; */
+	/*const char *pformat = format;*/
+	op_t ops[] = {
+		{ "c", print_char},
+		{ "i", print_int},
+		{ "f", print_float},
+		{ "s", print_string},
+	};
+	
+	/*va_list argptr; declaring argptr variadic list */
+	va_start(argptr, format); /*intialize argptr */
+	
+	while (format[f_count] != '\0')
+	{	
+		/*printf("Current format[] is %c\n", format[format_count]);*/
+		count = 0;
+		while (count < 3) /* compare to ops[].f */
+		{	
+			/**strcmp_compare = strcmp(ops[count].form, format[format_count]); */
+			/*if (strcmp_compare == 0)  matched */
+			if (*ops[count].form == format[f_count])
+			{	printf(", ");
+				(ops[count].f)(argptr); /* callback function */
+			}
+			count++;
+		}
+		f_count++;
+	}
+	va_end(argptr);
+	
 }
 
 /**
