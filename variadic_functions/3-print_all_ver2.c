@@ -19,41 +19,37 @@ void print_all(const char * const format, ...)
 	/*   char *form; */
         /*char form;*/
 	/*  void (*f)(va_list);*/
+	op_t list[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string}
+		};
 
-	int count  = 0;
+	int i = 0;
+	int j = 0;
     	/*printf("%s", format);*/
 	/*const char *ptr_format; */
-	char *str;
 
 	va_list argptr; /* declare valist variable */
 	/*ptr_format = format;*/
 
 	va_start (argptr, format); /* intialize argptr */
 	
-	while (format[count])
+	/*while (format[i] != '\0') */
+	while (format[i] && format)
 	{
-		switch (format[count])
+		j = 0;
+		while (*list[j].form == format[i])
 		{
-			case 'c' : print_char(argptr);
-				   break;
-			case 'i' : print_int(argptr);
-				   break;
-			case 'f' : print_float(argptr);
-				   break;
-			case 's' : /*print_string(argptr); */
-				   /*printf("%s", va_arg(argptr, char*/
-					str = va_arg(argptr, char *);
-					if (!str)
-					{	
-						printf("(nil)");
-						break;
-					}
-					printf("%s", str);
-					break; 
+			list[j].f(argptr);
+			printf(", ");
+			j++;
 		}
-		count++;
-	}	
-	va_end(argptr);	
+
+		i++;
+	}
+	va_end(argptr);		
 }
 
 /**
@@ -99,6 +95,7 @@ void print_float(va_list argptr)
 void print_string(va_list argptr)
 {
 	char *ptr;
+	
 	ptr = va_arg(argptr, char *);	
 	printf("String here :" );
 	if (ptr == NULL)
