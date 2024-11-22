@@ -106,10 +106,10 @@ void print_string(va_list argptr)
 	char *ptr;
 	ptr = va_arg(argptr, char *);	
 	printf("String here :" );
-	if (ptr == NULL)
-	{
+	/*if (ptr == NULL) */
+	/*{ */
 		ptr = "(nil)";
-	}
+	/*} */
 	printf("%s", ptr);
 	/*printf("%s", va_arg(argptr, char *));*/
 }
