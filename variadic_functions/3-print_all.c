@@ -19,7 +19,7 @@ void print_all(const char * const format, ...)
     	/*char *form; */
         /*void (*f)(va_list);*/
 	int count = 0, format_count = 0;
-	int format_length;
+	/*int format_length; */
 	/*int strcmp_compare; */
 
 	op_t ops[] = {
@@ -34,9 +34,10 @@ void print_all(const char * const format, ...)
 	va_start (argptr, format); /*intialize argptr */
 	
 	/* format will contain the each individual format for the argu */
-	format_length = strlen(format);
+	/* format_length = strlen(format); */
+
 	/*printf("Format length is %d\n", format_length); */
-	while (format_count < format_length) /* loop through format char * */
+	while (format[format_count] != '\0') /* loop through format char * */
 	{	
 		printf("Current fomat[] is %c\n", format[format_count]);
 		while (count < 4) /* compare to ops[].f */
