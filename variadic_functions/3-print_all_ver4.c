@@ -36,12 +36,10 @@ void print_all(const char * const format, ...)
 		/*	operand = ""; */
 		switch (format[count + 1])
 				{
-						case '\0':
-						operand = "";
+					case '\0': operand = "";
 						break;
 
-					default:
-						break;
+					default : break;
 				}
 
 		switch (format[count]) /* get current format[]*/
@@ -74,5 +72,58 @@ void print_all(const char * const format, ...)
 	}
 	printf("\n");
 	va_end(argptr); /*end va_list argptr */
-	/*return;*/
+	return;
+}
+
+/**
+ * print_char - print char function link to callback
+ *
+ * @argptr : va_list variable
+ * Return: void
+ */
+void print_char(va_list argptr)
+{
+        /*'char' is promoted to 'int' when passed through */
+        printf("%c", va_arg(argptr, int));
+}
+
+/**
+ * print_int - print int function
+ * @argptr : va_list variable
+ * Return: void
+ */
+void print_int(va_list argptr)
+{
+        printf("%d", va_arg(argptr, int));
+}
+
+/**
+ * print_float - print float function
+ * @argptr : va_list variable
+ * Return: void
+ */
+void print_float(va_list argptr)
+{
+        /*  'float' is promoted to 'double' when passed throug*/
+        printf("%f", va_arg(argptr, double));
+
+}
+
+/**
+ * print_string - print string function
+ * @argptr : va_list variable
+ * Return: void
+ */
+
+void print_string(va_list argptr)
+{
+        char *ptr;
+        ptr = va_arg(argptr, char *);
+        printf("String here :" );
+        /*if (ptr == NULL) */
+        /*{ */
+                ptr = "(nil)";
+        /*} */
+        printf("%s", ptr);
+        /*printf("%s", va_arg(argptr, char *));*/
 }
