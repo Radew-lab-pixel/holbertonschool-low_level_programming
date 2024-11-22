@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <string.h>
 
 void print_char(va_list argptr);
 void print_int(va_list argptr);
@@ -15,50 +14,53 @@ void print_string(va_list argptr);
  */
 
 void print_all(const char * const format, ...)
+
 {
     	/*char *form; */
         /*void (*f)(va_list);*/
-	int count = 0, format_count = 0;
-	/*int format_length; */
-	/*int strcmp_compare; */
-
-	op_t ops[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string},
-		/*{NULL, NULL}*/
-		};
+	int count = 0;
+	int f_count = 0;
 	
 	va_list argptr; /*declaring argptr variadic list */
-	va_start (argptr, format); /*intialize argptr */
+	/*int format_length; */
+	/*int strcmp_compare; */
+	/*const char *pformat = format;*/
+	op_t ops[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+	};
+	
+	/*va_list argptr; declaring argptr variadic list */
+	va_start(argptr, format); /*intialize argptr */
 	
 	/* format will contain the each individual format for the argu */
 	/* format_length = strlen(format); */
 
 	/*printf("Format length is %d\n", format_length); */
-	while (format[format_count] != '\0') /* loop through format char * */
+	printf("Format : %s", format);
+	/*while (format[f_count] != '\0')  loop through format char * */
+	while (format[f_count] && (format != NULL))
 	{	
-		printf("Current fomat[] is %c\n", format[format_count]);
-		while (count < 4) /* compare to ops[].f */
+		/*printf("Current fomat[] is %c\n", format[format_count]);*/
+		count = 0;
+		while (count < 3) /* compare to ops[].f */
 		{	
 			/**strcmp_compare = strcmp(ops[count].form, format[format_count]); */
 			/*if (strcmp_compare == 0)  matched */
-			if ((ops[count].form ) == format[format_count])
-			{	
+			if (*ops[count].form == format[f_count])
+			{	printf(", ");
 			/*printf("%c matches \n", ops[count].form); */
-			ops[count].f(argptr);/* callback function */
+			(ops[count].f)(argptr); /* callback function */
 			/* exit the loop */
-			count = 5;
 			}
 			count++;
 		}
-		count = 0;
-		format_count++;
+		f_count++;
 	}
 	va_end(argptr);
 	
-	return;
 }
 
 /**
@@ -103,5 +105,8 @@ void print_float(va_list argptr)
 
 void print_string(va_list argptr)
 {
-	printf("%s", va_arg(argptr, char *));
+	char *ptr;
+	ptr = va_arg(argptr, char *);	
+	printf("%s", ptr);
+	/*printf("%s", va_arg(argptr, char *));*/
 }
