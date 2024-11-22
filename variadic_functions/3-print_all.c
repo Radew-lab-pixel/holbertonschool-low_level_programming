@@ -18,24 +18,38 @@ void print_all(const char * const format, ...)
 {	
 	/*   char *form; */
         /*char form;*/
-	opt list[] = {
+	/*  void (*f)(va_list);*/
+	op_t list[] = {
 		{"c", print_char},
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_string}
 		};
-	
-        void (*f)(va_list);
-    	/*printf("%s", format);*/
-	const char *ptr_format;
-	
-	va_list argptr; /* declare valist variable */
-	
-	ptr = format;
-	va_start(argptr, ptr_format); /* intialize argptr */
 
+	int i = 0;
+	int j = 0;
+    	/*printf("%s", format);*/
+	/*const char *ptr_format; */
+
+	va_list argptr; /* declare valist variable */
+	/*ptr_format = format;*/
+
+	va_start (argptr, format); /* intialize argptr */
 	
-		
+	/*while (format[i] != '\0') */
+	while (format[i] && format)
+	{
+		j = 0;
+		while (*list[j].form == format[i])
+		{
+			list[j].f(argptr);
+			printf(", ");
+			j++;
+		}
+
+		i++;
+	}
+	va_end(argptr);		
 }
 
 /**
@@ -82,7 +96,7 @@ void print_string(va_list argptr)
 {
 	char *ptr;
 	
-	ptr = (char *) va_arg(argptr, char *);	
+	ptr = va_arg(argptr, char *);	
 	printf("String here :" );
 	if (ptr == NULL)
 	{
