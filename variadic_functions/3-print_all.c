@@ -18,7 +18,8 @@ void print_all(const char * const format, ...)
 {
     	/*char *form; */
         /*void (*f)(va_list);*/
-	int count = 0;
+	int count = 0, format_count = 0;
+	int format_length;
 	/*int strcmp_compare; */
 
 	op_t ops[] = {
@@ -31,18 +32,30 @@ void print_all(const char * const format, ...)
 	
 	va_list argptr; /*declaring argptr variadic list */
 	va_start (argptr, format); /*intialize argptr */
-
-	while (count < 5)
+	
+	/* format will contain the each individual format for the argu */
+	format_length = strlen(format);
+	printf("Format length is %d\n", format_length);
+	while (format_count < format_length) /* loop through format char * */
 	{	
-		/*strcmp_compare = strcmp(ops[count].form, format); */
-		/*if (strcmp_compare == 0) matched */
-		if (ops[count].form == format)
-		{
-			ops[count].f(argptr); /* callback function */
-			count = 5; /* exit the loop */
+		printf("Current fomat[] is %c\n", format[format_count]);
+		while (count < 5) /* compare to ops[].f */
+		{	
+			/**strcmp_compare = strcmp(ops[count].form, format[format_count]); */
+			/*if (strcmp_compare == 0)  matched */
+			if ((ops[count].form - "\0") == format[format_count])
+			{
+			ops[count].f(argptr);/* callback function */
+			/* exit the loop */
+			count = 5;
+			}
+			count++;
 		}
-		count++;
+		count = 0;
+		format_count++;
 	}
+	va_end(argptr);
+	
 	return;
 }
 
@@ -77,6 +90,7 @@ void print_float(va_list argptr)
 {
 	/*  'float' is promoted to 'double' when passed throug*/
 	printf("%f", va_arg(argptr, double));
+	
 }
 
 /**
