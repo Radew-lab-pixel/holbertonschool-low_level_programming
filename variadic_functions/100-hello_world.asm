@@ -1,15 +1,19 @@
 section .data
-msg db 'Hello, World', 0xA     ; variable msg containing the data
-len equ $ - msg         ; length of msg                                       
+    msg db 'Hello, World', 0xA   ; The message and newline character
+    len equ $ - msg               ; Calculate the length of the message
 section .text
-	global _start		 ; must be declared for linker (gcc)
-_start: 	; tell the linker entry point, system call to write (sys_write)
-	mov ebx, 1	; assign 1 to indexed addressing ebx, file descriptor (1 is stdout)
-	mov eax, 4	; assign 4 to eax to activate system call number (sys_write)
-	mov edx, len    ; store message length in date register edx
-        mov ecx, msg    ; store msg to write to count register ecx
-	int 0x80	; call kernel
-	; system call to exit
-	mov eax, 1	;assign 1 to eax to activate system call number (sys_exit)
-	mov ebx, 0	; exit status 0
-	int 0x80 	; call kernel                                        
+    ;global _start                 
+	; Entry point for the program
+	global main
+;_start
+main:
+    ; System call to write (sys_write)
+    mov eax, 4                    ; System call number for write (Linux x86)
+    mov ebx, 1                    ; File descriptor (1 = stdout)
+    mov ecx, msg                  ; Pointer to the message
+    mov edx, len                  ; Length of the message
+    int 0x80                      ; Call the kernel
+    ; System call to exit (sys_exit)
+    mov eax, 1                    ; System call number for exit
+    xor ebx, ebx                  ; Exit status 0
+    int 0x80                      ; Call the kernel

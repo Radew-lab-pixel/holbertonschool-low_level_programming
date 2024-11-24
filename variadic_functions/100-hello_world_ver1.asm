@@ -2,8 +2,11 @@ section .data
     msg db 'Hello, World!', 0xA   ; The message and newline character
     len equ $ - msg               ; Calculate the length of the message
 section .text
-    global _start                 ; Entry point for the program
-_start:
+    ;global _start                 
+	; Entry point for the program
+	global main
+;_start
+main:
     ; System call to write (sys_write)
     mov eax, 4                    ; System call number for write (Linux x86)
     mov ebx, 1                    ; File descriptor (1 = stdout)
