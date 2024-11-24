@@ -11,10 +11,9 @@ _start: 			; tell the linker entry point, system call to write (sys_write)
 
 	; system call to exit
 	mov eax, 1		;assign 1 to eax to activate system call number (sys_exit)
-	int 0x80; 		; call kernel
-
+	mov ebx, 0 		; exit status 0
+	int 0x80 		; call kernel
 
 section .data
 msg db 'Hello, World', 0xa      ; variable msg containing the data
-len equ $ - msg                 ; length of msg         
-~                                                
+len equ $ - msg                 ; length of msg                                             
