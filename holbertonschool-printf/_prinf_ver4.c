@@ -5,7 +5,6 @@
 #include <stdlib.h>
 
 int write_function(char *s, int size, int t_count);
-int write_number(int num);
 
 /**
  * _printf - function that produces output according to a format
@@ -180,25 +179,4 @@ int write_function(char *s, int size, int tcount)
 {
 	write(1, s, size);
 	return (tcount++); /* increment t_count */
-}
-
-/**
- * write_number - write number
- *
- * @num : integer input
- * 
- * Return: character count value
- */
-int write_number(int n)
-{
-	int result;
-	int t_count = 0;
-	result = n;
-
-	if (result / 10)
-	{
-		print_number(result / 10);
-	}
-		/*_putchar((result % 10) + '0');*/
-		write_function((result % 10) + '0', 1, t_count);
 }
