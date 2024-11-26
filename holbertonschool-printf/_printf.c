@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
+		count = write_function("\n", 1, count);
 		return (0); /* terminate with count = 0 */
 	}
 	while (format != NULL && format[flag] != '\0')
