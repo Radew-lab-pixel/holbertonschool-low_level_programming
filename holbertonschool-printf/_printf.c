@@ -18,17 +18,23 @@ int _printf(const char *format, ...)
 	va_list args;
 	char c;
 	char *s;
-	int i;
-	int temp_num, digit = 0;
+	
+	/* int i; */
+	unsigned int i, temp_num;
+	int digit = 0;
+
+	/*int temp_num, digit = 0;*/
+
 	char *num_array;
 	int j;
 	
 	va_start(args, format);
 
-	if (format == NULL)
-	{	c = ' ';
-		write(1, &c, 1);
-	}
+	if (format == NULL) 
+	{	/*c = ' '; */
+		/* write(1, &c, 1); */
+		return (0); /* terminate with count = 0 */
+	}	
 
 	while (format != NULL && format[flag] != '\0')
 	{
@@ -74,6 +80,7 @@ int _printf(const char *format, ...)
 						write(1, "-", 1);
 						count++;
 						temp_num = -temp_num;
+						/* temp_num = temp_num; for debugging use : int range between -2,147,483,647 and 2,147,483,648 */
 					}
 					
 					temp_num = i;
@@ -88,11 +95,13 @@ int _printf(const char *format, ...)
 					{
 						return (-1);
 					}
+					
 					temp_num = i < 0 ? -i : i;
 					j = 0;
 					while (temp_num != 0)
 					{
-						num_array[j] = (char)(temp_num % 10 + '0');
+						/* num_array[j] = (char)(temp_num % 10 + '0'); */
+						num_array[j] = (char)((temp_num % 10) + '0');
 						j++;
 						temp_num /= 10;
 					}

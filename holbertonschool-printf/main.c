@@ -42,8 +42,14 @@ int main(void)
     printf("Unknown:[%r]\n");
     _printf(NULL);
     printf(NULL);
-    _printf("%");
-    printf("Testing %\n");
-    
+    _printf("%\n");
+    printf("%\n");
+    _printf("%d\n", INT_MAX);
+    printf("%d\n", INT_MAX);
+    _printf("%d\n", INT_MIN + 1);
+    printf("%d\n", INT_MIN + 1);
+      _printf("%d\n", INT_MIN );
+    printf("%d\n", INT_MIN );
+
     return (0);
 }
