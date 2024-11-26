@@ -25,10 +25,11 @@ int _printf(const char *format, ...)
 	/* unsigned int i, temp_num;  unsigned int to acoomodate INT_MIN */
 	/* int digit = 0; */
 
-	int temp_num, digit = 0;
+	int temp_num;
+	/* int digit = 0; removed by mao */
 
-	char *num_array;
-	int j;
+	/* char *num_array; removed by mao */
+	/* int j;  removed by mao */
 
 	va_start(args, format);
 
@@ -104,7 +105,10 @@ int _printf(const char *format, ...)
 					/*  int range between 2,147,483,647 and -2,147,483,648 */
 					}
 
-					/*temp_num = i;  remove by mao */
+					count = count + write_number(temp_num);
+
+					
+					/*temp_num = i;  remove by mao 
 					while (temp_num != 0)
 					{
 						temp_num = temp_num / 10;
@@ -122,25 +126,20 @@ int _printf(const char *format, ...)
 					while (temp_num != 0)
 					{
 						num_array[j] = (char)(temp_num % 10 + '0');
-						/* num_array[j] = (char)((temp_num % 10) + '0'); */
-						/*printf("Testing : %c \n", num_array[j]);  for debugging */
+						
+						
 						j++;
 						temp_num /= 10;
 					}
 
 					for (j = digit - 1; j >= 0; j--)
-					/*for (j = digit; j > 0; j--) */
+
 					{
-						/*if ((i == INT_MIN) && (j == 0))  i == INT_MIN and reading last digit */
-						/* which is 7 due to overflow of integer */
-						/* { */
-						/*	write(1, "8", 1);  7 with 8 as INT_MIN is -2,147,483,648 */
-						/*} */
-						/*write(1, &num_array[j], 1);*/
-						/*count++;*/
+						
 						count = write_function(&num_array[j], 1, count);
 					}
-					free(num_array);
+					free(num_array); */
+
 					break;
 
 				default:
@@ -176,10 +175,10 @@ int _printf(const char *format, ...)
  * Return: incremented tcount by 1
  */
 
-int write_function(char *s, int size, int tcount)
+int write_function(char *s, int size, int t_count)
 {
 	write(1, s, size);
-	return (tcount++); /* increment t_count */
+	return (t_count++); /* increment t_count */
 }
 
 /**
@@ -190,15 +189,18 @@ int write_function(char *s, int size, int tcount)
  * Return: character count value
  */
 int write_number(int n)
-{
+{	
+	char c;
 	int result;
 	int t_count = 0;
 	result = n;
 
-	if (result / 10)
+	if ((result / 10) != 0)
 	{
-		print_number(result / 10);
+		write_number(result / 10); /* recursive function */
 	}
 		/*_putchar((result % 10) + '0');*/
-		write_function((result % 10) + '0', 1, t_count);
+		c = (result % 10) + '0';
+		t_count = write_function(&c, 1, t_count);
+	return (t_count);
 }
