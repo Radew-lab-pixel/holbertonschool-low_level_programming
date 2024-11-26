@@ -4,8 +4,6 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int write_function(char *s, int size, int t_count);
-
 /**
  * _printf - function that produces output according to a format
  *
@@ -127,10 +125,9 @@ int _printf(const char *format, ...)
 						/* { */
 						/*	write(1, "8", 1);  7 with 8 as INT_MIN is -2,147,483,648 */
 						/*} */
-
-						/*write(1, &num_array[j], 1);*/
-						/*count++;*/
-						count = write_function(&num_array[j], 1, count);
+						
+						write(1, &num_array[j], 1);
+						count++;
 					}
 					
 					free(num_array);
@@ -152,18 +149,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (count);
-}
-
-/**
- * _write_function - write function for character buffer
- * 
- * @s : char array that is the buffer
- * @size : size of the s
- * Return: count update
- */
-
-int write_function(char *s, int size, int tcount)
-{
-	write(1, s, size);
-	return (tcount++); /* increment t_count */
 }

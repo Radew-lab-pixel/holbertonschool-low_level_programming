@@ -48,7 +48,8 @@ int main(void)
     printf("%d\n", INT_MAX);
     _printf("%d\n", INT_MIN + 1);
     printf("%d\n", INT_MIN + 1);
-      _printf("%d\n", INT_MIN );
+    
+    _printf("%d\n", INT_MIN );
     printf("%d\n", INT_MIN );
 
     return (0);
