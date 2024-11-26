@@ -52,5 +52,11 @@ int main(void)
     _printf("%d\n", INT_MIN );
     printf("%d\n", INT_MIN );
 
+	_printf("There is %d bytes in%d KB\n", 1024, 1);
+	printf("There is %d bytes in%d KB\n", 1024, 1);
+	
+	  _printf("There is %d bytes in %s KB\n", 1024, "Hello");
+        printf("There is %d bytes in %s KB\n", 1024, "Hello");
+
     return (0);
 }

@@ -39,6 +39,7 @@ int _printf(const char *format, ...)
 	{
 		/* make sure the format[] after % detected is not empty */
 		if ((format[flag] == '%') && (format[flag + 1]))
+		/* if (format[flag] == '%') */
 		{
 			flag++;
 			switch (format[flag])
@@ -95,12 +96,14 @@ int _printf(const char *format, ...)
 						count = write_function("-", 1, count);
 					/* printf("%d",i); debugging use only */
 					/* temp_num = i;  */
-						temp_num = -temp_num;  /*normalized the value */
-					/* temp_num = temp_num; for debugging use :*/
+
+					temp_num = -temp_num;  /*normalized the value */
+
+						/* temp_num = temp_num; for debugging use :*/
 					/*  int range between 2,147,483,647 and -2,147,483,648 */
 					}
 
-					temp_num = i;
+					/*temp_num = i;  remove by mao */
 					while (temp_num != 0)
 					{
 						temp_num = temp_num / 10;
@@ -117,13 +120,15 @@ int _printf(const char *format, ...)
 					j = 0;
 					while (temp_num != 0)
 					{
-						/* num_array[j] = (char)(temp_num % 10 + '0'); */
-						num_array[j] = (char)((temp_num % 10) + '0');
+						num_array[j] = (char)(temp_num % 10 + '0');
+						/* num_array[j] = (char)((temp_num % 10) + '0'); */
+						/*printf("Testing : %c \n", num_array[j]);  for debugging */
 						j++;
 						temp_num /= 10;
 					}
 
 					for (j = digit - 1; j >= 0; j--)
+					/*for (j = digit; j > 0; j--) */
 					{
 						/*if ((i == INT_MIN) && (j == 0))  i == INT_MIN and reading last digit */
 						/* which is 7 due to overflow of integer */
@@ -142,7 +147,8 @@ int _printf(const char *format, ...)
 					/*write(1, &format[flag], 1); */
 					/*count += 2; */
 					count = write_function("%", 1, count);
-					 /*format is const char thus can't use write_function */
+
+					/*format is const char thus can't use write_function */
 					write(1, &format[flag], 1);
 					count++;
 					break;
