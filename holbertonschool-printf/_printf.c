@@ -107,38 +107,38 @@ int _printf(const char *format, ...)
 
 					count = count + write_number(temp_num);
 
-					
-					/*temp_num = i;  remove by mao 
-					while (temp_num != 0)
-					{
-						temp_num = temp_num / 10;
-						digit++;
-					}
-
-					num_array = malloc(digit * sizeof(char));
-					if (num_array == NULL)
-					{
-						return (-1);
-					}
-
-					temp_num = i < 0 ? -i : i;
-					j = 0;
-					while (temp_num != 0)
-					{
-						num_array[j] = (char)(temp_num % 10 + '0');
-						
-						
-						j++;
-						temp_num /= 10;
-					}
-
-					for (j = digit - 1; j >= 0; j--)
-
-					{
-						
-						count = write_function(&num_array[j], 1, count);
-					}
-					free(num_array); */
+					/**
+					* temp_num = i;  remove by mao
+					* while (temp_num != 0)
+					* {
+					*	temp_num = temp_num / 10;
+					*	digit++;
+					*}
+					*
+					* num_array = malloc(digit * sizeof(char));
+					* if (num_array == NULL)
+					* {
+					*	return (-1);
+					* }
+					*
+					* temp_num = i < 0 ? -i : i;
+					* j = 0;
+					* while (temp_num != 0)
+					* {
+					*	num_array[j] = (char)(temp_num % 10 + '0');
+					*
+					*	j++;
+					*	temp_num /= 10;
+					* }
+					*
+					* for (j = digit - 1; j >= 0; j--)
+					*
+					* {
+					*
+					*	count = write_function(&num_array[j], 1, count);
+					* }
+					* free(num_array);
+					*/
 
 					break;
 
@@ -171,7 +171,7 @@ int _printf(const char *format, ...)
  *
  * @s : char array that is the buffer
  * @size : size of the s
- * @tcount : characters that been counted
+ * @t_count : characters that been counted
  * Return: incremented tcount by 1
  */
 
@@ -184,15 +184,17 @@ int write_function(char *s, int size, int t_count)
 /**
  * write_number - write number
  *
- * @num : integer input
- * 
+ * @n : integer input
+ *
  * Return: character count value
  */
+
 int write_number(int n)
-{	
+{
 	char c;
 	int result;
 	int t_count = 0;
+
 	result = n;
 
 	if ((result / 10) != 0)
