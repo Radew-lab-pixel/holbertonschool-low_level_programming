@@ -9,8 +9,8 @@ int write_function(char *s, int size, int t_count);
 /**
  * _printf - function that produces output according to a format
  *
- * @format : string passed into this function
- * Return : integer value of total number of chars
+ * @format: string passed into this function
+ * Return: integer value of total number of chars
  */
 
 int _printf(const char *format, ...)
@@ -32,11 +32,9 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	if (format == NULL)
-	{	/*c = ' '; */
-		/* write(1, &c, 1); */
+	{
 		return (0); /* terminate with count = 0 */
 	}
-
 	while (format != NULL && format[flag] != '\0')
 	{
 		/* make sure the format[] after % detected is not empty */
@@ -47,8 +45,9 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = (char)va_arg(args, int);
-					write(1, &c, 1);
-					count++;
+					/*write(1, &c, 1); */
+					/*count++; */
+					count = write_function(&c, 1, count);
 					break;
 				case 's':
 					s = va_arg(args, char*);
@@ -58,14 +57,16 @@ int _printf(const char *format, ...)
 					}
 					while (*s != '\0')
 					{
-						write(1, s, 1);
+						/* write(1, s, 1); */
+						/* count++; */
+						count = write_function(s, 1, count);
 						s++;
-						count++;
 					}
 					break;
 				case '%':
-					write(1, "%", 1);
-					count++;
+					/* write(1, "%", 1); */
+					/* count++; */
+					count = write_function("%", 1, count);
 					break;
 				case 'i':
 				case 'd':
@@ -73,44 +74,45 @@ int _printf(const char *format, ...)
 					temp_num = i;
 					if (i == 0)
 					{
-						write(1, "0", 1);
-						count++;
+						/* write(1, "0", 1); */
+						/* count++; */
+						count = write_function("0", 1, count);
 						break;
 					}
 					 /* INT_MIN detected */
 					if ((i < 0) && (i == INT_MIN))
 					{
 					/* assign INT_MIN value to write to prevent int overflow */
-						write(1, "-2147483648", 11);
+						/* 11 bytes in INT_MIN */
+						count = write_function("-2147483648", 11, count) + 10;
 						break;
 					}
 
 					if ((i < 0) && (i != INT_MIN))
 					{
-						write(1, "-", 1);
-						count++;
-					/* if (i == -2147483648)  i = INT_MIN) */
+						/* write(1, "-", 1); */
+						/* count++;	*/
+						count = write_function("-", 1, count);
 					/* printf("%d",i); debugging use only */
 					/* temp_num = i;  */
-
 						temp_num = -temp_num;  /*normalized the value */
 					/* temp_num = temp_num; for debugging use :*/
 					/*  int range between 2,147,483,647 and -2,147,483,648 */
 					}
-					
+
 					temp_num = i;
 					while (temp_num != 0)
 					{
 						temp_num = temp_num / 10;
 						digit++;
 					}
-					
+
 					num_array = malloc(digit * sizeof(char));
 					if (num_array == NULL)
 					{
 						return (-1);
 					}
-					
+
 					temp_num = i < 0 ? -i : i;
 					j = 0;
 					while (temp_num != 0)
@@ -120,26 +122,29 @@ int _printf(const char *format, ...)
 						j++;
 						temp_num /= 10;
 					}
-					
+
 					for (j = digit - 1; j >= 0; j--)
-					{	
-						/*if ((i == INT_MIN) && (j == 0))  i == INT_MIN and reading last digit which is 7 due to overflow of integer */
+					{
+						/*if ((i == INT_MIN) && (j == 0))  i == INT_MIN and reading last digit */
+						/* which is 7 due to overflow of integer */
 						/* { */
 						/*	write(1, "8", 1);  7 with 8 as INT_MIN is -2,147,483,648 */
 						/*} */
-
 						/*write(1, &num_array[j], 1);*/
 						/*count++;*/
 						count = write_function(&num_array[j], 1, count);
 					}
-					
 					free(num_array);
 					break;
 
 				default:
-					write(1, "%", 1);
+					/*write(1, "%", 1); */
+					/*write(1, &format[flag], 1); */
+					/*count += 2; */
+					count = write_function("%", 1, count);
+					 /*format is const char thus can't use write_function */
 					write(1, &format[flag], 1);
-					count += 2;
+					count++;
 					break;
 			}
 		}
@@ -147,6 +152,7 @@ int _printf(const char *format, ...)
 		{
 			write(1, &format[flag], 1);
 			count++;
+			/*count = write_function(&format[flag], 1, count); */
 		}
 		flag++;
 	}
@@ -155,11 +161,12 @@ int _printf(const char *format, ...)
 }
 
 /**
- * _write_function - write function for character buffer
- * 
+ * write_function - write function for character buffer
+ *
  * @s : char array that is the buffer
  * @size : size of the s
- * Return: count update
+ * @tcount : characters that been counted
+ * Return: incremented tcount by 1
  */
 
 int write_function(char *s, int size, int tcount)
