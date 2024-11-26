@@ -42,5 +42,8 @@ int main(void)
     printf("Unknown:[%r]\n");
     _printf(NULL);
     printf(NULL);
+    _printf("%");
+    printf("Testing %\n");
+    
     return (0);
 }

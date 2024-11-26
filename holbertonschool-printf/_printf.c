@@ -4,6 +4,14 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+
+/**
+ * _printf - function that produces output according to a format
+ *
+ * @format : string passed into this function
+ * Return : integer value of total number of chars 
+ */
+
 int _printf(const char *format, ...)
 {
 	int flag = 0, count = 0;
@@ -24,7 +32,7 @@ int _printf(const char *format, ...)
 
 	while (format != NULL && format[flag] != '\0')
 	{
-		if (format[flag] == '%')
+		if ((format[flag] == '%') && (format[flag + 1])) /* make sure the format[] after % detected is not empty */
 		{
 			flag++;
 			switch (format[flag])
