@@ -12,7 +12,9 @@ void free_list(list_t *head)
 	list_t *temp = head;
 
 	if (head == NULL)
-	{
+
+	{	free(head->next);
+		free(head->str);
 		free(head);
 		return;
 	}
@@ -25,6 +27,7 @@ void free_list(list_t *head)
 			/*head = head->next; */
 			temp = head->next;
 			free(head->str);
+			/*free(head->next);*/
 			free(head);
 			head = temp;
 			/*free(temp->str);*/
@@ -32,9 +35,11 @@ void free_list(list_t *head)
 			/*free(temp->next);*/
 			/*free(temp->len);*/
 			/*free(temp);*/
-
 		}
-
+		/*free(temp->str); */
+		/*free(temp);*/
+		free(head->next);
+		free(head->str);
 		free(head);
 		return;
 	}
