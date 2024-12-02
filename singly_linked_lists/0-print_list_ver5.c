@@ -18,7 +18,7 @@ size_t print_list(const list_t *h)
 	/*create list_t *hcopy;*/
 	list_t *hcopy = (list_t *)malloc(sizeof(list_t));
 
-	*hcopy = *h; /* keep a copy of the original list_t *h */
+	/* *hcopy = *h;  keep a copy of the original list_t *h */
 	/*_strcpy(hcopy->str, h->str);*/
 
 	/**
@@ -27,7 +27,13 @@ size_t print_list(const list_t *h)
 	*hcopy->next = h->next;
 	*/
 
-	*hcopy = *h;
+	if (h == NULL)
+	{
+		/*printf("[0] (nil)\n");*/
+		return (count);
+	}
+	*hcopy = *h; /* keep a copy of orignal list_t *h*/
+
 	while (hcopy != NULL)
 	{
 		if (hcopy->str == NULL)
@@ -71,17 +77,6 @@ size_t print_list(const list_t *h)
 	return (count);
 }
 
-/**
- * _putchar - custom putchar function to print a character
- *
- * @c : character to be printed
- * Return: 1 (Successful) else 0 (fail)
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * _strlen - custom strlen function to count character in string

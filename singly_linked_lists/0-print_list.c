@@ -2,7 +2,6 @@
 #include <unistd.h>
 
 int _putchar(char c);
-int _strlen(char *s);
 
 /**
  * print_list -  function that prints all the elements of a list_t list
@@ -74,29 +73,5 @@ size_t print_list(const list_t *h)
 	}
 	/*return (hcopy->len);*/
 	free(hcopy); /* free local hcopy */
-	return (count);
-}
-
-
-/**
- * _strlen - custom strlen function to count character in string
- *
- * @s : string input
- * Return: (count)
- */
-
-int _strlen(char *s)
-{
-	int count = 0;
-
-	if (s == NULL)
-	{
-		return (0);
-	}
-	while (s[0] != '\0')
-	{
-		count += 1;
-		/*s++;*/
-	}
 	return (count);
 }
