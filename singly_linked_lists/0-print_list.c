@@ -22,16 +22,16 @@ size_t print_list(const list_t *h)
 
 	*hcopy = *h; /* keep a copy of the original list_t *h */
 	/*_strcpy(hcopy->str, h->str);*/
-	
+
 	/**
 	*hcopy->str = h->str;
 	*hcopy->len = h->len;
 	*hcopy->next = h->next;
 	*/
-	
+
 	*hcopy = *h;
 	while (hcopy != NULL)
-	{	
+	{
 		if (hcopy->str == NULL)
 		{
 			/*hcopy->len = 0;*/
@@ -42,21 +42,20 @@ size_t print_list(const list_t *h)
 			/*return (0);*/
 			/**
 			*_putchar('[');
-                        *_putchar('0');
-			*printf(" (nil\n"); 
+			*_putchar('0');
+			*printf(" (nil\n");
+			*
+			*_puts("] (nil)\n");
 			*/
-                      	/*_puts("] (nil)\n");*/
 			printf("[0] (nil)\n");
-		
 		}
-	
 	/*while (hcopy->next != NULL) */
 	/*while (h != NULL)*/
 		else
 		{
 			/*s = h->str; */
 			/**
-			 * _putchar('[');
+			* _putchar('[');
 			*_putchar(h->len + '0');
 			*_putchar(']');
 			*_puts(h->str);
@@ -66,26 +65,24 @@ size_t print_list(const list_t *h)
 			/*_putchar('\n');*/
 		}
 			/*hcopy = hcopy->next;*/
-			hcopy= hcopy->next;
+			hcopy = hcopy->next;
 			count++;
-		
 	}
 	/*return (hcopy->len);*/
-	free(hcopy);
+	free(hcopy); /* free local hcopy */
 	return (count);
-		
 }
 
 /**
  * _putchar - custom putchar function to print a character
  *
- * @c : character to be printed 
+ * @c : character to be printed
  * Return: 1 (Successful) else 0 (fail)
  */
 
 int _putchar(char c)
 {
-	return (write(1,&c,1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -105,7 +102,7 @@ int _strlen(char *s)
 	}
 	while (s[0] != '\0')
 	{
-		count+=1;
+		count += 1;
 		/*s++;*/
 	}
 	return (count);
@@ -121,10 +118,10 @@ int _strlen(char *s)
 
 char *_strcpy(char *destination, char *source)
 {
-	
+
 	int length;
 	int count = 0;
-	
+
 	length = _strlen(source); /* length of source */
 	while (count < length)
 	{
@@ -145,9 +142,7 @@ char *_strcpy(char *destination, char *source)
 void _puts(char *s)
 {
 	int length = _strlen(s);
-	printf("Length %d\n ", length);
-	printf("s os %s\n", s);
-	
+
 	/* while (count < length)*/
 	while (*s != '\0')
 	{
@@ -156,5 +151,5 @@ void _puts(char *s)
 		/*count+=1;*/
 		s++;
 	}
-	return;
+	return (0);
 }
