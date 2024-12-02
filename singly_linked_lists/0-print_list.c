@@ -35,7 +35,6 @@ size_t print_list(const list_t *h)
 	*hcopy = *h; /* keep a copy of orignal list_t *h*/
 
 	while (hcopy != NULL)
- 
 	{
 		if (hcopy->str == NULL)
 		{
