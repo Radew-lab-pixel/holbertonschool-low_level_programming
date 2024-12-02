@@ -29,13 +29,13 @@ size_t print_list(const list_t *h)
 
 	if (h == NULL)
 	{
-		printf("[0] (nil)\n");
+		/*printf("[0] (nil)\n");*/
 		return (count);
 	}
-	*hcopy = *h;
+	*hcopy = *h; /* keep a copy of orignal list_t *h*/
 
 	while (hcopy != NULL)
-
+ 
 	{
 		if (hcopy->str == NULL)
 		{
