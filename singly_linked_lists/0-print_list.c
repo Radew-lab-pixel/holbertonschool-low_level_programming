@@ -18,7 +18,7 @@ size_t print_list(const list_t *h)
 	/*create list_t *hcopy;*/
 	list_t *hcopy = (list_t *)malloc(sizeof(list_t));
 
-	*hcopy = *h; /* keep a copy of the original list_t *h */
+	/* *hcopy = *h;  keep a copy of the original list_t *h */
 	/*_strcpy(hcopy->str, h->str);*/
 
 	/**
@@ -27,14 +27,15 @@ size_t print_list(const list_t *h)
 	*hcopy->next = h->next;
 	*/
 
-	*hcopy = *h;
-	if (hcopy == NULL)
+	if (h == NULL)
 	{
 		printf("[0] (nil)\n");
 		return (count);
 	}
+	*hcopy = *h;
 
 	while (hcopy != NULL)
+
 	{
 		if (hcopy->str == NULL)
 		{
