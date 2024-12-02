@@ -13,9 +13,12 @@ void free_list(list_t *head)
 
 	if (head == NULL)
 
-	{	free(head->next);
-		free(head->str);
-		free(head);
+	{	/**
+		*free(head->next);
+		*free(head->str);
+		*free(head);
+		*/
+		printf("Freed !\n");
 		return;
 	}
 	else
