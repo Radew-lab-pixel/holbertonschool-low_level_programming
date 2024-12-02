@@ -71,17 +71,6 @@ size_t print_list(const list_t *h)
 	return (count);
 }
 
-/**
- * _putchar - custom putchar function to print a character
- *
- * @c : character to be printed
- * Return: 1 (Successful) else 0 (fail)
- */
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 /**
  * _strlen - custom strlen function to count character in string
