@@ -28,6 +28,12 @@ size_t print_list(const list_t *h)
 	*/
 
 	*hcopy = *h;
+	if (hcopy == NULL)
+	{
+		printf("[0] (nil)\n");
+		return (count);
+	}
+
 	while (hcopy != NULL)
 	{
 		if (hcopy->str == NULL)

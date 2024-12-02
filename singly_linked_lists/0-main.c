@@ -35,6 +35,10 @@ int main(void)
     n = print_list(head);
     printf("-> %lu elements\n", n);
 
+    
+    n = print_list(NULL);
+    printf("-> %lu elements\n", n);
+
     free(new);
     return (0);
 }
