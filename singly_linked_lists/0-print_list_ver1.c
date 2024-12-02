@@ -27,7 +27,7 @@ size_t print_list(const list_t *h)
 	*hcopy->next = h->next;
 	*/
 	
-	*hcopy = h;
+	*hcopy = *h;
 
 	if (h->str == NULL)
 	{
