@@ -15,8 +15,7 @@ size_t print_list(const list_t *h)
 	size_t count = 0;
 
 	/*create list_t *hcopy;*/
-	/* removed for task 4 due to Valgrind */
-	/*list_t *hcopy = (list_t *)malloc(sizeof(list_t));*/
+	list_t *hcopy = (list_t *)malloc(sizeof(list_t));
 
 	/* *hcopy = *h;  keep a copy of the original list_t *h */
 	/*_strcpy(hcopy->str, h->str);*/
@@ -32,14 +31,11 @@ size_t print_list(const list_t *h)
 		/*printf("[0] (nil)\n");*/
 		return (count);
 	}
-	/* removed for task 4 */
-	/* *hcopy = *h;  keep a copy of orignal list_t *h*/
-	/*while (hcopy != NULL)*/
+	*hcopy = *h; /* keep a copy of orignal list_t *h*/
 
-	while (h !=NULL)
+	while (hcopy != NULL)
 	{
-		/*if (hcopy->str == NULL)*/
-		if (h->str == NULL)
+		if (hcopy->str == NULL)
 		{
 			/*hcopy->len = 0;*/
 			/*_strcpy(hcopy->str, "(nil)");*/
@@ -68,18 +64,15 @@ size_t print_list(const list_t *h)
 			*_puts(h->str);
 			* _puts(s);
 			*/
-
-			/*printf("[%u] %s\n", hcopy->len, hcopy->str);*/
-			printf("[%u] %s\n", h->len, h->str);
+			printf("[%u] %s\n", hcopy->len, hcopy->str);
 			/*_putchar('\n');*/
 		}
-			h = h->next;
 			/*hcopy = hcopy->next;*/
+			hcopy = hcopy->next;
 			count++;
 	}
 	/*return (hcopy->len);*/
 	/*free(hcopy->str);*/
-	/*free(hcopy); free local hcopy */
-	/*free(h);*/
+	free(hcopy); /* free local hcopy */
 	return (count);
 }
