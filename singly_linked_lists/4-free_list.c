@@ -22,10 +22,10 @@ void free_list(list_t *head)
 		return;
 	}
 	else
-	{	
+	{
 		/*tmp = head; */
 		while (head->next != NULL)
-		{	
+		{
 			/*temp = head;*/
 			/*head = head->next; */
 			temp = head->next;
