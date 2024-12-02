@@ -13,10 +13,10 @@ size_t list_len(const list_t *h)
 {
 	size_t count = 0;
 
-	list_t *hcopy = (list_t*) malloc(sizeof(list_t)); /* make copy of list_t *h*/
+	list_t *hcopy = (list_t *) malloc(sizeof(list_t)); /* make copy of list_t *h*/
 
 	if (h == NULL)
-	{	
+	{
 		free(hcopy);
 		return (0);
 	}
