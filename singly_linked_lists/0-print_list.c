@@ -72,6 +72,7 @@ size_t print_list(const list_t *h)
 			count++;
 	}
 	/*return (hcopy->len);*/
+	/*free(hcopy->str); */
 	free(hcopy); /* free local hcopy */
 	return (count);
 }

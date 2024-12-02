@@ -9,7 +9,7 @@
 
 void free_list(list_t *head)
 {
-	list_t *temp;
+	list_t *temp = head;
 
 	if (head == NULL)
 	{
@@ -24,6 +24,9 @@ void free_list(list_t *head)
 			temp = head;
 			head = head->next;
 			free(temp->str);
+			/* removed below due to segmentation error */
+			/*free(temp->next);*/
+			/*free(temp->len);*/
 			free(temp);
 
 		}
