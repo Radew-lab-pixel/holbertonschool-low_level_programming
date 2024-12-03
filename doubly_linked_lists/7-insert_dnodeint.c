@@ -39,6 +39,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (new_node);
 	}
 	temp = *h; /* pointer to *h */ 
+
+	/* checker: Insert a element in a list of 1 element with an out of range index */
+	if ((temp->next == NULL) && (temp->prev == NULL) && (idx > 0))
+	{
+		return (NULL);
+	}
+
 	while (count < idx)
 	{	
 		/*if (temp ==  NULL) end of list or NULL */
