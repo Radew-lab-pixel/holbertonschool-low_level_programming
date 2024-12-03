@@ -1,6 +1,6 @@
 #include "lists.h"
 
-dlistint_t *remove_neg_node(dlistint_t *h);
+dlistint_t *remove_neg_node(dlistint_t *h, int count);
 
 /**
  * delete_dnodeint_at_index - delete node at certain index
@@ -40,8 +40,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		if (temp->next == NULL)
 			return (-1); /* index is larger the actual no. of nodes */
-		temp = (remove_neg_node(temp));
-		prev_temp = temp; /* prev_temp to point to current temp */
+		/*temp = (remove_neg_node(temp)); */
+		prev_temp = temp; /*prev_temp to point to current temp */
 		temp = temp->next; /* temp point to next address */
 		count++;
 	}
@@ -51,6 +51,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	post_temp->prev = prev_temp; /* post_temp->prev ppint to prev_temp*/
 	prev_temp->next = post_temp; /* prev_temp-> next point to post_temp */
 	free(temp);
+	/* *head = remove_neg_node(*head, count); */
 	return (1); /*successful*/
 }
 /**
@@ -60,11 +61,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
  * Return: modifiedlist
  */
 
-dlistint_t *remove_neg_node(dlistint_t *h)
+dlistint_t *remove_neg_node(dlistint_t *h, int count)
 {
 	dlistint_t *temp;
 	dlistint_t *prev_temp;
 	dlistint_t *post_temp;
+	int i = 0;
 
 	if (h != NULL)
 	{
@@ -72,28 +74,34 @@ dlistint_t *remove_neg_node(dlistint_t *h)
 		exit (0);
 	}
 	temp = h;
-	if (temp->n < 0)
+	count = count - 1; /* reduced count by 1 */
+	while (i < count)
 	{
-		if(temp->next != NULL)
+		if (temp->n < 0)
 		{
-			post_temp = temp->next;
-			prev_temp = temp->prev;
+			if(temp->next != NULL)
+			{
+				post_temp = temp->next;
+				prev_temp = temp->prev;
 
-			post_temp->prev = prev_temp;
-			prev_temp->next = post_temp;
-			/*temp = NULL; */
-			/*temp = post_temp; */
-			temp = prev_temp;
-		}
-		else /* temp->next == NULL thus last node*/
-		{
-			prev_temp = temp->prev;
-			prev_temp->next = NULL;
-			/*temp = NULL;*/
-			temp = prev_temp;
-			/*free(temp);*/
+				post_temp->prev = prev_temp;
+				prev_temp->next = post_temp;
+				temp = NULL;
+				/*temp = post_temp; */
+				/*temp = prev_temp;*/
+			}
+			else /* temp->next == NULL thus last node*/
+			{
+				prev_temp = temp->prev;
+				prev_temp->next = NULL;
+				temp = NULL;
+				/*temp = prev_temp;*/
+				/*free(temp);*/
+			}
 		}
 	}
 	/*return (0); fail */
-	return (temp);
+	/*return (temp); */
+	/*return (prev_temp);*/
+	return (h);
 }
