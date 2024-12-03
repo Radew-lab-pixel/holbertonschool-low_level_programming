@@ -54,6 +54,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			temp = temp->next;
 			count++;
 		}
+		/** added 3/12/2024 */
+		if ((count == idx) && (count == 1)) /* only one node */
+		{
+			return (NULL);
+		}
+
 	}
 	
 	/*count--;  reduced by 1 as count has additional 1 after exiting while */
@@ -61,7 +67,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		return (NULL);
 	}
-
+	/**
+	*if ((count == 1) && (idx == 1))
+	*{
+	*	return (NULL);
+	*}
+	*/
 	prev_temp->next = new_node;
 	new_node->prev = prev_temp;
 	
