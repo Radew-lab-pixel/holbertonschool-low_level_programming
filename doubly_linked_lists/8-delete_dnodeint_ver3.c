@@ -39,15 +39,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		if (temp->next == NULL)
 			return (-1); /* index is larger the actual no. of nodes */
 		prev_temp = temp; /* prev_temp to point to current temp */
-		if (prev_temp->n < 0)
-		{
-			post_temp = temp->next; /* go next address after temp */
-        		post_temp->prev = prev_temp; /* post_temp->prev ppint to prev_temp*/
-        		prev_temp->next = post_temp; /* prev_temp-> next point to post_temp */
-			temp = post_temp;
-		}
-			temp = temp->next; /* temp point to next address */
-			count++;
+		temp = temp->next; /* temp point to next address */
+		count++;
 	}
 	if (index > count) /* index required is greater than no, of nodes */
 		return (-1);
