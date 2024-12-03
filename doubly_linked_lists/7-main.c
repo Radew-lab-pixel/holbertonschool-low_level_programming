@@ -11,6 +11,7 @@
 int main(void)
 {
     dlistint_t *head;
+long unsigned int n;	
 
     head = NULL;
     add_dnodeint_end(&head, 0);
@@ -25,46 +26,34 @@ int main(void)
     printf("-----------------\n");
     insert_dnodeint_at_index(&head, 5, 4096);
     print_dlistint(head);
-    /*free_dlistint(head);*/
-    head = NULL;
-    printf("\n\n");
-
-    add_dnodeint_end(&head, 1);
-    /*add_dnodeint_end(&head, 28);*/
-    add_dnodeint_end(&head, 98);
-    print_dlistint(head);
-    printf("-----------------\n");
-    insert_dnodeint_at_index(&head, 0 , 4096);
-     print_dlistint(head);
-     head = NULL;
     
-        printf("\n\n");
-     add_dnodeint_end(&head, 1);
-     add_dnodeint_end(&head, 98);
-    print_dlistint(head);
-    printf("-----------------\n");
-    insert_dnodeint_at_index(&head, 1 , 4096);
-     print_dlistint(head);
-	head = NULL;	
+    
+    head = NULL;
+    add_dnodeint_end(&head, 0);
+    add_dnodeint_end(&head, 1);
+    insert_dnodeint_at_index(&head, 1, 88);
+    n = print_dlistint(head);
 
-	    printf("\n\n");
-     add_dnodeint_end(&head, 1);
-    add_dnodeint_end(&head, 98);
-    print_dlistint(head);
-    printf("-----------------\n");
-    insert_dnodeint_at_index(&head, 2 , 4096);
-     print_dlistint(head);
-	head = NULL;
+    printf("-> %lu elements\n", n);	
 
-	    printf("\n\n");
-     add_dnodeint_end(&head, 1);
-    add_dnodeint_end(&head, 98);
-    print_dlistint(head);
-    printf("-----------------\n");
-    insert_dnodeint_at_index(&head, 3 , 4096);
-     print_dlistint(head);
-     head = NULL;
-     
-     free_dlistint(head);
+	   head = NULL;
+    add_dnodeint_end(&head, 0);
+    add_dnodeint_end(&head, 1);
+    insert_dnodeint_at_index(&head, 5, 88);
+    
+     n = print_dlistint(head);
+    printf("-> %lu elements\n", n);
+	
+	
+           head = NULL;
+    add_dnodeint_end(&head, 1);
+    insert_dnodeint_at_index(&head, 6, 88);    
+	  n = print_dlistint(head);
+    printf("-> %lu elements\n", n);
+
+    free_dlistint(head);
+    head = NULL;
     return (EXIT_SUCCESS);
+
+
 }
