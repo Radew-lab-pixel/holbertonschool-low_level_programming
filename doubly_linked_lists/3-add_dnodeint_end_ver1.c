@@ -13,7 +13,6 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	dlistint_t *new_node = (dlistint_t *)malloc(sizeof(dlistint_t));
 
 	dlistint_t *temp; /*local pointer to be referenced to head */
-	/*dlistint_t *new_nodeTemp;  solve valgrind issue at Task 8 */
 
 	if (new_node == NULL)
 	{
@@ -29,9 +28,6 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	{
 		*head = new_node; /* assigned new_node to be head */
 		/*return (new_node); */
-		/* add to solve valgrind in task 8 */
-		/*free(new_node); */
-		return (*head);  /*valgrind solution */
 	}
 	else
 	{
@@ -42,15 +38,6 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		}
 		new_node->prev = temp;
 		temp->next = new_node;
-
-		/*temp = temp->next; add to solve valgrind in task 8*/
-		/*free(new_node); */
-		return (temp);  /*valgrind solution */
 	}
-	/** solve valgrind issue at Task 8*/
-	/*new_nodeTemp = new_node; */
-	/*free(new_node); */
-	/*return (new_node); remove to solve valgrind in task 8 */ 
-	
-	/*return (new_nodeTemp);*/
+	return (new_node);
 }
