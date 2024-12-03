@@ -10,9 +10,12 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {	unsigned int count = 0;
 	dlistint_t *new_node = (dlistint_t *)malloc(sizeof(dlistint_t));
-	dlistint_t *temp; /* local pointer to **h */
-	dlistint_t *prev_temp; /* pointer to previous address of temp */
+	dlistint_t *temp, *prev_temp; /* local pointer to & prev add of temp */
 
+	if (new_node == NULL)
+	{	free(new_node);
+		return (NULL);
+	}
 	new_node->n = n;
 	new_node->next = NULL;
 	new_node->prev = NULL;
@@ -23,9 +26,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	temp = *h; /* pointer to *h */
 	if ((temp->next == NULL) && (temp->prev == NULL) && (idx > 0))
-	{/* checker: Insert a element in a list of 1 element out of range */
-		return (NULL);
-	}
+		return (NULL); /* checker: a list of 1 element out of range */
 	while (count < idx)
 	{
 		if (temp->next == NULL) /* last node in list */
@@ -41,9 +42,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		}
 	}
 	if (count > idx)
-	{
 		return (NULL);
-	}
+
 	prev_temp->next = new_node; /* prev_temp pointing */
 	new_node->prev = prev_temp;
 	temp->prev = new_node;	/*temp pointing */
