@@ -9,3 +9,22 @@
  */
  
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
+{
+	dlistint_t *temp;
+	dlistint_t *prev_temp;
+	unsigned int count = 0;
+
+	if (*head == NULL)
+	{
+		return (-1); /*failed */
+	}
+
+	temp = *head; /* temp point to *head */
+	while ((count < index) && (temp->next != NULL))
+	{
+		prev_temp = temp; /* prev_temp to point to current temp */
+		temp = temp->next; /* temp point to next address */
+		count++;
+	}
+
+}
