@@ -58,6 +58,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
  * remove_neg_node - remove nodes with negative_value
  *
  * @h : list
+ * @count : counter;
  * Return: modifiedlist
  */
 
@@ -71,7 +72,7 @@ dlistint_t *remove_neg_node(dlistint_t *h, int count)
 	if (h != NULL)
 	{
 		/*return (NULL); */
-		exit (0);
+		exit(0);
 	}
 	temp = h;
 	count = count - 1; /* reduced count by 1 */
@@ -79,7 +80,7 @@ dlistint_t *remove_neg_node(dlistint_t *h, int count)
 	{
 		if (temp->n < 0)
 		{
-			if(temp->next != NULL)
+			if (temp->next != NULL)
 			{
 				post_temp = temp->next;
 				prev_temp = temp->prev;
