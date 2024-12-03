@@ -13,7 +13,7 @@ int _strlen(char *s);
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new_node = (dlistint_t *)malloc(sizeof(dlistint_t));
-	/*dlistint_t *temp; local temp pointing to *head */
+	dlistint_t *temp = *head;  /*local temp pointing to *head */
 
 	if (new_node == NULL)
 	{
@@ -29,36 +29,15 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	*	return (NULL);
 	*}
 	*/
-	
-	/*temp = *head; */
+
 	new_node->n = n;
 	new_node->prev = NULL;
-	new_node->next = *head;
-	
-	if (*head == NULL)
-	{
-		*head = new_node;
-		(*head)->next =  NULL;	
-		return (new_node);
-	}
-
-	(*head)->prev = new_node;
-	/*temp->prev = new_node;*/
-	(*head) = new_node;
-	/*temp->prev = new_node;   segentation error */
-
-	/*new_node->n = n; */
-	/*new_node->prev = NULL;*/
-
 	/*new_node->next = *head;*/
-	/*new_node->next = temp;*/
-	/*temp->prev = new_node;*/
+	new_node->next = temp;
 	/* temp = new_node; */
-	/*temp->prev = new_node; */
-	/*head.prev = new_node;*/
+	temp->prev = new_node;
 
-	/*temp = new_node; */
-	/* *head = temp; */
+	*head = new_node;
 
 	return (new_node);
 }
