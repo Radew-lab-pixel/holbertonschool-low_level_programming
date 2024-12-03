@@ -54,11 +54,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			temp = temp->next;
 			count++;
 		}
-		/** added 3/12/2024 */
-		if ((count == idx) && (count == 1)) /* only one node */
-		{
-			return (NULL);
-		}
+		/* added 3/12/2024 
+		*if ((count == idx) && (count == 1))  only one node 
+		*{
+		*	return (NULL);
+		*}
+		*/
 
 	}
 	
