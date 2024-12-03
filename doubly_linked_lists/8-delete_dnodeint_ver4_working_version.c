@@ -1,7 +1,5 @@
 #include "lists.h"
 
-dlistint_t *remove_neg_node(dlistint_t *h);
-
 /**
  * delete_dnodeint_at_index - delete node at certain index
  *
@@ -40,7 +38,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	{
 		if (temp->next == NULL)
 			return (-1); /* index is larger the actual no. of nodes */
-		temp = (remove_neg_node(temp));
 		prev_temp = temp; /* prev_temp to point to current temp */
 		temp = temp->next; /* temp point to next address */
 		count++;
@@ -52,48 +49,4 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	prev_temp->next = post_temp; /* prev_temp-> next point to post_temp */
 	free(temp);
 	return (1); /*successful*/
-}
-/**
- * remove_neg_node - remove nodes with negative_value
- *
- * @h : list
- * Return: modifiedlist
- */
-
-dlistint_t *remove_neg_node(dlistint_t *h)
-{
-	dlistint_t *temp;
-	dlistint_t *prev_temp;
-	dlistint_t *post_temp;
-
-	if (h != NULL)
-	{
-		/*return (NULL); */
-		exit (0);
-	}
-	temp = h;
-	if (temp->n < 0)
-	{
-		if(temp->next != NULL)
-		{
-			post_temp = temp->next;
-			prev_temp = temp->prev;
-
-			post_temp->prev = prev_temp;
-			prev_temp->next = post_temp;
-			/*temp = NULL; */
-			/*temp = post_temp; */
-			temp = prev_temp;
-		}
-		else /* temp->next == NULL thus last node*/
-		{
-			prev_temp = temp->prev;
-			prev_temp->next = NULL;
-			/*temp = NULL;*/
-			temp = prev_temp;
-			/*free(temp);*/
-		}
-	}
-	/*return (0); fail */
-	return (temp);
 }
