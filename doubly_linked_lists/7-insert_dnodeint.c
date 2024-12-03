@@ -28,8 +28,13 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 
-	temp = *h; /* pointer to *h */
+	/*temp = *h;  pointer to *h */
 
+	if (*h == NULL) /** h is not there **/
+	{
+		new_node = add_dnodeint(h, n);
+	}
+	temp = *h; /* pointer to *h */ 
 	while (count < idx)
 	{	
 		if (temp == NULL) /* end of list or NULL */
