@@ -1,10 +1,12 @@
 #include "lists.h"
+
 /**
  * delete_dnodeint_at_index - function to delete a node
  * @head : lists
  * @index : location of node to be removed
  * Return: 1 (successful) or -1 (fail)
  */
+
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *temp = *head, *prev_temp, *next_temp;
@@ -24,8 +26,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		else /* only one node left in the list */
 			*head = NULL; /*not temp = NULL; free(*head); */
-		free(temp);
-		return (1);
+		/*?free(temp);*/
+		/*?return (1);*/
 	}
 	while ((count < index) && (temp != NULL)) /* not temp->next != NULL*/
 	{
@@ -34,9 +36,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		count++;
 	}
 	if (count < index) /* out of range */
-	{ /*free(prev_temp); remove this to pass valgrind during out of range check*/
-		return (-1);
-	}
+		return (-1); /*free(prev_temp); remove 2 pass valgrind out range check*/
 	if (count == index) /* found index */
 	{
 		if (temp->next != NULL) /* not the last node */
@@ -47,8 +47,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		else /* temp is last node */
 			prev_temp->next = NULL;	/*temp = NULL;  remove this to pass valgrind*/
-		/*free(temp);*/
-		/*return (1);*/
 	}
 	free(temp);
 	return (1);
