@@ -50,6 +50,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		temp = temp->next;
 		count++;
 	}
+	if (count < index) /* out of range */
+	{
+		free(temp);
+		return (-1);
+	}
 	if (count == index) /* found index */
 	{
 		if (temp->next != NULL) /* not the last node */
@@ -66,11 +71,5 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
-	if (count < index) /* out of range */
-	{
-		free(temp);
-		return (-1);
-	}
-
 	return (1);
 }

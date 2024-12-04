@@ -70,7 +70,10 @@ int main(void)
     printf("-----------------\n");
     delete_dnodeint_at_index(&head, 0);
      printf("-----------------\n");
-    delete_dnodeint_at_index(&head, -2);
+    delete_dnodeint_at_index(&head, 10);
+    printf("-----------------\n");
+    delete_dnodeint_at_index(&head, 3);
+     printf("-----------------\n");
 
     print_dlistint(head);
     
