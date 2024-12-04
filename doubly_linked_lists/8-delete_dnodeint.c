@@ -17,6 +17,36 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	unsigned int count = 0;
 
 	temp = *head;
+
+	if (*head == NULL) /*head is empty */
+	{
+		free(temp);
+		return (-1);
+	}
+	if (index == 0) /* node to deleted at the start */
+	{
+		if (temp->next != NULL) /* temp is not alone */
+		{
+			/*next_temp = temp->next; */
+			/*next_temp->prev = NULL; */
+			*head = (*head)->next;
+			(*head)->prev = NULL;
+			/*temp = NULL; */
+			free(temp);
+			return (1);
+		}
+		else /* only one node left in the list */
+		{
+			*head = NULL;
+			/*temp = NULL;*/
+			free(temp);
+			/*head = NULL; */
+			return (1);
+		}
+		/*temp = NULL; */
+		/*free(temp); */
+		/*return (1);*/
+	}
 	while ((count < index) && (temp->next != NULL))
 	{
 		prev_temp = temp;
@@ -33,11 +63,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		else /* temp is last node */
 		{
-			prev_temp->next = NULL;			
+			prev_temp->next = NULL;
 		}
 		temp = NULL;
 		free(temp);
 		return (1);
 	}
+
 	return (1);
 }
