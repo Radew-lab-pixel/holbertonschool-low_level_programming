@@ -14,7 +14,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	unsigned int count = 0;
 
 	temp = *head;
-
 	if (*head == NULL) /*head is empty */
 	{
 		free(temp);
@@ -28,7 +27,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			/*next_temp->prev = NULL; */
 			*head = (*head)->next;
 			(*head)->prev = NULL;
-			/*temp = NULL; */
 			free(temp);
 			return (1);
 		}
@@ -37,6 +35,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			*head = NULL;
 			/*temp = NULL;*/
 			free(temp);
+			/*free(*head);*/
 			/*head = NULL; */
 			return (1);
 		}
@@ -53,6 +52,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (count < index) /* out of range */
 	{
 		free(temp);
+		free(prev_temp);
+		/*free(next_temp);*/
 		return (-1);
 	}
 	if (count == index) /* found index */
@@ -67,7 +68,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		{
 			prev_temp->next = NULL;
 		}
-		temp = NULL;
+		/*temp = NULL;  remove this to pass valgrind*/
 		free(temp);
 		return (1);
 	}
