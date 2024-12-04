@@ -18,11 +18,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *post_temp;
 	unsigned int count = 0;
 
-	if ((int)index < 0)
-	{
-		/*index = -index;*/
-		return (1);
-	}
 	if (*head == NULL) /* added for checker */
 	{
 		free(*head);
@@ -52,8 +47,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(temp); /*added for valgrind */
 		return (1);
 	}
-
-	if (index > count) /* index required is greater than no, of nodes */
+	/* index required is greater than no, of nodes */
+	if ((index > count) || ((int)index < 0))
 		return (-1);
 	post_temp = temp->next; /* go next address after temp */
 	post_temp->prev = prev_temp; /* post_temp->prev ppint to prev_temp*/
