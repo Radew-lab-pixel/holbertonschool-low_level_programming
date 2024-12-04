@@ -42,6 +42,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		temp = temp->next; /* temp point to next address */
 		count++;
 	}
+
+	if ((count != index) && (temp == NULL)) /* for neg value detection */
+	{
+		return (-1);
+	}
 	if (index > count) /* index required is greater than no, of nodes */
 		return (-1);
 	post_temp = temp->next; /* go next address after temp */
