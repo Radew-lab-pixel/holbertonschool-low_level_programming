@@ -13,7 +13,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	dlistint_t *temp; /* local pointer to head */
 	unsigned int count = 0;
 
-	if (head == NULL)
+	if ((head == NULL) && (!index)) /* add for task 8 neg error detection */
 	{
 		return (NULL);
 	}
