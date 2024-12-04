@@ -8,7 +8,9 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp, *prev_temp, *next_temp;
+	dlistint_t *temp;
+	dlistint_t *prev_temp;
+	dlistint_t *next_temp;
 	unsigned int count = 0;
 
 	temp = *head;
@@ -20,18 +22,18 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (index == 0) /* node to deleted at the start */
 	{
 		if (temp->next != NULL) /* temp is not alone */
-		{	/*next_temp = temp->next;  next_temp->prev = NULL; */
+		{
+			/*next_temp = temp->next; */
+			/*next_temp->prev = NULL; */
 			*head = (*head)->next;
 			(*head)->prev = NULL;
-			/*?free(temp);*/
-			/*?return (1);*/
 		}
 		else /* only one node left in the list */
 		{
-			*head = NULL; /*not temp = NULL;*/
-			/*?free(temp); not free(*head);	*head = NULL; */
-			/*?return (1);*/
-		} /* not *temp = NULL; free(temp); return (1);*/
+			*head = NULL; /*not temp = NULL; free(*head); */
+		}
+		free(temp);
+		return (1);
 	}
 	while ((count < index) && (temp != NULL)) /* not temp->next != NULL*/
 	{
@@ -40,9 +42,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		count++;
 	}
 	if (count < index) /* out of range */
-	{ /* not free(prev_temp); remove this to pass valgrind during out of range check*/
-		free(temp);/* not free(next_temp);*/
-		return (-1); /* not -1? */
+	{
+		free(temp);
+	/*free(prev_temp); remove this to pass valgrind during out of range check*/
+		/*free(next_temp);*/
+		return (-1);
 	}
 	if (count == index) /* found index */
 	{
@@ -55,10 +59,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		else /* temp is last node */
 		{
 			prev_temp->next = NULL;
-		} /*temp = NULL;  remove this to pass valgrind*/
-		/*?free(temp);*/
-		/*? return (1);*/
+		}
+		/*temp = NULL;  remove this to pass valgrind*/
+		free(temp);
+		return (1);
 	}
-	free(temp);
 	return (1);
 }
