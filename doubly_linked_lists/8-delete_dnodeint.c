@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <limits.h>
 
 void remove_neg_node(dlistint_t *h);
 
@@ -17,24 +18,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *post_temp;
 	unsigned int count = 0;
 
-	if ((*head == NULL) || ((int) index < 0)) /* added for checker */
+	if (*head == NULL)  /* added for checker */
 	{
 		free(*head);
 		return (-1);
 	}
 	temp = *head; /* temp point to *head */
-	if (index == 0)  /* node to be deleted at start */
-	{
-		if (temp->next != NULL)
-		{
-			*head = (*head)->next;
-			(*head)->prev = NULL;
-		}
-		else
-			*head = NULL; /* instead of free(temp) or free(*head)*/
-		free(temp); /*added for valgrind */
-		return (1);
-	}
+
 	while (count < index)
 	{
 		if (temp->next == NULL)
@@ -44,6 +34,20 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		temp = temp->next; /* temp point to next address */
 		count++;
 	}
+
+	if (index == 0)  /* node to be deleted at start */
+        {
+                if (temp->next != NULL)
+                {
+                        *head = (*head)->next;
+                        (*head)->prev = NULL;
+                }
+                else
+                        *head = NULL; /* instead of free(temp) or free(*head)*/
+                free(temp); /*added for valgrind */
+                return (1);
+        }
+	
 	if (index > count) /* index required is greater than no, of nodes */
 		return (-1);
 	post_temp = temp->next; /* go next address after temp */
