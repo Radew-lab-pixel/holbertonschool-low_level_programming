@@ -1,19 +1,15 @@
 #include "lists.h"
 /**
  * delete_dnodeint_at_index - function to delete a node
- *
  * @head : lists
  * @index : location of node to be removed
  * Return: 1 (successful) or -1 (fail)
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp;
-	dlistint_t *prev_temp;
-	dlistint_t *next_temp;
+	dlistint_t *temp = *head, *prev_temp, *next_temp;
 	unsigned int count = 0;
 
-	temp = *head;
 	if (*head == NULL) /*head is empty */
 	{
 		free(temp);
@@ -22,16 +18,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (index == 0) /* node to deleted at the start */
 	{
 		if (temp->next != NULL) /* temp is not alone */
-		{
-			/*next_temp = temp->next; */
-			/*next_temp->prev = NULL; */
+		{	/* not next_temp = temp->next; next_temp->prev = NULL; */
 			*head = (*head)->next;
 			(*head)->prev = NULL;
 		}
 		else /* only one node left in the list */
-		{
 			*head = NULL; /*not temp = NULL; free(*head); */
-		}
 		free(temp);
 		return (1);
 	}
@@ -42,10 +34,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		count++;
 	}
 	if (count < index) /* out of range */
-	{
-		free(temp);
-	/*free(prev_temp); remove this to pass valgrind during out of range check*/
-		/*free(next_temp);*/
+	{ /*free(prev_temp); remove this to pass valgrind during out of range check*/
 		return (-1);
 	}
 	if (count == index) /* found index */
@@ -57,12 +46,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 			prev_temp->next = next_temp;
 		}
 		else /* temp is last node */
-		{
-			prev_temp->next = NULL;
-		}
-		/*temp = NULL;  remove this to pass valgrind*/
-		free(temp);
-		return (1);
+			prev_temp->next = NULL;	/*temp = NULL;  remove this to pass valgrind*/
+		/*free(temp);*/
+		/*return (1);*/
 	}
+	free(temp);
 	return (1);
 }
