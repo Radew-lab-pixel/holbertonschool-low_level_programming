@@ -21,7 +21,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	/** printf("index in int : %d\n ", (int)index); */
 	if ((int)index < 0)
 	{
-		return (-1);
+		index = (int)(index) * -1;
 	}
 	if (*head == NULL) /* added for checker */
 	{
