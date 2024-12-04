@@ -14,8 +14,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	if (*head == NULL) /*head is empty */
 	{
-		free(temp);
-		return (-1);
+		return (-1); /* remove additional free(temp); due to betty */
 	}
 	if (index == 0) /* node to deleted at the start */
 	{
