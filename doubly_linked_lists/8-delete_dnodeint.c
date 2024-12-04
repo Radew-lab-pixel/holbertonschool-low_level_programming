@@ -34,7 +34,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(temp); /*added for valgrind */
 		return (1);
 	}
-	while (count < index)
+	while ((count < index) && (temp != NULL))
 	{
 		if (temp->next == NULL)
 			return (-1); /* index is larger the actual no. of nodes */
