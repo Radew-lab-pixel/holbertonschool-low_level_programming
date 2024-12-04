@@ -66,7 +66,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
-	if (count > index) /* out of range */
+	if (count < index) /* out of range */
 	{
 		free(temp);
 		return (-1);
