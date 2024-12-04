@@ -18,6 +18,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *post_temp;
 	unsigned int count = 0;
 
+	while (count < index)
+	{
+		if (temp->next == NULL)
+			return (-1); /* index is larger the actual no. of nodes */
+		/*temp = (remove_neg_node(temp)); */
+		prev_temp = temp; /*prev_temp to point to current temp */
+		temp = temp->next; /* temp point to next address */
+		count++;
+	}
+
 	/** printf("index in int : %d\n ", (int)index); */
 	if ((int)index < 0)
 	{
@@ -31,15 +41,15 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 	temp = *head; /* temp point to *head */
 
-	while (count < index)
-	{
-		if (temp->next == NULL)
-			return (-1); /* index is larger the actual no. of nodes */
+	/*while (count < index) */
+	/*{ */
+	/*	if (temp->next == NULL)*/
+	/*		return (-1);  index is larger the actual no. of nodes */
 		/*temp = (remove_neg_node(temp)); */
-		prev_temp = temp; /*prev_temp to point to current temp */
-		temp = temp->next; /* temp point to next address */
-		count++;
-	}
+	/*	prev_temp = temp; prev_temp to point to current temp */
+	/*	temp = temp->next;  temp point to next address */
+	/*	count++; */
+	/*} */
 
 	if (index == 0)  /* node to be deleted at start */
 	{
