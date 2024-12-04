@@ -26,8 +26,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		else /* only one node left in the list */
 			*head = NULL; /*not temp = NULL; free(*head); */
-		/*?free(temp);*/
-		/*?return (1);*/
+		free(temp);
+		return (1);
 	}
 	while ((count < index) && (temp != NULL)) /* not temp->next != NULL*/
 	{
