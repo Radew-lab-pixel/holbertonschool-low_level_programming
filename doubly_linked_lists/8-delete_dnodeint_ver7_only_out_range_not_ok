@@ -52,7 +52,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (count < index) /* out of range */
 	{
 		free(temp);
-		/*free(prev_temp);*/
+		free(prev_temp);
 		/*free(next_temp);*/
 		return (-1);
 	}
