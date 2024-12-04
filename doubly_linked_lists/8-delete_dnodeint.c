@@ -16,15 +16,12 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *prev_temp;
 	dlistint_t *post_temp;
 	unsigned int count = 0;
-	
+
 	if (*head == NULL) /* added for checker */
 	{
 		free(*head);
 		return (-1);
 	}
-
-	if (index)
-		return (-1);
 	temp = *head; /* temp point to *head */
 	if (index == 0)  /* node to be deleted at start */
 	{
