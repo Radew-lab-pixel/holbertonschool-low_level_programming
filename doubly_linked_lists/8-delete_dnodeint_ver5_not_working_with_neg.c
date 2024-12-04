@@ -1,6 +1,6 @@
 #include "lists.h"
 
-void remove_neg_node(dlistint_t *h);
+void remove_neg_node(dlistint_t *h, int count);
 
 /**
  * delete_dnodeint_at_index - delete node at certain index
@@ -52,10 +52,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	prev_temp->next = post_temp; /* prev_temp-> next point to post_temp */
 	/*free(temp);*/
 	/*temp = *head; */
-
-	/*temp = post_temp; */
-	/*remove_neg_node(temp); */
-	/**head = temp; dump core error thus removed */
+	remove_neg_node(temp);
 	free(temp);
 	return (1); /*successful*/
 }
@@ -63,16 +60,16 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
  * remove_neg_node - remove nodes with negative_value
  *
  * @h : list
- * count : counter;
+ * @count : counter;
  * Return: modifiedlist
  */
 
-void remove_neg_node(dlistint_t *h)
+void remove_neg_node(dlistint_t *h, int count)
 {
 	dlistint_t *temp;
 	dlistint_t *prev_temp;
 	dlistint_t *post_temp;
-	/*int i = 0;*/
+	int i = 0;
 
 	if (h != NULL)
 	{
@@ -80,13 +77,8 @@ void remove_neg_node(dlistint_t *h)
 		exit(0);
 	}
 	temp = h;
-	while (temp->prev != NULL)
-	{
-		temp = temp->prev;
-	}
-	/*count = count - 1;  reduced count by 1 */
-	/* while (i < count) */
-	while (temp->next != NULL)
+	count = count - 1; /* reduced count by 1 */
+	while (i < count)
 	{
 		if (temp->n < 0)
 		{
@@ -110,13 +102,12 @@ void remove_neg_node(dlistint_t *h)
 				/*free(temp);*/
 			}
 		}
-		/*i++; */
-		temp = temp->next;
+		i++;
 	}
 	/*return (0); fail */
 	/*return (temp); */
 	/*return (prev_temp);*/
 	/*return (h);*/
 	free(temp);
-	/*return; */
+	return;
 }
