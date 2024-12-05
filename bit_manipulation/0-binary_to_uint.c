@@ -1,6 +1,7 @@
 #include "main.h"
 
 int _strlen(char *s);
+int binaryToInt(char *s, int length, int count);
 
 /**
  * binary_to_unit -function to convert binary to decimal
@@ -12,7 +13,10 @@ int _strlen(char *s);
 unsigned int binary_to_uint(const char *b)
 {
 	const char *temp = b;
-	int count = 0;
+	int length; 
+
+	length = _strlen(temp);
+	
 }
 
 /**
@@ -25,8 +29,28 @@ int _strlen(char *s)
 {
 	int count = 0; 
 
+	if (s == NULL)
+	{
+		return (0);
+	}
 	while (*str != '\0')
 	{
-		
+		count++;
+	}
+	return (count);
+}
+
+/**
+ * binaryToInt - function to convert binary to Integer
+ *
+ * @s: binary string input
+ * @length: int of length of str
+ * Return: integer result of binary conversion
+ */
+int binaryToInt(char *s, int length, int count)
+{
+	if (count == length)
+	{
+
 	}
 }
