@@ -14,8 +14,12 @@ int _atoi(const char *s);
 unsigned int binary_to_uint(const char *b)
 {
 	const char *temp = b;
+	int binaryInt; /* int value holding binary format */
 	/*int length; */ 
 
+	binaryInt = _atoi(temp); /* convert s to int */
+
+	
 	/*length = _strlen(temp);*/
 	
 }
@@ -55,7 +59,7 @@ int binaryToInt(int binaryInInt, int start)
 	{
 		return (s[i] - '0'); /* return MSB bit in integer format */
 	}
-	result = s;
+	result = start;
 	binaryToInt(
 
 }
