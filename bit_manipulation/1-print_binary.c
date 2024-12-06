@@ -1,6 +1,6 @@
 #include "main.h"
 
-int intCheck (unsigned long int n);
+int intCheck(unsigned long int n);
 void dec2Binary(unsigned long int n);
 
 /**
@@ -14,9 +14,9 @@ void dec2Binary(unsigned long int n);
 void print_binary(unsigned long int n)
 {
 	unsigned long int ntemp = n;
+
 	/* char *binary; */
 	/*int count = 0; */
-	
 	/*_putchar('0'); */
 	/*_putchar('\n'); */
 	if (ntemp == 0)
@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 	{
 		dec2Binary(ntemp);
 	}
-	return;
+	return (void);
 }
 
 /**
@@ -36,7 +36,7 @@ void print_binary(unsigned long int n)
  */
 
 void dec2Binary(unsigned long int n)
-{	
+{
 	unsigned int curLSB;
 	unsigned long int ntemp = n;
 
@@ -47,8 +47,8 @@ void dec2Binary(unsigned long int n)
 	curLSB = ntemp & 1; /* obtain current LSB */
 	/* printf("curLSB %u\n",curLSB); */
 	ntemp = ntemp >> 1;  /*move right by 1 bit to divide by 2 */
-	dec2Binary(ntemp);
-	_putchar(curLSB + '0');
+	dec2Binary(ntemp); /*recursive */
+	_putchar(curLSB + '0'); /*_putchar after recursive to print backward*/
 }
 
 /**
@@ -57,14 +57,14 @@ void dec2Binary(unsigned long int n)
  * @n: input integer
  * Return: 1 if valid else 0
  */
-int intCheck (unsigned long int n)
+int intCheck(unsigned long int n)
 {
 	if (!n)
 	{
 		return (0);
 	}
 	else if (n <= 0)
-	{ 
+	{
 		_putchar('0');
 		return (1);
 	}
