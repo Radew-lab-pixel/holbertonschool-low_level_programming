@@ -1,8 +1,8 @@
 #include "main.h"
 
 int _strlen(const char *s);
-int binaryToInt(int binaryInInt, int position);
-int _atoi(const char *s);
+unsigned  binaryToInt(unsigned int binaryInInt, int position);
+unsigned int _atoi(const char *s);
 
 /**
  * binary_to_unit -function to convert binary to decimal
@@ -14,11 +14,12 @@ int _atoi(const char *s);
 unsigned int binary_to_uint(const char *b)
 {
 	const char *temp = b;
-	int binaryInt; /* int value holding binary format */
+	unsigned int binaryInt; /* int value holding binary format */
 	/*int length; */
-	int result;
+	unsigned int result;
 
 	binaryInt = _atoi(temp); /* convert s to int */
+	/*printf("binaryInt : %d", binaryInt);  for debugging */
 	/* call the binaryToInt ( pass converted binary in int format */
 	/* and LSB position of the binaryInt which start position */
 	result = binaryToInt(binaryInt, 0);
@@ -53,16 +54,17 @@ int _strlen(const char *s)
 
 /**
  * binaryToInt - function to convert binary numerical  to pure Integer
+ * change int binaryInInt to unsigned due to checker
  *
  * @binaryInInt: binary result stored as Integer eg. int binaryInInt = 1101
  * @position: position of the binary bit (e.g 0 is LSB, 2 will be 3rd bit )
  * Return: integer result of binary conversion
  */
-int binaryToInt(int binaryInInt, int position)
+unsigned int binaryToInt(unsigned int binaryInInt, int position)
 {
-	int lastDigit;
-	int remainBinary;
-	int decimalValue = 0;
+	unsigned int lastDigit; /* int to unsigned int due to checker */
+	unsigned int remainBinary;
+	unsigned int decimalValue = 0;
 
 	if (binaryInInt == 0) /* no more last digit after recursive << */
 	{
@@ -82,13 +84,13 @@ int binaryToInt(int binaryInInt, int position)
 
 /**
  * _atoi - custom function converting string to integer
- *
+ * change int to unsigned int due to checker
  * @s : input
- * Return: integer value of s
+ * Return: unsigned integer value of s
  */
-int _atoi(const char *s)
+unsigned int _atoi(const char *s)
 {
-	int result = 0;
+	unsigned int result = 0;
 	int count = 0;
 
 	if (s[0] == '-')
