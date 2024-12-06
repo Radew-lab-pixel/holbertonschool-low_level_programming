@@ -23,8 +23,9 @@ unsigned int binary_to_uint(const char *b)
 	/* and LSB position of the binaryInt which start position */
 	result = binaryToInt(binaryInt, 0);
 	
-	
 	/*length = _strlen(temp);*/
+
+	return (result);
 	
 }
 
@@ -42,9 +43,10 @@ int _strlen(const char *s)
 	{
 		return (0);
 	}
-	while (*str != '\0')
+	while (*s != '\0')
 	{
 		count++;
+		s++;
 	}
 	return (count);
 }
@@ -59,7 +61,7 @@ int _strlen(const char *s)
 int binaryToInt(int binaryInInt, int position)
 {
 	int lastDigit;
-	int remainingBinary;
+	int remainBinary;
 	int decimalValue = 0;
 
 	if (binaryInInt == 0) /* no more last digit after recursive << */
@@ -70,11 +72,11 @@ int binaryToInt(int binaryInInt, int position)
 	}
 	/*result = start;*/
 	lastDigit = binaryInInt % 10; /* extract current LSB which the remainder*/
-	remainingBinary = binaryInInt / 10; /* remove current LSB */
+	remainBinary = binaryInInt / 10; /* remove current LSB */
 	
 	decimalValue = lastDigit * (1 << position); /* convert the current LSB to decimal*/
 		
-	return (decimalValue + binaryToInt(remaingBinary, position + 1));
+	return (decimalValue + binaryToInt(remainBinary, position + 1));
 
 }
 
@@ -89,14 +91,18 @@ int _atoi(const char *s)
 	int result = 0;
 	int count = 0;
 
-	if (str[0] == -)
+	if (s[0] == '-')
 	{
 		return (0); /* error as negative value detected */
 	}
 	while (s[count] != '\0')
-	{	/* go from right to left of s */
-		result = result * 10 + (s[count] - '0');
-		count++;
+	{	if ((s[count] == '0') || (s[count] == '1'))
+		{ /* go from right to left of s */
+			result = result * 10 + (s[count] - '0');
+			count++;
+		}
+		else /* other characters beside 0 and 1 */
+			return (0); /* exit and return 0 */
 	}
 	return (result);
 
