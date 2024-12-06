@@ -85,7 +85,8 @@ unsigned int binaryToDec(const char *s)
 	{
 		currentBitVal = temp[count] - '0';
 		/* calculate the MSB at the start and do 2^(length - count) */
-		result = result + (currentBitVal * (1 << (length - count)));
+		/* has length - count - 1 */
+		result = result + (currentBitVal * (1 << (length - count - 1)));
 		count++;
 	}
 	return (result);
