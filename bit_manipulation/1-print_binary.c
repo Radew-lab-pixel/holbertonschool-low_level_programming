@@ -8,7 +8,7 @@ void dec2Binary(unsigned long int n);
  *
  * @n : integer input
  *
- * Return: void
+ * Return: 1 if successful
  */
 
 void print_binary(unsigned long int n)
@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 	{
 		dec2Binary(ntemp);
 	}
-	return (void);
+	/*return;*/
 }
 
 /**
