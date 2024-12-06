@@ -19,20 +19,18 @@ void print_binary(unsigned long int n)
 	if (intCheck (ntemp))
 	{	while (ntemp > 0)
 		{
-			*binary = (ntemp & 1) + '0'; /* trucated the current LSB*/
+			binary[count] = (ntemp & 1) + '0'; /* trucated the current LSB*/
 			ntemp = ntemp >> 1; /* right shift thus divided /2 until ntemp is 0*/
-			binary++;
 			count++;
 		}
 	
-		*binary = '\0';
-		/*count--;  to ignore '\0'); */ 
+		binary[count] = '\0';
+		count--; /* to ignore '\0'); */ 
 	
 		while (count + 1 > 0)
 		{	/* print backward from LSB to MSB */
-			_putchar(*binary);
-			binary--;
-			count--;
+			_putchar(binary[count]);
+			count--;		
 		}
 	}
 	return;
