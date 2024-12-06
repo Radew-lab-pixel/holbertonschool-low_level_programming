@@ -4,6 +4,7 @@
 int intCheck(unsigned long int n);
 void dec2BinaryArray(unsigned long int n, char s[], int *count);
 void decimalToBinary(unsigned long int num, char binary[]);
+int getBitAtPosition(unsigned int num, unsigned int index);
 
 /**
  * get_bit - function to return the bit value of certain index
@@ -16,7 +17,7 @@ void decimalToBinary(unsigned long int num, char binary[]);
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned long int ntemp = n;
-	char binaryArray[33] = {0} ; /*32 bits of unsigned int plus '\0' */
+	/*char binaryArray[33] = {0} ; 32 bits of unsigned int plus '\0' */
 	/* char *binaryArray = (char *)malloc(33); 32 bits of long int and plus '\0' */
 	/*int count = 0;  counter to keep track of char binaryArray */
 	int binaryDigit; /* binary value of the binaryArray[index] */
@@ -25,15 +26,16 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 	if (intCheck(ntemp))
 	{	
-		decimalToBinary(ntemp, binaryArray);
+		binaryDigit =  getBitAtPosition(n, index);
+		/*decimalToBinary(ntemp, binaryArray); */
 
 		/*printf("index : %u\n", index);*/
-		/*printf("character : %s\n", binaryArray);*/
+		/*printf("Arayr : %s\n", binaryArray); */
 		/*dec2BinaryArray(ntemp, binaryArray, &count);  count address passed */
 		/*binaryArray[count + 1] = '\0'; */
 		/*printf( "Binary count: %d\n",count);*/
 		/*printf(" BinaryArray[count] = %c\n", binaryArray[0]);*/
-		binaryDigit = binaryArray[index] - '0' ; /* - '0' char to int */
+		/*binaryDigit = binaryArray[index] - '0' ; - '0' char to int */
 		/*printf("binaryDigit : %d\n", binaryDigit);*/
 		/*binary[(index)++] = (num & 1) + '0';*/
 
@@ -42,6 +44,25 @@ int get_bit(unsigned long int n, unsigned int index)
 	/*return (binaryDigit); */
 	return (-1);
 }
+
+/**
+ * getBitAtPosition - function to extract binary bit at cetain position
+ *
+ * @num : input
+ * @index : position of the inteded bit
+ * Return : bit
+ */ 
+
+int getBitAtPosition(unsigned int num, unsigned int index)
+{	
+	int curLSB;
+        unsigned long int ntemp = num;
+	
+	ntemp = ntemp >> index;
+	curLSB = ntemp & 1;
+	return (curLSB);
+}
+
 
 /** decimalToBinary - function to convert decimal to binary and stored in array
  *
@@ -70,6 +91,7 @@ void decimalToBinary(unsigned long int num, char binary[])
 		ntemp = ntemp >> 1;
 		count++;
 	}
+	binary[count] = '\0';
 }
 
 
