@@ -30,9 +30,10 @@ void print_binary(unsigned long int n)
 		}
 	
 		*binary = '\0';
-		/*count--;  to ignore '\0'); */ 
-	
-		while (count + 1 > 0)
+		/* count--;  to ignore '\0'); */ 
+		/*printf("Binary %s ", binary); */
+		binary--;
+		while (count + 1> 0)
 		{	/* print backward from LSB to MSB */
 			_putchar(*binary);
 			binary--;
