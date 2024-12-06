@@ -22,7 +22,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	/*int count = 0;  counter to keep track of char binaryArray */
 	int binaryDigit; /* binary value of the binaryArray[index] */
 
-	if (ntemp == 0)
+	if ((ntemp == 0) || (index > 32))
 		return (-1);
 	if (intCheck(ntemp))
 	{	
