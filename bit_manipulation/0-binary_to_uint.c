@@ -7,7 +7,7 @@ int stringCheck(const char *s);
 unsigned int binaryToDec(const char *s);
 
 /**
- * binary_to_unit -function to convert binary to decimal
+ * binary_to_uint -function to convert binary to decimal
  *
  * @b: string containing binary input
  * Return: unsigned int result of converted value
@@ -19,7 +19,7 @@ unsigned int binary_to_uint(const char *b)
 	/*unsigned int binaryInt;  int value holding binary format */
 	/*int length; */
 	int result = 0;
-	
+
 	if (stringCheck(temp)) /* doing string check prior */
 	{	/* result = 88;*/
 		result = binaryToDec(temp);
@@ -27,17 +27,15 @@ unsigned int binary_to_uint(const char *b)
 	else
 		return (0);
 
-
 	/*binaryInt = _atoi(temp);  convert s to int */
 	/* call the binaryToInt ( pass converted binary in int format */
 	/* and LSB position of the binaryInt which start position */
-	
+
 	/*result = binaryToInt(binaryInt, 0);*/
-	
+
 	/*length = _strlen(temp);*/
 
 	return (result);
-	
 }
 
 /**
@@ -50,7 +48,7 @@ unsigned int binary_to_uint(const char *b)
 int stringCheck(const char *s)
 {
 	const char *temp = s;
-	
+
 	if (temp == NULL)
 	{
 		return (0); /* don't bother to progress */
@@ -69,7 +67,7 @@ int stringCheck(const char *s)
  * binaryToDec - function to convert binary to Decimal
  *
  * @s : input string
- * Return: value in decimal 
+ * Return: value in decimal
  */
 unsigned int binaryToDec(const char *s)
 {
@@ -78,7 +76,7 @@ unsigned int binaryToDec(const char *s)
 	const char *temp = s;
 	unsigned int result = 0;
 	int currentBitVal; /* current bit value in int */
-	
+
 	length = _strlen(temp); /* length of s */
 
 	while ((temp[count] != '\0') && (count < length))
@@ -92,17 +90,16 @@ unsigned int binaryToDec(const char *s)
 	return (result);
 }
 
-	
-	
 /**
  * _strlen - function return length of str
  *
  * @s: string input
  * Return: int result of length
  */
+
 int _strlen(const char *s)
 {
-	int count = 0; 
+	int count = 0;
 
 	if (s == NULL)
 	{
@@ -132,15 +129,14 @@ int binaryToInt(int binaryInInt, int position)
 	if (binaryInInt == 0) /* no more last digit after recursive << */
 	{
 		/*return (s[i] - '0');  return MSB bit in integer format */
-		return 0; /* n om ore digit */
-
+		return (0); /* n om ore digit */
 	}
 	/*result = start;*/
 	lastDigit = binaryInInt % 10; /* extract current LSB which the remainder*/
 	remainBinary = binaryInInt / 10; /* remove current LSB */
-	
-	decimalValue = lastDigit * (1 << position); /* convert the current LSB to decimal*/
-		
+	/* convert the current LSB to decimal*/
+	decimalValue = lastDigit * (1 << position);
+
 	return (decimalValue + binaryToInt(remainBinary, position + 1));
 
 }
@@ -161,7 +157,8 @@ int _atoi(const char *s)
 		return (0); /* error as negative value detected */
 	}
 	while (s[count] != '\0')
-	{	if ((s[count] == '0') || (s[count] == '1'))
+	{
+		if ((s[count] == '0') || (s[count] == '1'))
 		{ /* go from right to left of s */
 			result = result * 10 + (s[count] - '0');
 			count++;
