@@ -16,6 +16,10 @@ void print_binary(unsigned long int n)
 	char *binary;
 	int count = 0;
 	
+	/*_putchar('0'); */
+	/*_putchar('\n'); */
+	if (ntemp == 0)
+		_putchar('0');
 	if (intCheck (ntemp))
 	{	while (ntemp > 0)
 		{
@@ -50,7 +54,7 @@ int intCheck (unsigned long int n)
 	{
 		return (0);
 	}
-	else if (n == 0)
+	else if (n <= 0)
 	{ 
 		_putchar('0');
 		return (1);
