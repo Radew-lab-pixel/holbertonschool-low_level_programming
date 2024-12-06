@@ -3,7 +3,7 @@
 
 int intCheck(unsigned long int n);
 void dec2BinaryArray(unsigned long int n, char s[], int *count);
-void decimalToBinary(unsigned long int num, char binary[]);
+void decimalToBinary(unsigned long int num, char binary[], int *count);
 
 /**
  * get_bit - function to return the bit value of certain index
@@ -18,14 +18,14 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int ntemp = n;
 	char binaryArray[33] = {0} ; /*32 bits of unsigned int plus '\0' */
 	/* char *binaryArray = (char *)malloc(33); 32 bits of long int and plus '\0' */
-	/*int count = 0;  counter to keep track of char binaryArray */
+	int count = 0; /* counter to keep track of char binaryArray */
 	int binaryDigit; /* binary value of the binaryArray[index] */
 
 	if (ntemp == 0)
 		return (-1);
 	if (intCheck(ntemp))
 	{	
-		decimalToBinary(ntemp, binaryArray);
+		decimalToBinary(ntemp, binaryArray, &count);
 
 		/*printf("index : %u\n", index);*/
 		/*printf("character : %s\n", binaryArray);*/
@@ -51,25 +51,22 @@ int get_bit(unsigned long int n, unsigned int index)
  * Return : void
  */
 
-void decimalToBinary(unsigned long int num, char binary[])
+void decimalToBinary(unsigned long int num, char binary[], int *count)
 {
 	int curLSB;
 	unsigned long int ntemp = num;
-	int count = 0;
 
 	if (ntemp == 0) 
 	{
-		binary[0] = '0';
-		binary[1] = '\0';
 		return; /* Stop when number is 0 */
 	}
-	while (ntemp > 0)
-	{
-		curLSB = ntemp & 1; /* find current LSB */
-		binary[count] = curLSB + '0';
-		ntemp = ntemp >> 1;
-		count++;
-	}
+	
+	/*curLSB = ntemp & 1; */
+	/*decimalToBinary(num >> 1, binary, count);   Recursive call with smaller number */
+	decimalToBinary(curLSB, binary, count);
+        ntemp = ntemp >> 1;
+	curLSB = ntemp & 1;
+	binary[(*count)++] = curLSB + '0';   /* Get last bit and store as '0' or '1' */
 }
 
 
