@@ -1,7 +1,7 @@
 #include "main.h"
 
 int _strlen(const char *s);
-int binaryToInt(int binaryInInt, int start);
+int binaryToInt(int binaryInInt, int position);
 int _atoi(const char *s);
 
 /**
@@ -15,10 +15,14 @@ unsigned int binary_to_uint(const char *b)
 {
 	const char *temp = b;
 	int binaryInt; /* int value holding binary format */
-	/*int length; */ 
+	/*int length; */
+	int result;
 
 	binaryInt = _atoi(temp); /* convert s to int */
-
+	/* call the binaryToInt ( pass converted binary in int format */
+	/* and LSB position of the binaryInt which start position */
+	result = binaryToInt(binaryInt, 0);
+	
 	
 	/*length = _strlen(temp);*/
 	
@@ -49,18 +53,28 @@ int _strlen(const char *s)
  * binaryToInt - function to convert binary numerical  to pure Integer
  *
  * @binaryInInt: binary result stored as Integer eg. int binaryInInt = 1101
- * @start: start_position
+ * @position: position of the binary bit (e.g 0 is LSB, 2 will be 3rd bit )
  * Return: integer result of binary conversion
  */
-int binaryToInt(int binaryInInt, int start)
+int binaryToInt(int binaryInInt, int position)
 {
-	int result = 0;
-	if (count == length)
+	int lastDigit;
+	int remainingBinary;
+	int decimalValue = 0;
+
+	if (binaryInInt == 0) /* no more last digit after recursive << */
 	{
-		return (s[i] - '0'); /* return MSB bit in integer format */
+		/*return (s[i] - '0');  return MSB bit in integer format */
+		return 0; /* n om ore digit */
+
 	}
-	result = start;
-	binaryToInt(
+	/*result = start;*/
+	lastDigit = binaryInInt % 10; /* extract current LSB which the remainder*/
+	remainingBinary = binaryInInt / 10; /* remove current LSB */
+	
+	decimalValue = lastDigit * (1 << position); /* convert the current LSB to decimal*/
+		
+	return (decimalValue + binaryToInt(remaingBinary, position + 1));
 
 }
 
