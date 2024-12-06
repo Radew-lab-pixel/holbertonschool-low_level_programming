@@ -19,7 +19,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int result;
 
 	binaryInt = _atoi(temp); /* convert s to int */
-	/*printf("binaryInt : %d", binaryInt);  for debugging */
+	printf("binaryInt : %u", binaryInt); /* for debugging */
 	/* call the binaryToInt ( pass converted binary in int format */
 	/* and LSB position of the binaryInt which start position */
 	result = binaryToInt(binaryInt, 0);

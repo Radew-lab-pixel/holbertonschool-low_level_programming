@@ -3,6 +3,8 @@
 int _strlen(const char *s);
 int binaryToInt(int binaryInInt, int position);
 int _atoi(const char *s);
+int stringCheck(const char *s);
+unsigned int binaryToDec(const char *s);
 
 /**
  * binary_to_unit -function to convert binary to decimal
@@ -14,14 +16,23 @@ int _atoi(const char *s);
 unsigned int binary_to_uint(const char *b)
 {
 	const char *temp = b;
-	int binaryInt; /* int value holding binary format */
+	/*unsigned int binaryInt;  int value holding binary format */
 	/*int length; */
-	int result;
+	int result = 0;
+	
+	if (stringCheck(temp)) /* doing string check prior */
+	{	/* result = 88;*/
+		result = binaryToDec(temp);
+	}
+	else
+		return (0);
 
-	binaryInt = _atoi(temp); /* convert s to int */
+
+	/*binaryInt = _atoi(temp);  convert s to int */
 	/* call the binaryToInt ( pass converted binary in int format */
 	/* and LSB position of the binaryInt which start position */
-	result = binaryToInt(binaryInt, 0);
+	
+	/*result = binaryToInt(binaryInt, 0);*/
 	
 	/*length = _strlen(temp);*/
 
@@ -29,6 +40,59 @@ unsigned int binary_to_uint(const char *b)
 	
 }
 
+/**
+ * stringCheck - function to check if string input contain only binary
+ *
+ * @s : string input
+ * Return: 1 if true else 0 is false
+ */
+
+int stringCheck(const char *s)
+{
+	const char *temp = s;
+	
+	if (temp == NULL)
+	{
+		return (0); /* don't bother to progress */
+	}
+	while (*temp != '\0')
+	{	/* if binary number */
+		if ((*temp == '1') || (*temp == '0'))
+			temp++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+/**
+ * binaryToDec - function to convert binary to Decimal
+ *
+ * @s : input string
+ * Return: value in decimal 
+ */
+unsigned int binaryToDec(const char *s)
+{
+	int length;
+	int count = 0;
+	const char *temp = s;
+	unsigned int result = 0;
+	int currentBitVal; /* current bit value in int */
+	
+	length = _strlen(temp); /* length of s */
+
+	while ((temp[count] != '\0') && (count < length))
+	{
+		currentBitVal = temp[count] - '0';
+		/* calculate the MSB at the start and do 2^(length - count) */
+		result = result + (currentBitVal * (1 << (length - count)));
+		count++;
+	}
+	return (result);
+}
+
+	
+	
 /**
  * _strlen - function return length of str
  *

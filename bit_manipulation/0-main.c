@@ -9,6 +9,7 @@
 int main(void)
 {
     unsigned int n;
+	unsigned int i;
 
     n = binary_to_uint("1");
     printf("%u\n", n);
@@ -22,6 +23,8 @@ int main(void)
     printf("%u\n", n);
     n = binary_to_uint("11111111111111111111111111111111");
     printf("%u\n", n);
-    
+    i = 4294967295;
+    printf("i = %u\n", i);
+
     return (0);
 }
