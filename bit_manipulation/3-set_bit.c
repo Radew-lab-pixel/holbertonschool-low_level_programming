@@ -3,7 +3,6 @@
 
 int intCheck(unsigned long int n);
 int getBitAtPosition(unsigned int num, unsigned int index);
-int set_bit(unsigned long int *n, unsigned int index);
 int setBitAtPosition(unsigned long int num, unsigned int index);
 
 /**
@@ -11,7 +10,7 @@ int setBitAtPosition(unsigned long int num, unsigned int index);
  *
  * @n : input number
  * @index : the position of binary value to be set to 1
- * Return : 1 if successful else -1
+ * Return: 1 if successful else -1
  */
 
 int set_bit(unsigned long int *n, unsigned int index)
@@ -32,14 +31,14 @@ int set_bit(unsigned long int *n, unsigned int index)
  *
  * @num : input number
  * @index : the position of binary value to be set to 1
- * Return : num pointer
+ * Return: num pointer
  */
 
 int setBitAtPosition(unsigned long int num, unsigned int index)
 {
 	unsigned long int ntemp = num;
 	unsigned long int bitPos;
-       
+
 	bitPos = 1 << index;
 	ntemp = bitPos | ntemp; /*OR gate */
 	return (ntemp);
@@ -87,14 +86,6 @@ int getBitAtPosition(unsigned int num, unsigned int index)
 	return (curLSB);
 }
 
-/**
- * dec2BinaryArray - sub function to convert decimal to binary
- * also store each converted bit into an char array
- * @n : input
- * @s : char array to stored converted binary value
- * @count : pointer for counter of the char array s position
- * Return: char array of bits value
- */
 
 /**
  * intCheck - function to check if input integer is valid
