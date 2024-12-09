@@ -14,36 +14,52 @@ int create_file1(const char *filename, char *text_content);
 
 int create_file1(const char *filename, char *text_content)
 {
-	int fd, count;
-	
-	char *s = text_content;
-	
-	fd = open(filename, O_RDWR|O_CREAT |O_TRUNC, S_IRUSR | S_IWUSR);
-	if (fd == -1)
-		return (01);
-	count = _strlen(text_content);
-	printf("Length : %d\n", count);
-	printf("content : %s\n", s);
-	return (1);
+    int fd;
+    ssize_t bytes_written, length = 0;
+
+    if (filename == NULL)
+        return -1;
+
+    fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+    if (fd == -1)
+        return -1;
+
+    if (text_content != NULL)
+    {
+        while (text_content[length] != '\0')
+            length++;
+
+        bytes_written = write(fd, text_content, length);
+        if (bytes_written == -1)
+        {
+            close(fd);
+            return -1; 
+        }
+    }
+
+    close(fd);
+
+    return 1;
 }
+
 
 int create_file(const char *filename, char *text_content)
 {
 	int fd, count;
 	/* size_t bytesWritten; */
-	char *text = text_content;  /*local char * pointer */
+	/*const char *text = text_content;  local char * pointer */
 
 	/*fd = open(filename, O_RDWR|O_APPEND|O_CREAT, S_IRUSR | S_IWUSR); */
-	fd = open(filename,  O_CREAT | O_RDWR| O_TRUNC, S_IRUSR | S_IWUSR);
+	/* fd = open(filename,  O_CREAT | O_RDWR| O_TRUNC, S_IRUSR | S_IWUSR); */
 
-	/*fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, 0600); */
+	fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, 0600);
 	if (fd == -1)
 	{
 		return (-1);
 	}
-	count = _strlen(text);
+	count = _strlen(text_content);
 	printf("Text length : %d\n",count);
-	write(fd, text_content, _strlen(text)); /* write() */
+	write(fd, text_content, _strlen(text_content)); /* write() */
 	/* if (bytesWritten = 0) */
 	/*	return (-1); */
 	close(fd);
@@ -57,7 +73,7 @@ int _strlen(const char *s)
 	{
 		return (0);
 	}
-	while (s[count] != '\0')
+	while (s[0] != '\0')
 	{
 		count++;
 	}
