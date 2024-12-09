@@ -5,7 +5,7 @@ int _strlen(const char *s);
 int create_file1(const char *filename, char *text_content);
 
 /**
- * create_file - function to create a file
+ * create_file1 - function to create a file - not workling
  *
  * @filename : name of the file to be created
  * @text_content : the content of the file
@@ -15,10 +15,9 @@ int create_file1(const char *filename, char *text_content);
 int create_file1(const char *filename, char *text_content)
 {
 	int fd, count;
-	
 	char *s = text_content;
-	
-	fd = open(filename, O_RDWR|O_CREAT |O_TRUNC, S_IRUSR | S_IWUSR);
+
+	fd = open(filename, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
 	count = _strlen(text_content);
@@ -27,14 +26,21 @@ int create_file1(const char *filename, char *text_content)
 	return (1);
 }
 
+/**
+ * create_file - function to create a file
+ *
+ * @filename : name of the file to be created
+ * @text_content : the content of the file
+ * Return: 1 (succesful) else -1
+ */
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	/* size_t bytesWritten; */
 	char *text = text_content;  /*local char * pointer */
-	
+
 	/*fd = open(filename, O_RDWR|O_APPEND|O_CREAT, S_IRUSR | S_IWUSR); */
-	fd = open(filename,  O_WRONLY|O_CREAT| O_TRUNC, S_IRUSR | S_IWUSR);
+	fd = open(filename,  O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 
 	/*fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, 0600); */
 	if ((fd == -1) || (filename == NULL))
@@ -50,9 +56,17 @@ int create_file(const char *filename, char *text_content)
 	return (1);
 }
 
+/**
+ * _strlen - function to return the length of s
+ *
+ * @s: string input
+ * Return: length of string
+ */
+
 int _strlen(const char *s)
 {
 	int count = 0;
+
 	if (s == NULL)
 	{
 		return (0);
