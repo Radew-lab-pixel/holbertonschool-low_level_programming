@@ -29,20 +29,20 @@ int create_file1(const char *filename, char *text_content)
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, count;
+	int fd;
 	/* size_t bytesWritten; */
 	char *text = text_content;  /*local char * pointer */
 	
 	/*fd = open(filename, O_RDWR|O_APPEND|O_CREAT, S_IRUSR | S_IWUSR); */
-	fd = open(filename,  O_WRONLY| O_TRUNC, S_IRUSR | S_IWUSR);
+	fd = open(filename,  O_WRONLY|O_CREAT| O_TRUNC, S_IRUSR | S_IWUSR);
 
 	/*fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, 0600); */
 	if ((fd == -1) || (filename == NULL))
 	{
 		return (-1);
 	}
-	count = _strlen(text);
-	printf("Text length : %d\n",count);
+	/*count = _strlen(text);*/
+	/*printf("Text length : %d\n",count);  debugging */
 	write(fd, text_content, _strlen(text)); /* write() */
 	/* if (bytesWritten = 0) */
 	/*	return (-1); */
