@@ -9,7 +9,7 @@
 
 int main (int argc, char **argv)
 {
-	int fd, fd1;
+	int fd, fdo;
 	char *file_from, *file_to;
 	
 	if ((argc > 3) || (argc < 1))
@@ -19,11 +19,16 @@ int main (int argc, char **argv)
 	}
 	inputFile = argv[1];
 	outputFile = argv[2];
-	fd = open(file_from, O_RDWR | O_TRUC | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IRGRP | S_IROTH);
+	fd = open(file_from, O_RDONLY, S_IRUSR | S_IRGRP | S_IROTH);
+	
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",inputFile);
 		exit (98);	
 	}
-
+	fdo = open(file_to, O_RDWR | O_TRUC | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n",outputfile);
+		exit (99);
+	}
 }
