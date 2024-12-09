@@ -22,20 +22,23 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
+	if (text == NULL)
+	{
+		text = "";
+	}
 	bytesWritten = write(fd, text, _strlen(text));
 	if (bytesWritten == -1)
 	{
 		return (-1);
 	}
 	return (1);
-	
-}	
+}
 
 /**
  * _strlen - function to return length of string
  *
  * @s : string input
- * Return : length of string
+ * Return: length of string
  */
 
 int _strlen(char *s)
@@ -44,5 +47,5 @@ int _strlen(char *s)
 
 	while (s[count] != '\0')
 		count++;
-	return (count);	
+	return (count);
 }
