@@ -20,7 +20,7 @@ int create_file1(const char *filename, char *text_content)
 	
 	fd = open(filename, O_RDWR|O_CREAT |O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
-		return (01);
+		return (-1);
 	count = _strlen(text_content);
 	printf("Length : %d\n", count);
 	printf("content : %s\n", s);
@@ -32,12 +32,12 @@ int create_file(const char *filename, char *text_content)
 	int fd, count;
 	/* size_t bytesWritten; */
 	char *text = text_content;  /*local char * pointer */
-
+	
 	/*fd = open(filename, O_RDWR|O_APPEND|O_CREAT, S_IRUSR | S_IWUSR); */
-	fd = open(filename,  O_CREAT | O_RDWR| O_TRUNC, S_IRUSR | S_IWUSR);
+	fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, S_IRUSR | S_IWUSR);
 
 	/*fd = open(filename,  O_WRONLY| O_TRUNC| O_CREAT, 0600); */
-	if (fd == -1)
+	if ((fd == -1) || (filename == NULL))
 	{
 		return (-1);
 	}
