@@ -27,8 +27,10 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-fdo = open(file_to, O_RDWR | O_TRUNC | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fdo == -1)
+/* fdo = open(file_to, O_RDWR | O_TRUNC | O_CREAT, S_IRUSR */
+/*	| S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH); */
+	fdo = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0644);
+if (fdo == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
