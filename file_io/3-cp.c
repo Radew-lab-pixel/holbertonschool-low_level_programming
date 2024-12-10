@@ -14,7 +14,7 @@ int main (int argc, char **argv)
 	char *file_from, *file_to, buffer[1024];
 	ssize_t bytesRead, bytesWritten, fclose;
 	
-	if ((argc > 3) || (argc < 1))
+	if (argc != 3)
 	{	
 		/*dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"); */
 		exit (97);
