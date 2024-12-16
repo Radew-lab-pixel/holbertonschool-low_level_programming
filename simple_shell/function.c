@@ -92,8 +92,8 @@ int command_handler(char *command)
 	}
 	else if (PID == 0)
 	{
-		/* if (execvp(command, args) == -1) */
-		if (execve(args[0], args, environ) == -1)
+		if (execvp(command, args) == -1)
+		/*if (execve(args[0], args, environ) == -1)*/
 		{
 			fprintf(stderr, "%s: %s Command not found in PATH\n", command, strerror(errno));
 			exit(EXIT_FAILURE);
