@@ -9,16 +9,14 @@ int main(void) {
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
-			print_prompt();
-		
+		print_prompt();
+
 		command_line = read_input();
 
 		/* EOF */
 		if (command_line == NULL)
 		{
-			if	(isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 1);
+			printf("\n");
 			break;
 		}
 
