@@ -147,7 +147,8 @@ int is_AllSpace(char *s)
 		count++;	
 	}
 	if (space_num == strlen(s))
-	{
+	{	
+		printf("Is_AllSpace detected !! only spaces\n");
 		return (1); /* true as input all space */	
 	}
 	return (0);
