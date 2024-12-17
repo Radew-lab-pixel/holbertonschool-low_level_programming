@@ -13,6 +13,7 @@ int main(void) {
 			print_prompt();
 		
 		command_line = read_input();
+
 		/* EOF */
 		if (command_line == NULL)
 		{
@@ -21,15 +22,11 @@ int main(void) {
 			break;
 		}
 
-		if (is_AllSpace(command_line) == 1)
-		{
-			break;
-		}
 		trailing_input(command_line);
 
 		if (strlen(command_line) > 0)
 			command_handler(command_line);
-
+		
 		free(command_line);	
 	}
 	

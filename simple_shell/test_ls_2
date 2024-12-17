@@ -1,3 +1,2 @@
-ls -l
-pwd
-ps -aux
+/bin/ls -l
+/bin/pwd
